@@ -1,0 +1,76 @@
+.login-content {
+	width: 35%;
+	margin: 0 auto;
+	margin-top: 100px;
+	height: auto;
+}
+
+#_footer {
+   position:fixed;
+   left:0px;
+   bottom:0px;
+   height:25px;
+   width:100%;
+   margin-bottom: 5px;
+   font-size: 11px;
+   background-color: #e0e0e0;
+   padding: 10px 10px;
+}
+
+.img-log {
+	margin-top: 5px;
+	margin-bottom: 0px;
+	text-align: center;
+	width: 100%;
+	height: auto;
+}
+
+#usuario, #password {
+	height: 40px;
+  width: 100%;
+  padding: 0 10px;
+  border: 1px solid #9da3a6;
+  margin: 0;
+  text-overflow: ellipsis;
+  	-webkit-box-sizing: border-box;
+  	-moz-box-sizing: border-box;
+  box-sizing: border-box;
+  	-webkit-border-radius: 4px;
+  	-moz-border-radius: 4px;
+  	-khtml-border-radius: 4px;
+  border-radius: 4px;
+  	-webkit-box-shadow: none;
+  	-moz-box-shadow: none;
+  box-shadow: none;
+  color: #000;
+  font-size: 1em;
+  font-weight: 400;
+  direction: ltr;
+}
+
+.form-login {
+	text-align: center;
+	width: 100%;
+}
+
+.img-responsive {
+    width: 35%;
+    height: auto;
+}
+
+body {
+  background-color: #eeeeee;
+}
+
+@media only screen and (max-width: 1020px) {
+	.login-content {
+		width: 100%;
+		margin: 0 auto;
+		margin-top: 75px;
+	}
+
+	.img-responsive {
+	    width: 30%;
+	    height: auto;
+	}
+}

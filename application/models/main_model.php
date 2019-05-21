@@ -19,4 +19,16 @@ class main_model extends CI_Model {
         }
         echo json_encode($data);
     }
+    public function Info_Nuevo_Caso() {
+        $json = array();
+        $qCuentas = $this->db->get('cuentas');
+        $qTipos = $this->db->get('tipos');
+        $qFuentes = $this->db->get('fuentes');
+        $json[] = array(
+            'array_Cuentas' => $qCuentas->result_array(),
+            'array_Tipos'   => $qTipos->result_array(),
+            'array_Fuentes' => $qFuentes->result_array()
+        );
+        return $json;
+    }
 }

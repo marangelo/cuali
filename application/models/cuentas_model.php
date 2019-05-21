@@ -18,4 +18,15 @@ class cuentas_model extends CI_Model {
         }
         echo json_encode($data);
     }
+    public function getInfoCuenta($Id) {
+        $json = array();
+        $qCategorias = $this->db->query("SELECT * FROM categorias WHERE Id_Cuenta ='".$Id."'");
+        $qRemitidos = $this->db->query("SELECT * FROM remitidos WHERE Id_Cuenta ='".$Id."'");
+
+        $json[] = array(
+            'array_Categorias' => $qCategorias->result_array(),
+            'array_Remitidos' => $qRemitidos->result_array()
+        );
+        echo json_encode($json);
+    }
 }

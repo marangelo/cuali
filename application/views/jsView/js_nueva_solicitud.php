@@ -1,53 +1,30 @@
 <script>
     $(document).ready(function() {
-        $('.modal').modal();
-        inicializarDatatable();
         inicializaControlFecha();
-        inicializaControlChosen();
-    });
-    function inicializarDatatable() {
-        $('#data-reporte').show();
-        $("#content-recibos").remove();
-        $('#tblReportes')
-            .empty()
-            .show()
-            .dataTable({
-                "ordering": true,
-                "info": false,
-                "bPaginate": true,
-                "bfilter": false,
-                "searching": true,
-                "pagingType": "full_numbers",
-                "aaSorting": [
-                    [0, "asc"]
-                ],
-                "lengthMenu": [
-                    [20, 10, -1],
-                    [20, 30, "Todo"]
-                ],
-                "columns": [
-                    { "title": "FECHA" },
-                    { "title": "HORA" },
-                    { "title": "ORIGEN" },
-                    { "title": "DESTINO" },
-                    { "title": "CANAL" },
-                    { "title": "CANAL DESTINO" },
-                    { "title": "ESTADO" },
-                    { "title": "DURACION" }
-                ],
-                "language": {
-                    "zeroRecords": "NO HAY RESULTADOS",
-                    "paginate": {
-                        "first":      "Primera",
-                        "last":       "Última ",
-                        "next":       "Siguiente",
-                        "previous":   "Anterior"
-                    },
-                    "lengthMenu": "_MENU_",
-                    "emptyTable": "NO HAY DATOS DISPONIBLES",
-                    "search":     "BUSCAR"
+        $('#slCuenta').on('change', function() {
+            var IdCuenta = $('#slCuenta').val();
+            $.ajax({
+                url: "Info_Cuenta/"+IdCuenta ,
+                type: 'get',
+                async: true,
+                success: function(data) {
+                    if (data.length!=0) {
+                        $.each(JSON.parse(data), function(i, item) {
+                            $.each(item['array_Categorias'], function(i, item) {
+                                $("#slCategorias").append('<option value='+item['Id_Categorias'].id+'>'+item['Nombre']+'</option>');
+                            });
+                            $.each(item['array_Remitidos'], function(i, item) {
+                                $("#slRemitidos").append('<option value='+item['Id_Remitidos'].id+'>'+item['Nombre']+'</option>');
+                            });
+                        });
+                    }else if (data.length===0) {
+                        alert("Error");
+                    }
+
                 }
             });
-        $("#tblReportes_filter").hide();
-    }
+        });
+
+    });
+
 </script>

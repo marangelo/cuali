@@ -22,5 +22,9 @@ class cuentas_controller extends CI_Controller {
     public function getCuentas(){
         $this->cuentas_model->getCuentas();
     }
+    public function getInfoCuenta($id){
+        $this->cuentas_model->getInfoCuenta($id);
+    }
+
 }
 ?>

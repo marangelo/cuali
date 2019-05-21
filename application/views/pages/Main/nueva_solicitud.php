@@ -14,37 +14,40 @@
                             <input type="text" id="Id_Desde" name="Fecha" class="input-fecha" placeholder="Fecha:" value="">
                         </div>
                         <div class="col s12 m5 container-input">
-                            <select name="" id="" class="chosen-select browser-default">
+                            <select name="" id="slCuenta" class="jsSelect browser-default">
                                 <option value="" disabled selected><span> Cuenta</span></option>
-                                <option value="1">Cuenta 01</option>
-                                <option value="2">Cuenta 02</option>
-                                <option value="3">Cuenta 03</option>
+                                <?php
+                                foreach ($ext[0]['array_Cuentas'] as $vl){
+                                    echo '<option value="'.$vl['Id_Cuenta'].'">'.$vl['name'].$vl['Nombre'].'</option>';
+                                }
+                                ?>
                             </select>
                         </div>
                         <div class="col s12 m3 container-input"" >
-                            <select name="" id="" class="chosen-select browser-default">
+                            <select name="" id="" class="jsSelect">
                                 <option value="" disabled selected><span> Fuente</span></option>
-                                <option value="1">Fuente 01</option>
-                                <option value="2">Fuente 02</option>
-                                <option value="3">Fuente 03</option>
+                                <?php
+                                foreach ($ext[0]['array_Fuentes'] as $vl){
+                                    echo '<option value="'.$vl['idFuentes'].'">'.$vl['name'].$vl['fNombre'].'</option>';
+                                }
+                                ?>
                             </select>
                         </div>
                     </div>
                     <div class="row" id="menu-reporte">
                         <div class="col s12 m6 container-input">
-                            <select name="" id="" class="chosen-select browser-default">
+                            <select name="" id="" class="jsSelect">
                                 <option value="" disabled selected><span> Tipo</span></option>
-                                <option value="1">Tipo 01</option>
-                                <option value="2">Tipo 02</option>
-                                <option value="3">Tipo 03</option>
+                                <?php
+                                foreach ($ext[0]['array_Tipos'] as $vl){
+                                    echo '<option value="'.$vl['IdTipos'].'">'.$vl['name'].$vl['tpNombre'].'</option>';
+                                }
+                                ?>
                             </select>
                         </div>
                         <div class="col s12 m6 container-input"" >
-                            <select name="" id="" class="chosen-select browser-default">
+                            <select name="" id="slCategorias" class="jsSelect">
                                 <option value="" disabled selected><span>Categoria</span></option>
-                                <option value="1">Categoria 01</option>
-                                <option value="2">Categoria 02</option>
-                                <option value="3">Categoria 03</option>
                             </select>
                         </div>
                     </div>
@@ -65,11 +68,8 @@
                         </div>
                         <div class="col s12 m6 container-input"" >
 
-                        <select name="" id="" class="chosen-select browser-default">
+                        <select name="" id="slRemitidos" class="jsSelect">
                             <option value="" disabled selected><span>Remitido a :</span></option>
-                            <option value="1">Usuario 01</option>
-                            <option value="2">Usuario 02</option>
-                            <option value="3">Usuario 03</option>
                         </select>
                         </div>
                     </div>

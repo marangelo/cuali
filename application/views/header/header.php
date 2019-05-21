@@ -8,7 +8,7 @@
     <!--Import materialize.css-->    
     <link type="text/css" rel="stylesheet" href="<?php echo base_url();?>assets/css/materialize.css"  media="screen,projection"/>
     <!--CHOSEN CONTROLS-->
-    <link rel="stylesheet" href="<?php echo base_url();?>assets/css/chosen.css">
+    <link rel="stylesheet" href="<?php echo base_url();?>assets/css/select2.min.css">
 	<!--DATATABLES-->
     <link rel="stylesheet" href="<?php echo base_url();?>assets/css/dataTables.foundation.css" >
     <!--Mis estilos css-->

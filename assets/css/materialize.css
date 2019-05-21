@@ -6041,7 +6041,6 @@ input[type=datetime]:not(.browser-default),
 input[type=datetime-local]:not(.browser-default),
 input[type=tel]:not(.browser-default),
 input[type=number]:not(.browser-default),
-input[type=search]:not(.browser-default),
 textarea.materialize-textarea {
 
   display: block;

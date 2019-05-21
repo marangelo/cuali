@@ -37,3 +37,4 @@ function inicializaControlFecha() {
         showDropdowns: true
     });
 }
+$('.jsSelect').select2();

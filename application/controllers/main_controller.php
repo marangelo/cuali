@@ -21,8 +21,8 @@ class main_controller extends CI_Controller {
     }
     public function NuevaSolicitud() {
         $this->load->view('header/header');
-        //$data['ext'] = $this->reportes_model->getExt();
-        $this->load->view('pages/Main/nueva_solicitud');
+        $data['ext'] = $this->main_model->Info_Nuevo_Caso();
+        $this->load->view('pages/Main/nueva_solicitud',$data);
         $this->load->view('footer/footer');
         $this->load->view('jsView/js_nueva_solicitud');
     }

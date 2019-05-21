@@ -1,7 +1,7 @@
 <?php 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class main_controller extends CI_Controller {
+class cuentas_controller extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->library('session');
@@ -15,20 +15,12 @@ class main_controller extends CI_Controller {
     public function index() {
         $this->load->view('header/header');
         //$data['ext'] = $this->reportes_model->getExt();
-        $this->load->view('pages/Main/main');
+        $this->load->view('pages/Cuentas/cuentas');
         $this->load->view('footer/footer');
-        $this->load->view('jsView/js_main');
+        $this->load->view('jsView/js_cuentas');
     }
-    public function NuevaSolicitud() {
-        $this->load->view('header/header');
-        //$data['ext'] = $this->reportes_model->getExt();
-        $this->load->view('pages/Main/nueva_solicitud');
-        $this->load->view('footer/footer');
-        $this->load->view('jsView/js_nueva_solicitud');
+    public function getCuentas(){
+        $this->cuentas_model->getCuentas();
     }
-    public function getResumen(){
-        $this->main_model->getResumen();
-    }
-
 }
 ?>

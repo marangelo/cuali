@@ -4,8 +4,8 @@
         inicializaControlFecha();
     });
     function inicializarDatatable() {
-        $('#tblReportes').DataTable({
-            ajax: 'getResumen',
+        $('#tblCuentas').DataTable({
+            ajax: 'getCuentas',
             "destroy": true,
             "ordering": true,
             "info": false,
@@ -36,13 +36,11 @@
             columns: [
                 { "data": "N" },
                 { "data": "CUENTA" },
-                { "data": "REMITIDO" },
-                { "data": "FUENTE" },
                 { "data": "FECHA" },
                 { "data": "HORA" }
             ],
             "fnInitComplete": function (dta) {
-                $("#tblReportes_filter").hide();
+                $("#tblCuentas_filter").hide();
             }
         });
 

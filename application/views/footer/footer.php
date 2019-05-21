@@ -1,5 +1,5 @@
 <footer id="_footer" class="footer row">
-    <div class="row right">
+    <div class="row center">
         <div class="col s12">
             <?php echo "Copyright ©".date("Y")." Todos los Derechos Reservados."?>
         </div>

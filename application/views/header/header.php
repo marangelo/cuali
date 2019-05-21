@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Cuali</title>
+    <title>CUALI | GSM NICARAGUA</title>
     <!--Import Google Icon Font-->    
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">    
     <!--Import materialize.css-->    
@@ -19,15 +19,19 @@
 <body>
 	<header class="demo-header mdl-layout__header">
 		<nav class="nav-extended">
-			<div class="menu-center">
-
+			<div class="menu">
 				<div class="nav-wrapper" >
-
                     <ul id="nav-mobile" class="left hide-on-med-and-down">
                         <a href="#" class="left"><img  src="<?php echo base_url();?>assets/images/Logo.png" style="width: 100px;margin-top: 10px;"></a>
-                        <li><a id="resumen" href="#">Resumen</a></li>
-                        <li><a id="resumen" href="#">|</a></li>
-                        <li><a id="resumen" href="#">Solicitudes</a></li>
+                        <li><a href="main">Resumen</a></li>
+                        <li><a href="#">|</a></li>
+                        <li><a href="Nueva">Solicitudes</a></li>
+                        <li><a href="#">|</a></li>
+                        <li><a href="Cuentas">Cuentas</a></li>
+                        <li><a href="#">|</a></li>
+                        <li><a href="Usuarios">Usuarios</a></li>
+                        <li><a href="#">|</a></li>
+                        <li><a href="Config">Parametros</a></li>
                     </ul>
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
                         <li><a href="#">Maryan Espinoza</a></li>

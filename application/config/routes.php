@@ -12,3 +12,10 @@ $route['salir'] = 'login_controller/salir';
 
 //RUTA: REPORTES
 $route['main'] = 'main_controller';
+$route['Nueva'] = 'main_controller/NuevaSolicitud';
+$route['getResumen'] = 'main_controller/getResumen';
+
+$route['Cuentas'] = 'cuentas_controller';
+$route['getCuentas'] = 'cuentas_controller/getCuentas';
+
+$route['Usuarios'] = 'usuarios_controller';

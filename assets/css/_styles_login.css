@@ -1,7 +1,7 @@
 .login-content {
-	width: 35%;
+	width: 31%;
 	margin: 0 auto;
-	margin-top: 100px;
+	margin-top: 150px;
 	height: auto;
 }
 
@@ -13,7 +13,7 @@
    width:100%;
    margin-bottom: 5px;
    font-size: 11px;
-   background-color: #e0e0e0;
+   background-color: #fff;
    padding: 10px 10px;
 }
 
@@ -26,26 +26,18 @@
 }
 
 #usuario, #password {
-	height: 40px;
+	height: 44px;
   width: 100%;
-  padding: 0 10px;
-  border: 1px solid #9da3a6;
+  padding: 0 21px;
   margin: 0;
   text-overflow: ellipsis;
-  	-webkit-box-sizing: border-box;
-  	-moz-box-sizing: border-box;
-  box-sizing: border-box;
-  	-webkit-border-radius: 4px;
-  	-moz-border-radius: 4px;
-  	-khtml-border-radius: 4px;
-  border-radius: 4px;
-  	-webkit-box-shadow: none;
-  	-moz-box-shadow: none;
-  box-shadow: none;
-  color: #000;
+	box-sizing: border-box;
+  	border-radius: 4px;
+  color: #B2B2B2;
   font-size: 1em;
   font-weight: 400;
   direction: ltr;
+	box-shadow: 1px 1px 5px -4px rgba(0,0,0,0.75);
 }
 
 .form-login {
@@ -59,7 +51,7 @@
 }
 
 body {
-  background-color: #eeeeee;
+  background-color: #F4F8FB;
 }
 
 @media only screen and (max-width: 1020px) {
@@ -73,4 +65,10 @@ body {
 	    width: 30%;
 	    height: auto;
 	}
+}
+.btn-large{
+	background-color: #00b0ff;
+}
+input::placeholder {
+	color: #B2B2B2;
 }

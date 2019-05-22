@@ -2,6 +2,10 @@
     $(document).ready(function() {
         inicializaControlFecha();
         $('#slCuenta').on('change', function() {
+
+            $('#slCategorias').find('option').not(':first').remove();
+            $('#slRemitidos').find('option').not(':first').remove();
+
             var IdCuenta = $('#slCuenta').val();
             $.ajax({
                 url: "Info_Cuenta/"+IdCuenta ,

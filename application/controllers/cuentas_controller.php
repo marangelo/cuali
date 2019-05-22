@@ -25,6 +25,14 @@ class cuentas_controller extends CI_Controller {
     public function getInfoCuenta($id){
         $this->cuentas_model->getInfoCuenta($id);
     }
+    public function CuentaDetalle($id){
+        ;
+        $this->load->view('header/header');
+        $data['DataCuenta'] = $this->cuentas_model->DataCuenta($id);
+        $this->load->view('pages/Cuentas/cuentasdetalles',$data);
+        $this->load->view('footer/footer');
+        $this->load->view('jsView/js_cuentasdetalles');
+    }
 
 }
 ?>

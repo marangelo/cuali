@@ -363,3 +363,6 @@ input::placeholder {
     padding-right:-100px
 }
 
+.DrawBorder{
+    border: solid 2px black;
+}

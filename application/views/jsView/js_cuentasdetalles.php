@@ -2,13 +2,11 @@
     $(document).ready(function() {
         inicializarDatatable();
         inicializaControlFecha();
-        $('.modal').modal();
     });
 
 
     function inicializarDatatable() {
-        $('#tblCuentas').DataTable({
-            ajax: 'getCuentas',
+        $('#tblCategoria,#tblRemitente').DataTable({
             "destroy": true,
             "ordering": true,
             "info": false,
@@ -35,14 +33,9 @@
                 "emptyTable": "NO HAY DATOS DISPONIBLES",
                 "search":     "BUSCAR"
             },
-
-            columns: [
-                { "data": "N" },
-                { "data": "CUENTA" },
-                { "data": "FECHA" }
-            ],
             "fnInitComplete": function (dta) {
-                $("#tblCuentas_filter").hide();
+                $("#tblRemitente_filter,#tblRemitente_paginate").hide();
+                $("#tblCategoria_filter,#tblCategoria_paginate").hide();
             }
         });
 

@@ -18,6 +18,7 @@
                        <th>Nº</th>
                        <th>CUENTA</th>
                        <th>FECHA</th>
+                       <th></th>
                    </tr>
                  </thead>
              </table>

@@ -3,9 +3,10 @@
         inicializarDatatable();
         inicializaControlFecha();
     });
+
+
     function inicializarDatatable() {
-        $('#tblReportes').DataTable({
-            ajax: 'getResumen',
+        $('#tblFuentes,#tblTipos').DataTable({
             "destroy": true,
             "ordering": true,
             "info": false,
@@ -32,20 +33,14 @@
                 "emptyTable": "NO HAY DATOS DISPONIBLES",
                 "search":     "BUSCAR"
             },
-
-            columns: [
-                { "data": "N" },
-                { "data": "CUENTA" },
-                { "data": "REMITIDO" },
-                { "data": "FUENTE" },
-                { "data": "FECHA" },
-                { "data": "HORA" },
-                { "data": "Acc" }
-            ],
             "fnInitComplete": function (dta) {
-                $("#tblReportes_filter").hide();
+                $("#tblTipos_filter,#tblTipos_paginate").hide();
+                $("#tblFuentes_filter,#tblFuentes_paginate").hide();
             }
         });
 
     }
+
+
+
 </script>

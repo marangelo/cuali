@@ -26,7 +26,7 @@ class cuentas_controller extends CI_Controller {
         $this->cuentas_model->getInfoCuenta($id);
     }
     public function CuentaDetalle($id){
-        ;
+
         $this->load->view('header/header');
         $data['DataCuenta'] = $this->cuentas_model->DataCuenta($id);
         $this->load->view('pages/Cuentas/cuentasdetalles',$data);

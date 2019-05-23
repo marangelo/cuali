@@ -2,12 +2,10 @@
     $(document).ready(function() {
         inicializarDatatable();
         inicializaControlFecha();
+        $('.modal').modal();
     });
     function inicializarDatatable() {
-        $('#tblUsuarios')
-            .empty()
-            .show()
-            .dataTable({
+        $('#tblUsuarios').dataTable({
                 "ordering": true,
                 "info": false,
                 "bPaginate": true,
@@ -25,7 +23,8 @@
                     { "title": "Nº" },
                     { "title": "USUARIO" },
                     { "title": "FECHA" },
-                    { "title": "HORA" }
+                    { "title": "HORA" },
+                    { "title": "" }
                 ],
                 "language": {
                     "zeroRecords": "NO HAY RESULTADOS",
@@ -41,5 +40,18 @@
                 }
             });
         $("#tblUsuarios_filter").hide();
+    }
+
+
+    function OpenModal(Accion){
+        if (Accion === "add") {
+            $('#spnAccion').html('<h4>Nueva Cuenta [ Add ]</h4>')
+            $('#mdUsuario').modal('open');
+        } else {
+            $('#spnAccion').html('<h4>Nueva Cuenta [ Edit ]</h4>')
+            $('#mdUsuario').modal('open');
+        }
+
+
     }
 </script>

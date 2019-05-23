@@ -21,3 +21,5 @@ $route['Info_Cuenta/(:any)'] = 'cuentas_controller/getInfoCuenta/$1';
 $route['CuentaDetalle/(:any)'] = 'cuentas_controller/CuentaDetalle/$1';
 
 $route['Usuarios'] = 'usuarios_controller';
+
+$route['Config'] = 'main_controller/Config';

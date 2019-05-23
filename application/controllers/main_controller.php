@@ -29,6 +29,13 @@ class main_controller extends CI_Controller {
     public function getResumen(){
         $this->main_model->getResumen();
     }
+    public function Config(){
+        $this->load->view('header/header');
+        $data['DataConfig'] = $this->main_model->config();
+        $this->load->view('pages/parametros/parametros',$data);
+        $this->load->view('footer/footer');
+        $this->load->view('jsView/js_parametros');
+    }
 
 }
 ?>

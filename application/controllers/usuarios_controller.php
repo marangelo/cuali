@@ -14,8 +14,8 @@ class usuarios_controller extends CI_Controller {
 
     public function index() {
         $this->load->view('header/header');
-        //$data['ext'] = $this->reportes_model->getExt();
-        $this->load->view('pages/Usuarios/usuarios');
+        $data['ext'] = $this->usuarios_model->getAll();
+        $this->load->view('pages/Usuarios/usuarios',$data);
         $this->load->view('footer/footer');
         $this->load->view('jsView/js_usuarios');
     }

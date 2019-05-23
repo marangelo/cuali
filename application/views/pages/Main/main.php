@@ -18,6 +18,7 @@
                          <th>FUENTE</th>
                          <th>FECHA</th>
                          <th>HORA</th>
+                         <th></th>
                      </tr>
                  </thead>
              </table>

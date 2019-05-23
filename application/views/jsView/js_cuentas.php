@@ -39,7 +39,8 @@
             columns: [
                 { "data": "N" },
                 { "data": "CUENTA" },
-                { "data": "FECHA" }
+                { "data": "FECHA" },
+                { "data": "Acc" }
             ],
             "fnInitComplete": function (dta) {
                 $("#tblCuentas_filter").hide();

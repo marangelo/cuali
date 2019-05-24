@@ -51,7 +51,8 @@
             $('#spnAccion').html('<h4>Nueva Cuenta [ Edit ]</h4>')
             $('#mdUsuario').modal('open');
         }
-
-
+    }
+    function OpenModalPermisos(){
+        $('#mdPermisos').modal('open');
     }
 </script>

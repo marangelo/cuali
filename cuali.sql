@@ -11,7 +11,7 @@
  Target Server Version : 100113
  File Encoding         : 65001
 
- Date: 21/05/2019 16:04:11
+ Date: 24/05/2019 15:21:13
 */
 
 SET NAMES utf8mb4;
@@ -54,16 +54,6 @@ CREATE TABLE `categorias`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
--- Records of categorias
--- ----------------------------
-INSERT INTO `categorias` VALUES (1, 'CATEGORIA INISSER 01', 1, '2019-05-21 14:11:12', '2019-05-21 14:11:12', 1);
-INSERT INTO `categorias` VALUES (2, 'CATEGORIA INISSER 02', 1, '2019-05-21 14:11:12', '2019-05-21 14:11:12', 1);
-INSERT INTO `categorias` VALUES (3, 'CATEGORIA INISSER 03', 1, '2019-05-21 14:11:12', '2019-05-21 14:11:12', 1);
-INSERT INTO `categorias` VALUES (4, 'CATEGORIA INISSER 04', 1, '2019-05-21 14:11:12', '2019-05-21 14:11:12', 1);
-INSERT INTO `categorias` VALUES (5, 'CATEGORIA INISSER 04', 1, '2019-05-21 14:11:12', '2019-05-21 14:11:12', 1);
-INSERT INTO `categorias` VALUES (6, 'CATEGORIA INISSER 06', 1, '2019-05-21 14:11:12', '2019-05-21 14:11:12', 1);
-
--- ----------------------------
 -- Table structure for cuentas
 -- ----------------------------
 DROP TABLE IF EXISTS `cuentas`;
@@ -75,13 +65,6 @@ CREATE TABLE `cuentas`  (
   `id_usuario` int(10) NULL DEFAULT NULL,
   PRIMARY KEY (`Id_Cuenta`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
-
--- ----------------------------
--- Records of cuentas
--- ----------------------------
-INSERT INTO `cuentas` VALUES (1, 'INISSER', '2019-05-21 14:09:28', '2019-05-21 14:09:31', 1);
-INSERT INTO `cuentas` VALUES (2, 'INISSER', '2019-05-21 14:09:28', '2019-05-21 14:09:31', 1);
-INSERT INTO `cuentas` VALUES (3, 'INISSER', '2019-05-21 14:09:28', '2019-05-21 14:09:31', 1);
 
 -- ----------------------------
 -- Table structure for fuentes
@@ -97,13 +80,6 @@ CREATE TABLE `fuentes`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
--- Records of fuentes
--- ----------------------------
-INSERT INTO `fuentes` VALUES (1, 'Facebook', '2019-05-21 14:06:56', '2019-05-21 14:06:56', 1);
-INSERT INTO `fuentes` VALUES (2, 'Twitter', '2019-05-21 14:06:56', '2019-05-21 14:06:56', 1);
-INSERT INTO `fuentes` VALUES (3, 'Youtube', '2019-05-21 14:06:56', '2019-05-21 14:06:56', 1);
-
--- ----------------------------
 -- Table structure for log_sesion
 -- ----------------------------
 DROP TABLE IF EXISTS `log_sesion`;
@@ -112,7 +88,7 @@ CREATE TABLE `log_sesion`  (
   `idUser` int(6) NOT NULL,
   `fecha` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id_log`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 75 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 79 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for remitidos
@@ -130,15 +106,6 @@ CREATE TABLE `remitidos`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
--- Records of remitidos
--- ----------------------------
-INSERT INTO `remitidos` VALUES (1, 'Maryan01', 'Endscom@gmail.com', 1, '2019-05-21 14:13:34', '2019-05-21 14:13:39', 1);
-INSERT INTO `remitidos` VALUES (2, 'Maryan02', 'Endscom@gmail.com', 1, '2019-05-21 14:13:34', '2019-05-21 14:13:39', 1);
-INSERT INTO `remitidos` VALUES (3, 'Maryan03', 'Endscom@gmail.com', 1, '2019-05-21 14:13:34', '2019-05-21 14:13:39', 1);
-INSERT INTO `remitidos` VALUES (4, 'Maryan04', 'Endscom@gmail.com', 1, '2019-05-21 14:13:34', '2019-05-21 14:13:39', 1);
-INSERT INTO `remitidos` VALUES (5, 'Maryan05', 'Endscom@gmail.com', 1, '2019-05-21 14:13:34', '2019-05-21 14:13:39', 1);
-
--- ----------------------------
 -- Table structure for tipos
 -- ----------------------------
 DROP TABLE IF EXISTS `tipos`;
@@ -150,13 +117,6 @@ CREATE TABLE `tipos`  (
   `id_usuario` int(10) NULL DEFAULT NULL,
   PRIMARY KEY (`IdTipos`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
-
--- ----------------------------
--- Records of tipos
--- ----------------------------
-INSERT INTO `tipos` VALUES (1, 'Consulta', '2019-05-21 14:06:56', '2019-05-21 14:06:56', 1);
-INSERT INTO `tipos` VALUES (2, 'Cotización', '2019-05-21 14:06:56', '2019-05-21 14:06:56', 1);
-INSERT INTO `tipos` VALUES (3, 'Reclamo', '2019-05-21 14:06:56', '2019-05-21 14:06:56', 1);
 
 -- ----------------------------
 -- Table structure for usuarios
@@ -174,14 +134,5 @@ CREATE TABLE `usuarios`  (
   `id_usuario` int(10) NULL DEFAULT NULL,
   PRIMARY KEY (`idUser`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
-
--- ----------------------------
--- Records of usuarios
--- ----------------------------
-INSERT INTO `usuarios` VALUES (1, 'admin', '123456', 'admin', b'0', b'1', NULL, NULL, NULL);
-INSERT INTO `usuarios` VALUES (2, 'dd', '123456', 'cualquiera', b'1', b'1', NULL, NULL, NULL);
-INSERT INTO `usuarios` VALUES (3, 'dd', '123456', 'cualquiera', b'1', b'1', NULL, NULL, NULL);
-INSERT INTO `usuarios` VALUES (5, 'dd', '123456', 'cualquiera 454545', b'1', b'1', NULL, NULL, NULL);
-INSERT INTO `usuarios` VALUES (6, 'dd', '123456', 'cualquiera 454545', b'1', b'1', NULL, NULL, NULL);
 
 SET FOREIGN_KEY_CHECKS = 1;

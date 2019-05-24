@@ -10,8 +10,8 @@ class main_model extends CI_Model {
     public function getResumen() {
         $data = array();
         for($i=0;$i<=10;$i++){
-            $data['data'][$i]['N']       = "C".$i;
-            $data['data'][$i]['CUENTA']  = "Numero Cuenta ".$i;
+            $data['data'][$i]['N']       = $i;
+            $data['data'][$i]['CUENTA']  = '<a href="DetalleResumen/1">Numero Cuenta </a>';
             $data['data'][$i]['REMITIDO']  = "Numero REMITIDO ".$i;
             $data['data'][$i]['FUENTE']  = "Numero FUENTE ".$i;
             $data['data'][$i]['FECHA']   = "23/08/2019";

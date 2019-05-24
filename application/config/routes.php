@@ -14,6 +14,7 @@ $route['salir'] = 'login_controller/salir';
 $route['main'] = 'main_controller';
 $route['Nueva'] = 'main_controller/NuevaSolicitud';
 $route['getResumen'] = 'main_controller/getResumen';
+$route['DetalleResumen/(:any)'] = 'main_controller/DetalleResumen/$1';
 
 $route['Cuentas'] = 'cuentas_controller';
 $route['getCuentas'] = 'cuentas_controller/getCuentas';

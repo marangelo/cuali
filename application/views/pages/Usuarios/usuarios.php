@@ -43,7 +43,7 @@
 </div>
 <div id="mdUsuario" class="modal">
     <div class="modal-content">
-        <span id="spnAccion"><h4>N/D</h4></span>
+        <span id="spnAccion">Cuentas Permisos</span>
         <div class="row" id="menu-reporte">
             <div class="col s12 m6 container-input"" >
                 <input  type="text" placeholder="Usuario">
@@ -60,14 +60,67 @@
                 <input type="text" placeholder="Confirme contrsaseña">
             </div>
         </div>
+    </div>
+</div>
 
+<div id="mdUsuario" class="modal">
+    <div class="modal-content">
+        <span id="spnAccion"><h4>N/D</h4></span>
+        <div class="row" id="menu-reporte">
+            <div class="col s12 m6 container-input"" >
+            <input  type="text" placeholder="Usuario">
+        </div>
+        <div class="col s12 m6 container-input"" >
+        <input  type="text" placeholder="Nombre Completo">
+    </div>
+</div>
+<div class="row">
+    <div class="col s12 m6">
+        <input type="text" placeholder="Contraseña">
+    </div>
+    <div class="col s12 m6">
+        <input type="text" placeholder="Confirme contrsaseña">
+    </div>
+</div>
+
+</div>
+<div class="modal-footer">
+    <div class="row">
+        <div class="col s12 m12 center">
+            <a href="#!"  class="modal-action modal-close waves-effect waves-red btn-flat "><i class="small material-icons">save</i></a>
+            <a href="#!" class="modal-action modal-close waves-effect waves-red btn-flat "><i style="color: red" class="small material-icons">clear</i></a>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- Modal Structure -->
+
+<div id="mdPermisos" class="modal">
+    <div class="modal-content">
+        <h4>Modal Header</h4>
+        <table class="display" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th>Nº</th>
+                <th>Cuenta</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php
+            foreach ($inf_Permisos['dtCheck'] as $d){
+                echo "
+                                    <tr>
+                                           <td>".$d['name']."</td>
+                                           <td>".$d['chck']."</td>
+                                    </tr>";
+            }
+
+            ?>
+            </tbody>
+        </table>
     </div>
     <div class="modal-footer">
-        <div class="row">
-            <div class="col s12 m12 center">
-                <a href="#!"  class="modal-action modal-close waves-effect waves-red btn-flat "><i class="small material-icons">save</i></a>
-                <a href="#!" class="modal-action modal-close waves-effect waves-red btn-flat "><i style="color: red" class="small material-icons">clear</i></a>
-            </div>
-        </div>
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
     </div>
 </div>

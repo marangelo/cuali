@@ -26,6 +26,12 @@ class main_controller extends CI_Controller {
         $this->load->view('footer/footer');
         $this->load->view('jsView/js_nueva_solicitud');
     }
+    public function DetalleResumen() {
+        $this->load->view('header/header');
+        $this->load->view('pages/Main/detalle_solicitud');
+        $this->load->view('footer/footer');
+        $this->load->view('jsView/js_detalle_solicitud');
+    }
     public function getResumen(){
         $this->main_model->getResumen();
     }

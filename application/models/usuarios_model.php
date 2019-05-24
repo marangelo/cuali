@@ -15,7 +15,7 @@ class usuarios_model extends CI_Model {
                 $data['data'][$i]['USUARIOS']  = $key['userName'];
                 $data['data'][$i]['nombre']   = $key['nombre'];
                 $data['data'][$i]['created_at']   = $key['created_at'];
-                $data['data'][$i]['Acc']   = "<a href='#!' onclick='OpenModal(".'"edit"'.")'> <i class='material-icons'>edit</i></a>  <i class='material-icons'>delete</i>  <i class='material-icons'>fingerprint</i>";
+                $data['data'][$i]['Acc']   = "<a href='#!' onclick='OpenModal(".'"edit"'.")'> <i class='material-icons'>edit</i></a>  <i class='material-icons'>delete</i>  <a href='#!' onclick='OpenModalPermisos()'><i class='material-icons'>fingerprint</i></a>";
                 $i++;
             }
         }else{
@@ -26,6 +26,35 @@ class usuarios_model extends CI_Model {
             $data['data'][0]['Acc']         = "N/D";
         }
         return $data;
+    }
+
+    public function Permisos(){
+        $data = array(
+            'id'         => 0 ,
+            'checked'       => true,
+            'onClick'       => 'getPermiso()',
+            'class'         => 'filled-in'
+
+        );
+
+
+        $temp = array();
+        $i=0;
+        $qCuentas = $this->db->get('cuentas');
+        if($qCuentas->num_rows() > 0 ) {
+            foreach ($qCuentas->result_array() as $key){
+                $temp["dtCheck"][$i]["Id"]     = $key['Id_Cuenta'];
+                $temp["dtCheck"][$i]["name"]   = $key['Nombre'];
+                $temp["dtCheck"][$i]["chck"]   = form_checkbox($data);
+                $i++;
+            }
+        }else{
+            $temp["dtCheck"][$i]["Id"]     = "N/D";
+            $temp["dtCheck"][$i]["name"]   = "";
+            $temp["dtCheck"][$i]["chck"]   = "";
+        }
+        return $temp;
+
     }
 
 

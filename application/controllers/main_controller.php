@@ -42,6 +42,10 @@ class main_controller extends CI_Controller {
         $this->load->view('footer/footer');
         $this->load->view('jsView/js_parametros');
     }
+    public function SaveSolicitud() {
+
+        $this->main_model->SaveSolicitud($this->input->post('data'));
+    }
 
 }
 ?>

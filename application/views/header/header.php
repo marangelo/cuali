@@ -15,6 +15,9 @@
     <link type="text/css" rel="stylesheet" href="<?php echo base_url();?>assets/css/_styles.css"  media="screen,projection"/>
     <!--DATEPICKERS-->
     <link rel="stylesheet" href="<?php echo base_url();?>assets/css/daterangepicker.css" >
+    <!--SWEETALERT2-->
+    <link rel="stylesheet" href="<?php echo base_url();?>assets/css/sweetalert2.min.css" >
+
 </head>
 <body>
 	<header class="demo-header mdl-layout__header">

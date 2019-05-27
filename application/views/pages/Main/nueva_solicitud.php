@@ -5,7 +5,7 @@
                 <div class="">
                     <div class="row">
                         <div class="col s12 m12">
-                            <p class="title-modals right">Nº 000001</p>
+                            <p class="title-modals right">Nº <span id="nSolicitud"><?php echo $ext[0]['array_Cont'];?></span></p>
                         </div>
                     </div>
                     <div class="row" id="menu-reporte">
@@ -24,7 +24,7 @@
                             </select>
                         </div>
                         <div class="col s12 m3 container-input"" >
-                            <select name="" id="" class="jsSelect">
+                            <select name="" id="slFuente" class="jsSelect">
                                 <option value="" disabled selected><span> Fuente</span></option>
                                 <?php
                                 foreach ($ext[0]['array_Fuentes'] as $vl){
@@ -36,7 +36,7 @@
                     </div>
                     <div class="row" id="menu-reporte">
                         <div class="col s12 m6 container-input">
-                            <select name="" id="" class="jsSelect">
+                            <select name="" id="slTipo" class="jsSelect">
                                 <option value="" disabled selected><span> Tipo</span></option>
                                 <?php
                                 foreach ($ext[0]['array_Tipos'] as $vl){
@@ -46,25 +46,25 @@
                             </select>
                         </div>
                         <div class="col s12 m6 container-input"" >
-                            <select name="" id="slCategorias" class="jsSelect">
+                            <select name="" id="slCategorias" class="jsSelect ">
                                 <option value="" disabled selected><span>Categoria</span></option>
                             </select>
                         </div>
                     </div>
                     <div class="row" id="menu-reporte">
                         <div class="col s12 m4 container-input">
-                            <input type="text" placeholder="Nombres">
+                            <input type="text" placeholder="Nombres" id="txNombres">
                         </div>
                         <div class="col s12 m4 container-input"" >
-                            <input placeholder="Apellidos" type="text" class="validate">
+                                <input placeholder="Apellidos" type="text" class="validate" id="txApellidos">
                         </div>
                         <div class="col s12 m4   container-input"" >
-                            <input placeholder="Telefono" type="text" class="validate">
+                            <input placeholder="Telefono" type="text" class="validate" id="txTelefono">
                         </div>
                     </div>
                     <div class="row" id="menu-reporte">
                         <div class="col s12 m6 container-input">
-                            <input type="text" placeholder="Correo"  >
+                            <input type="text" placeholder="Correo" id="txCorreo" >
                         </div>
                         <div class="col s12 m6 container-input"" >
 
@@ -75,14 +75,18 @@
                     </div>
                     <div class="row" id="menu-reporte">
                         <div class="col s12 m12   container-input"" >
-                            <textarea class="materialize-textarea" data-length="420" style="height: 150px" placeholder="Comentario"></textarea>
+                            <textarea id="taComentario" class="materialize-textarea" data-length="420" style="height: 150px" placeholder="Comentario"></textarea>
                         </div>
                     </div>
                     <div class="row" >
                         <div class="col s12 m12 center">
-                            <input style="width: 15%; height: 44px; background-color: #009FE3;" class="Btnadd modal-action modal-close btn" type="submit" name="submit" value="Guardar">
+                            <input style="width: 15%; height: 44px; background-color: #009FE3;" class="Btnadd modal-action modal-close btn" type="submit" name="submit" value="Guardar" onclick="SaveSolicitud()">
                             <input style="width: 15%; height: 44px; background-color: #B2B2B2;" class="btn btn-cancel " type="submit" name="submit" value="Cancelar">
                         </div>
+                    </div>
+                    <div class="row">
+
+                        <span class="red-text text-darken-2">*Todos los campos son requeridos.</span>
                     </div>
                 </div>
             </div>

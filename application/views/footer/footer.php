@@ -16,6 +16,5 @@
 <script type="text/javascript" src="<?PHP echo base_url();?>assets/js/dataTables.foundation.min.js"></script>
 
 
-
 </body>
 </html>

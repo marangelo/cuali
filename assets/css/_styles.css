@@ -366,3 +366,7 @@ input::placeholder {
 .DrawBorder{
     border: solid 2px black;
 }
+
+.HoverTrasparente{
+    background-color: transparent;
+}

@@ -9,15 +9,30 @@ class main_model extends CI_Model {
 
     public function getResumen() {
         $data = array();
-        for($i=0;$i<=10;$i++){
-            $data['data'][$i]['N']       = $i;
-            $data['data'][$i]['CUENTA']  = '<a href="DetalleResumen/1">Numero Cuenta </a>';
-            $data['data'][$i]['REMITIDO']  = "Numero REMITIDO ".$i;
-            $data['data'][$i]['FUENTE']  = "Numero FUENTE ".$i;
-            $data['data'][$i]['FECHA']   = "23/08/2019";
-            $data['data'][$i]['HORA']    = "08:00:00";
-            $data['data'][$i]['Acc']   = '<i class="material-icons">visibility</i>  <i class="material-icons">delete</i>';
+        $i=0;
+        $qCuentas = $this->db->get('casos');
+        if($qCuentas->num_rows() > 0 ) {
+            foreach ($qCuentas->result_array() as $key){
+                $data['data'][$i]['N']          = $this->Format_Consecutivo($key['idCaso']);
+                $data['data'][$i]['CUENTA']     = '<a href="DetalleResumen/'.$key['idCaso'].'" >'.$key['Nombres'].' '.$key['Apellidos'].'</a>';
+                $data['data'][$i]['REMITIDO']   = $key['Id_Asignado'];;
+                $data['data'][$i]['FUENTE']     = $key['Id_Fuente'];;
+                $data['data'][$i]['FECHA']      = $key['created_at'];
+                $data['data'][$i]['HORA']       = $key['created_at'];;
+                $data['data'][$i]['Acc']        = '<i class="material-icons">visibility</i>  <i class="material-icons">delete</i>';
+                $i++;
+            }
+        }else{
+            $data['data'][$i]['N']          = "";
+            $data['data'][$i]['CUENTA']     = "";
+            $data['data'][$i]['REMITIDO']   = "";
+            $data['data'][$i]['FUENTE']     = "";
+            $data['data'][$i]['FECHA']      = "";
+            $data['data'][$i]['HORA']       = "";
+            $data['data'][$i]['Acc']        = "";
         }
+
+
         echo json_encode($data);
     }
     public function Info_Nuevo_Caso() {

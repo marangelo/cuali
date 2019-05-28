@@ -2,6 +2,8 @@
     $(document).ready(function() {
         inicializarDatatable();
         inicializaControlFecha();
+
+
     });
     function inicializarDatatable() {
         $('#tblReportes').DataTable({

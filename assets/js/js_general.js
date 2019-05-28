@@ -1,3 +1,11 @@
+
+    var pgurl = window.location.href.substr(window.location.href.lastIndexOf("/")+1);
+    $("ul li").each(function(){
+        if($(this).attr("id") == pgurl || $(this).attr("id") == '' || $(this).attr("id")+"#" == pgurl){
+            $(this).addClass("active");
+        }
+    });
+
 function inicializaControlFecha() {
     $('input[class="input-fecha"]').daterangepicker({
         "locale": {
@@ -38,3 +46,4 @@ function inicializaControlFecha() {
     });
 }
 $('.jsSelect').select2();
+

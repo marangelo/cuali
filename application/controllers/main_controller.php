@@ -26,9 +26,10 @@ class main_controller extends CI_Controller {
         $this->load->view('footer/footer');
         $this->load->view('jsView/js_nueva_solicitud');
     }
-    public function DetalleResumen() {
+    public function DetalleResumen($Id) {
         $this->load->view('header/header');
-        $this->load->view('pages/Main/detalle_solicitud');
+        $data['Info'] = $this->main_model->DetalleResumen($Id);
+        $this->load->view('pages/Main/detalle_solicitud',$data);
         $this->load->view('footer/footer');
         $this->load->view('jsView/js_detalle_solicitud');
     }
@@ -43,8 +44,10 @@ class main_controller extends CI_Controller {
         $this->load->view('jsView/js_parametros');
     }
     public function SaveSolicitud() {
-
         $this->main_model->SaveSolicitud($this->input->post('data'));
+    }
+    public function SaveComentario() {
+        $this->main_model->SaveComentario($this->input->post('data'));
     }
 
 }

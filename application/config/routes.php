@@ -15,6 +15,7 @@ $route['main'] = 'main_controller';
 $route['Nueva'] = 'main_controller/NuevaSolicitud';
 $route['getResumen'] = 'main_controller/getResumen';
 $route['SaveSolicitud'] = 'main_controller/SaveSolicitud';
+$route['SaveComentario'] = 'main_controller/SaveComentario';
 $route['DetalleResumen/(:any)'] = 'main_controller/DetalleResumen/$1';
 
 $route['Cuentas'] = 'cuentas_controller';

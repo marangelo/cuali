@@ -19,7 +19,7 @@ class main_model extends CI_Model {
                 $data['data'][$i]['FUENTE']     = $key['Id_Fuente'];;
                 $data['data'][$i]['FECHA']      = $key['created_at'];
                 $data['data'][$i]['HORA']       = $key['created_at'];;
-                $data['data'][$i]['Acc']        = '<i class="material-icons">visibility</i>  <i class="material-icons">delete</i>';
+                $data['data'][$i]['Acc']        = '<i class="material-icons">delete</i>';
                 $i++;
             }
         }else{
@@ -53,6 +53,22 @@ class main_model extends CI_Model {
         );
         return $json;
     }
+    public function DetalleResumen($Id) {
+        $json = array();
+
+        $this->db->where('idCaso', $Id);
+        $qCaso = $this->db->get('casos');
+
+        $this->db->order_by("Created_at", "desc");
+        $this->db->where('IdCaso', $Id);
+        $qComentarios = $this->db->get('comentarios');
+
+        $json[] = array(
+            'array_Caso'    => $qCaso->result_array(),
+            'array_Comentario' => $qComentarios->result_array()
+        );
+        return $json;
+    }
     private function Format_Consecutivo($Contador){
 
         return substr("00000", strlen ($Contador), 5).$Contador;
@@ -70,8 +86,6 @@ class main_model extends CI_Model {
         );
         return $Arr;
     }
-
-
     public function SaveSolicitud($data) {
         $result=false;
         if (count($data)>0) {
@@ -94,6 +108,21 @@ class main_model extends CI_Model {
                     'created_at'    => $Fecha,
                     'updated_at'    => date('Y-m-d'),
                     'id_usuario'    => $this->session->userdata('idUser')
+                ));
+            }
+        }
+        echo $result;
+    }
+
+    public function SaveComentario($data) {
+        $result=false;
+        if (count($data)>0) {
+            foreach ($data as $key){
+                $result=   $this->db->insert('comentarios', array(
+                    'IdCaso'        => $key['mID'],
+                    'Comentario'   => $key['mComentario'],
+                    'Created_at'    => date('Y-m-d h:i:S'),
+                    'Id_Usuario'    => $this->session->userdata('idUser')
                 ));
             }
         }

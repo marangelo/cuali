@@ -17,6 +17,8 @@ $route['getResumen'] = 'main_controller/getResumen';
 $route['SaveSolicitud'] = 'main_controller/SaveSolicitud';
 $route['SaveComentario'] = 'main_controller/SaveComentario';
 $route['DetalleResumen/(:any)'] = 'main_controller/DetalleResumen/$1';
+$route['BuscarSolicitud'] = 'main_controller/BuscarSolicitud';
+$route['DescartarSolicitud'] = 'main_controller/DescartarSolicitud';
 
 $route['Cuentas'] = 'cuentas_controller';
 $route['getCuentas'] = 'cuentas_controller/getCuentas';

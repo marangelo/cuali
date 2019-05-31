@@ -10,16 +10,52 @@ class main_model extends CI_Model {
     public function getResumen() {
         $data = array();
         $i=0;
-        $qCuentas = $this->db->get('casos');
+        $this->db->where('estado', 1);
+        $qCuentas = $this->db->get('vstsolicitudes');
         if($qCuentas->num_rows() > 0 ) {
             foreach ($qCuentas->result_array() as $key){
                 $data['data'][$i]['N']          = $this->Format_Consecutivo($key['idCaso']);
                 $data['data'][$i]['CUENTA']     = '<a href="DetalleResumen/'.$key['idCaso'].'" >'.$key['Nombres'].' '.$key['Apellidos'].'</a>';
-                $data['data'][$i]['REMITIDO']   = $key['Id_Asignado'];;
-                $data['data'][$i]['FUENTE']     = $key['Id_Fuente'];;
-                $data['data'][$i]['FECHA']      = $key['created_at'];
-                $data['data'][$i]['HORA']       = $key['created_at'];;
-                $data['data'][$i]['Acc']        = '<i class="material-icons">delete</i>';
+                $data['data'][$i]['REMITIDO']   = $key['Id_Asignado'];
+                $data['data'][$i]['FUENTE']     = $key['Id_Fuente'];
+                $data['data'][$i]['FECHA']      = date('d-m-Y', strtotime($key['created_at']));
+                $data['data'][$i]['HORA']       = date('h:i:s', strtotime($key['created_at']));
+                $data['data'][$i]['Acc']        = '<i class="material-icons" onclick="Descartar('.$key['idCaso'].')">delete</i>';
+                $i++;
+            }
+        }else{
+            $data['data'][$i]['N']          = "";
+            $data['data'][$i]['CUENTA']     = "";
+            $data['data'][$i]['REMITIDO']   = "";
+            $data['data'][$i]['FUENTE']     = "";
+            $data['data'][$i]['FECHA']      = "";
+            $data['data'][$i]['HORA']       = "";
+            $data['data'][$i]['Acc']        = "";
+        }
+
+
+        echo json_encode($data);
+    }
+    public function BuscarSolicitud($f1 = "",$f2 = "") {
+        $data = array();
+
+        $i=0;
+
+        $f1 = date('Y-m-d h:i:s',strtotime($f1));
+        $f2 = date('Y-m-d h:i:s',strtotime($f2));
+
+        $consulta ="SELECT * FROM vstsolicitudes T0  WHERE T0.created_at BETWEEN '".$f1."' AND '".$f2."' and estado='1' ";
+
+        $qCuentas = $this->db->query($consulta);
+        if($qCuentas->num_rows() > 0 ) {
+            foreach ($qCuentas->result_array() as $key){
+                $data['data'][$i]['N']          = $this->Format_Consecutivo($key['idCaso']);
+                $data['data'][$i]['CUENTA']     = '<a href="DetalleResumen/'.$key['idCaso'].'" >'.$key['Nombres'].' '.$key['Apellidos'].'</a>';
+                $data['data'][$i]['REMITIDO']   = $key['Id_Asignado'];
+                $data['data'][$i]['FUENTE']     = $key['Id_Fuente'];
+                $data['data'][$i]['FECHA']      = date('d-m-Y', strtotime($key['created_at']));
+                $data['data'][$i]['HORA']       = date('h:i:s', strtotime($key['created_at']));
+                $data['data'][$i]['Acc']        = '<i class="material-icons" onclick="Descartar('.$key['idCaso'].')">delete</i>';
                 $i++;
             }
         }else{
@@ -57,7 +93,7 @@ class main_model extends CI_Model {
         $json = array();
 
         $this->db->where('idCaso', $Id);
-        $qCaso = $this->db->get('casos');
+        $qCaso = $this->db->get('vstsolicitudes');
 
         $this->db->order_by("Created_at", "desc");
         $this->db->where('IdCaso', $Id);
@@ -106,8 +142,22 @@ class main_model extends CI_Model {
                     'Id_Asignado'   => $key['mRemitido'],
                     'Comentarios'   => $key['mComentario'],
                     'created_at'    => $Fecha,
-                    'updated_at'    => date('Y-m-d'),
-                    'id_usuario'    => $this->session->userdata('idUser')
+                    'updated_at'    => date('Y-m-d h:i:s'),
+                    'id_usuario'    => $this->session->userdata('idUser'),
+                    'estado'        => 1
+                ));
+            }
+        }
+        echo $result;
+    }
+
+    public function DescartarSolicitud($data) {
+        $result=false;
+        if (count($data)>0) {
+            foreach ($data as $key){
+                $this->db->where('idCaso', $key['mID']);
+                $result = $this->db->update('casos', array(
+                    'estado' => 0
                 ));
             }
         }

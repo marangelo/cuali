@@ -1,5 +1,13 @@
 <script>
     $(document).ready(function() {
+
+        $('#txTelefono').mask("0000-0000", {placeholder: "000-000"});
+        $('#txCorreo').mask("A",{
+            placeholder: "example@gmail.com",
+            translation: {
+                "A": { pattern: /[\w@\-.+]/, recursive: true }
+            }
+        });
         inicializaControlFecha();
         $('#slCuenta').on('change', function() {
 

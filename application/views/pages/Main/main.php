@@ -34,7 +34,7 @@
                          <th>REMITIDO</th>
                          <th>FUENTE</th>
                          <th>FECHA</th>
-                         <th>HORA</th>
+                         <th>TIPO</th>
                          <th></th>
                      </tr>
                  </thead>

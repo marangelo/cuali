@@ -1,13 +1,21 @@
 <script>
     $(document).ready(function() {
+        $('.modal').modal();
+        $('#txTelefono').mask("0000-0000", {placeholder: "Telefono"});
 
-        $('#txTelefono').mask("0000-0000", {placeholder: "000-000"});
+        $('#txMonto').mask('000,000,000', {reverse: true});
+
         $('#txCorreo').mask("A",{
             placeholder: "example@gmail.com",
             translation: {
                 "A": { pattern: /[\w@\-.+]/, recursive: true }
             }
         });
+
+        $( "#IdOpenModal" ).click(function() {
+            $('#mdlRemitidos').modal('open');
+        });
+
         inicializaControlFecha();
         $('#slCuenta').on('change', function() {
 
@@ -26,7 +34,7 @@
                                 $("#slCategorias").append('<option value='+item['Id_Categorias']+'>'+item['Nombre']+'</option>');
                             });
                             $.each(item['array_Remitidos'], function(i, item) {
-                                $("#slRemitidos").append('<option value='+item['Id_Remitidos']+'>'+item['Nombre']+'</option>');
+                                $("#tblRemitente").append('<option value='+item['Id_Remitidos']+'>'+item['Nombre']+'</option>');
                             });
                         });
                     }else if (data.length===0) {
@@ -40,7 +48,6 @@
     });
     function SaveSolicitud() {
 
-            var mID           = $("#nSolicitud").html();
             var mFecha        = $("#Id_Desde").val();
             var mCuenta       = $("#slCuenta").val();
             var mFuente       = $("#slFuente").val();
@@ -52,6 +59,8 @@
             var mCorreo       = $('#txCorreo').val();
             var mRemitido     = $('#slRemitidos').val();
             var mComentario   = $('#taComentario').val();
+            var mCiudad       = $('#slCiudades').val();
+            var mMonto        = $('#txMonto').val();
 
 
         if (mCuenta===null) {
@@ -126,7 +135,6 @@
                 var form_data = {
                     data : [
                         {
-                            "mID"         : mID,
                             "mFecha"      : mFecha,
                             "mCuenta"     : mCuenta,
                             "mFuente"     : mFuente,
@@ -137,7 +145,9 @@
                             "mTelefono"   : mTelefono,
                             "mCorreo"     : mCorreo,
                             "mRemitido"   : mRemitido,
-                            "mComentario" : mComentario
+                            "mComentario" : mComentario,
+                            "mCiudad"     : mCiudad,
+                            "mMonto"      : mMonto
                         }
                     ]
                 };
@@ -163,13 +173,6 @@
             });
 
         }
-
-
-
-
-
-
-
     }
 
 </script>

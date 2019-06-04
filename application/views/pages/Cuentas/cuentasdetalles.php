@@ -9,7 +9,7 @@
         </div>
     </div>
 	<div class="row">
-        <div class="col s12 m6">
+        <div class="col s12 m12">
             <div class="card" >
                 <div class="card-content">
                     <div class="row" >
@@ -43,15 +43,18 @@
                 </div>
             </div>
         </div>
-        <div class="col s12 m6">
+        <div class="col s12 m12">
             <div class="card" >
                 <div class="card-content">
                     <div class="row" >
-                        <div class="col s12 m6">
+                        <div class="col s12 m4">
                             <input type="text" placeholder="Nombres">
                         </div>
-                        <div class="col s12 m6" >
+                        <div class="col s12 m4" >
                             <input placeholder="Email" type="text" class="validate">
+                        </div>
+                        <div class="col s12 m4">
+                            <input placeholder="Cargo" type="text" class="validate">
                         </div>
                     </div>
 
@@ -61,6 +64,7 @@
                             <th>Nº</th>
                             <th>NOMBRE</th>
                             <th>EMAIL</th>
+                            <th>CARGO</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -71,6 +75,7 @@
                                            <td>".$d['Id_Remitidos']."</td>
                                            <td>".$d['Nombre']."</td>
                                            <td>".$d['Email']."</td>
+                                           <td>".$d['Cargo']."</td>
                                     </tr>";
                         }
 

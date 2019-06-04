@@ -12,6 +12,14 @@
         });
 
     });
+
+    function OpenModal(){
+        Swal.fire({
+            type: 'error',
+            title: 'Oops...',
+            text: 'Seleccione primer rango!'
+        });
+    }
     function Descartar(mID) {
         Swal.fire({
             title: '¿Seguro de descartar el caso?',
@@ -47,6 +55,8 @@
     function Buscar() {
         var mFechaDesde        = $("#desde").val();
         var mFechaHasta        = $("#hasta").val();
+
+        console.log(mFechaDesde + '->' + mFechaHasta);
 
         if (mFechaDesde===""){
             Swal.fire({
@@ -104,7 +114,7 @@
                     { "data": "REMITIDO" },
                     { "data": "FUENTE" },
                     { "data": "FECHA" },
-                    { "data": "HORA" },
+                    { "data": "TIPO" },
                     { "data": "Acc" }
                 ],
                 "fnInitComplete": function (dta) {
@@ -152,7 +162,7 @@
                 { "data": "REMITIDO" },
                 { "data": "FUENTE" },
                 { "data": "FECHA" },
-                { "data": "HORA" },
+                { "data": "TIPO" },
                 { "data": "Acc" }
             ],
             "fnInitComplete": function (dta) {

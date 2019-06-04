@@ -19,7 +19,7 @@ class main_model extends CI_Model {
                 $data['data'][$i]['REMITIDO']   = $key['Id_Asignado'];
                 $data['data'][$i]['FUENTE']     = $key['Id_Fuente'];
                 $data['data'][$i]['FECHA']      = date('d-m-Y', strtotime($key['created_at']));
-                $data['data'][$i]['HORA']       = date('h:i:s', strtotime($key['created_at']));
+                $data['data'][$i]['TIPO']       = $key['Id_Tipo'];
                 $data['data'][$i]['Acc']        = '<i class="material-icons" onclick="Descartar('.$key['idCaso'].')">delete</i>';
                 $i++;
             }
@@ -29,7 +29,7 @@ class main_model extends CI_Model {
             $data['data'][$i]['REMITIDO']   = "";
             $data['data'][$i]['FUENTE']     = "";
             $data['data'][$i]['FECHA']      = "";
-            $data['data'][$i]['HORA']       = "";
+            $data['data'][$i]['TIPO']       = "";
             $data['data'][$i]['Acc']        = "";
         }
 
@@ -41,8 +41,8 @@ class main_model extends CI_Model {
 
         $i=0;
 
-        $f1 = date('Y-m-d h:i:s',strtotime($f1));
-        $f2 = date('Y-m-d h:i:s',strtotime($f2));
+        $f1 = date('Y-m-d',strtotime($f1));
+        $f2 = date('Y-m-d',strtotime($f2));
 
         $consulta ="SELECT * FROM vstsolicitudes T0  WHERE T0.created_at BETWEEN '".$f1."' AND '".$f2."' and estado='1' ";
 
@@ -54,7 +54,7 @@ class main_model extends CI_Model {
                 $data['data'][$i]['REMITIDO']   = $key['Id_Asignado'];
                 $data['data'][$i]['FUENTE']     = $key['Id_Fuente'];
                 $data['data'][$i]['FECHA']      = date('d-m-Y', strtotime($key['created_at']));
-                $data['data'][$i]['HORA']       = date('h:i:s', strtotime($key['created_at']));
+                $data['data'][$i]['TIPO']       = $key['Id_Tipo'];
                 $data['data'][$i]['Acc']        = '<i class="material-icons" onclick="Descartar('.$key['idCaso'].')">delete</i>';
                 $i++;
             }
@@ -64,7 +64,7 @@ class main_model extends CI_Model {
             $data['data'][$i]['REMITIDO']   = "";
             $data['data'][$i]['FUENTE']     = "";
             $data['data'][$i]['FECHA']      = "";
-            $data['data'][$i]['HORA']       = "";
+            $data['data'][$i]['TIPO']       = "";
             $data['data'][$i]['Acc']        = "";
         }
 
@@ -73,19 +73,15 @@ class main_model extends CI_Model {
     }
     public function Info_Nuevo_Caso() {
         $json = array();
-        $qCount = $this->db->get('casos');
         $qCuentas = $this->db->get('cuentas');
         $qTipos = $this->db->get('tipos');
         $qFuentes = $this->db->get('fuentes');
-
-        $Contador =  $this->Format_Consecutivo($qCount->num_rows() + 1);
-
-
+        $qCiudades = $this->db->get('ciudades');
         $json[] = array(
-            'array_Cont'    => $Contador,
-            'array_Cuentas' => $qCuentas->result_array(),
-            'array_Tipos'   => $qTipos->result_array(),
-            'array_Fuentes' => $qFuentes->result_array()
+            'array_Cuentas'  => $qCuentas->result_array(),
+            'array_Tipos'    => $qTipos->result_array(),
+            'array_Fuentes'  => $qFuentes->result_array(),
+            'array_Ciudades' => $qCiudades->result_array()
         );
         return $json;
     }
@@ -130,7 +126,6 @@ class main_model extends CI_Model {
                 $Fecha = date('Y-m-d', strtotime(str_replace('/', '-', $key['mFecha'])));
 
                 $result=   $this->db->insert('casos', array(
-                    'idCaso'        => $key['mID'],
                     'Nombres'       => $key['mNombre'],
                     'Apellidos'     => $key['mApellido'],
                     'Telefono'      => $key['mTelefono'],

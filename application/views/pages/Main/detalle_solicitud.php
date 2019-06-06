@@ -16,15 +16,27 @@
                             </div>
                         </div>
                         <div class="col s2 m2 right-align">
-                            <?php echo $Info[0]['array_Caso'][0]['created_at'];?>
+                            <?php echo date('d-m-Y',strtotime($Info[0]['array_Caso'][0]['created_at']));?>
                         </div>
                     </div>
                     <p><?php echo $Info[0]['array_Caso'][0]['Comentarios'];?></p><br>
                     <div class="row">
-                        <div class="col s12 m3 "> <i class="Small material-icons">add</i><?php echo $Info[0]['array_Caso'][0]['Id_Cuenta'];?></div>
-                        <div class="col s12 m3"><i class="Small material-icons">add</i><?php echo $Info[0]['array_Caso'][0]['Id_Categoria'];?></div>
-                        <div class="col s12 m3"><i class="Small material-icons">add</i><?php echo $Info[0]['array_Caso'][0]['Id_Asignado'];?></div>
-                        <div class="col s12 m3"><i class="Small material-icons">add</i><?php echo $Info[0]['array_Caso'][0]['Id_Fuente'];?></div>
+                        <div class="col s12 m3 valign-wrapper">
+                            <i class="Small material-icons">domain</i>
+                            <span style="margin-left: 10px;"><?php echo $Info[0]['array_Caso'][0]['Id_Cuenta'];?></span>
+                        </div>
+                        <div class="col s12 m3 valign-wrapper">
+                            <i class="Small material-icons">notes</i>
+                            <span style="margin-left: 10px;"><?php echo $Info[0]['array_Caso'][0]['Id_Categoria'];?></span>
+                        </div>
+                        <div class="col s12 m3 valign-wrapper">
+                            <i class="Small material-icons">assignment_ind</i>
+                            <span style="margin-left: 10px;"><?php echo $Info[0]['array_Caso'][0]['Id_Asignado'];?></span>
+                        </div>
+                        <div class="col s12 m3 valign-wrapper">
+                            <i class="Small material-icons">share</i>
+                            <span style="margin-left: 10px;"><?php echo $Info[0]['array_Caso'][0]['Id_Fuente'];?></span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -46,8 +58,16 @@
                                 <div class="card">
                                     <div class="card-content">
                                         <div class="row">
-                                        <div class="col s12 m6">'.$caso['Id_Usuario'].'</div>
-                                        <div class="col s12 m6 right-align">'.$caso['Created_at'].'</div>
+                                            <div class="col s12 m6 valign-wrapper">
+                                                <i class="Small material-icons">face</i>
+                                                <span style="margin-left: 10px;">'.$caso['Name_Usuario'].'</span>
+                                            </div>
+                                            <div class="col s12 m6 right-align">
+                                                    <div class=" valign-wrapper right">
+                                                         <i class="Small material-icons">history</i>
+                                                        <span style="margin-left: 10px;">'.date('d-m-Y',strtotime($caso['Created_at'])).'</span>
+                                                </div>
+                                            </div>
                                     </div>
                             <p>'.$caso['Comentario'].'</p><br>
                             </div></div></div>';

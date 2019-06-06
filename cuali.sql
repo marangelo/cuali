@@ -11,7 +11,7 @@
  Target Server Version : 100113
  File Encoding         : 65001
 
- Date: 04/06/2019 16:12:59
+ Date: 06/06/2019 15:17:00
 */
 
 SET NAMES utf8mb4;
@@ -32,6 +32,7 @@ CREATE TABLE `casos`  (
   `Id_Tipo` int(10) NULL DEFAULT NULL,
   `Id_Categoria` int(10) NULL DEFAULT NULL,
   `Id_Asignado` int(10) NULL DEFAULT NULL,
+  `Id_Ciudad` int(10) NULL DEFAULT NULL,
   `Monto` decimal(10, 2) NULL DEFAULT NULL,
   `Comentarios` varchar(500) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `created_at` timestamp(0) NULL DEFAULT NULL,
@@ -39,20 +40,12 @@ CREATE TABLE `casos`  (
   `id_usuario` int(10) NULL DEFAULT NULL,
   `estado` int(1) NULL DEFAULT NULL,
   PRIMARY KEY (`idCaso`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 17 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of casos
 -- ----------------------------
-INSERT INTO `casos` VALUES (1, 'Maryan', 'Espinoza', 82449100, 'endscom@gmail.com', 1, 1, 1, 1, 1, NULL, 'dddd', '2019-05-27 00:00:00', '2019-05-27 00:00:00', 1, 0);
-INSERT INTO `casos` VALUES (2, 'Maryan', 'Espinoza', 82449100, 'endscom@gmail.com', 1, 1, 1, 1, 1, NULL, 'dddd', '2019-05-27 00:00:00', '2019-05-27 00:00:00', 1, 0);
-INSERT INTO `casos` VALUES (3, 'Maryan', 'Espinoza', 82449100, 'endscom@gmail.com', 1, 1, 1, 1, 1, NULL, 'dddd', '2019-05-27 00:00:00', '2019-05-27 00:00:00', 1, 0);
-INSERT INTO `casos` VALUES (4, 'Maryan', 'Espinoza', 82449100, 'endscom@gmail.com', 1, 1, 1, 1, 1, NULL, 'dddd', '2019-05-27 00:00:00', '2019-05-27 00:00:00', 1, 0);
-INSERT INTO `casos` VALUES (5, 'Maryan', 'Espinoza', 82449100, 'endscom@gmail.com', 1, 1, 1, 1, 1, NULL, 'dddd', '2019-05-27 00:00:00', '2019-05-27 00:00:00', 1, 0);
-INSERT INTO `casos` VALUES (6, 'Maryan Adan', 'Barrera ESPINOZA', 82449100, 'endscom@gmail.com', 1, 1, 1, 2, 2, NULL, 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.\n\nDonec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.', '2019-05-29 00:00:00', '2019-05-29 00:00:00', 1, 0);
-INSERT INTO `casos` VALUES (7, 'Marcos', 'latino', 82449100, 'endscom@gmail.com', 1, 3, 2, 3, 4, NULL, 'comentario marcos', '2019-05-31 00:00:00', '2019-05-31 11:33:29', 1, 0);
-INSERT INTO `casos` VALUES (8, 'Maryan Adan', 'Barrera', 82449100, 'endscom@gmail.com', 1, 1, 1, 3, 4, NULL, 'comentairo', '2019-05-31 00:00:00', '2019-05-31 11:55:18', 1, 1);
-INSERT INTO `casos` VALUES (9, 'Carlos', 'Nicaragua', 8244, 'endscom@gmail.com', 1, 2, 2, 2, 2, NULL, 'comentario', '2019-06-03 00:00:00', '2019-06-03 10:50:38', 1, 1);
+INSERT INTO `casos` VALUES (16, 'Maryan Adan', 'Barrera', 82449100, 'endscom@gmail.com', 1, 3, 2, 3, 2, 3, 2500.00, 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.\n\nDonec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.', '2019-06-06 00:00:00', '2019-06-06 11:38:31', 1, 1);
 
 -- ----------------------------
 -- Table structure for categorias
@@ -73,7 +66,7 @@ CREATE TABLE `categorias`  (
 -- ----------------------------
 INSERT INTO `categorias` VALUES (1, 'CATEGORIA INISSER 01', 1, '2019-05-21 14:11:12', '2019-05-21 14:11:12', 1);
 INSERT INTO `categorias` VALUES (2, 'CATEGORIA INISSER 02', 1, '2019-05-21 14:11:12', '2019-05-21 14:11:12', 1);
-INSERT INTO `categorias` VALUES (3, 'CATEGORIA INISSER 03', 1, '2019-05-21 14:11:12', '2019-05-21 14:11:12', 1);
+INSERT INTO `categorias` VALUES (3, 'CATEGORIA INISSER DE LA CUENTA INISER', 1, '2019-05-21 14:11:12', '2019-05-21 14:11:12', 1);
 INSERT INTO `categorias` VALUES (4, 'CATEGORIA INISSER 04', 1, '2019-05-21 14:11:12', '2019-05-21 14:11:12', 1);
 INSERT INTO `categorias` VALUES (5, 'CATEGORIA INISSER 04', 1, '2019-05-21 14:11:12', '2019-05-21 14:11:12', 1);
 INSERT INTO `categorias` VALUES (6, 'CATEGORIA INISSER 06', 1, '2019-05-21 14:11:12', '2019-05-21 14:11:12', 1);
@@ -119,25 +112,16 @@ CREATE TABLE `comentarios`  (
   `Comentario` varchar(500) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `Created_at` timestamp(0) NULL DEFAULT NULL,
   `Id_Usuario` int(10) NULL DEFAULT NULL,
+  `Name_Usuario` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`IdComentario`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 14 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 18 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of comentarios
 -- ----------------------------
-INSERT INTO `comentarios` VALUES (1, 1, 'Comentario01', '2019-05-24 09:20:53', 1);
-INSERT INTO `comentarios` VALUES (2, 1, 'Comentario02', '2019-05-25 09:21:00', 1);
-INSERT INTO `comentarios` VALUES (3, 1, 'Comentario03', '2019-05-26 09:21:03', 1);
-INSERT INTO `comentarios` VALUES (4, 1, 'Comentario04', '2019-05-27 09:21:07', 1);
-INSERT INTO `comentarios` VALUES (5, 1, 'Comentario05', '2019-05-28 09:21:11', 1);
-INSERT INTO `comentarios` VALUES (6, 1, 'Comentario06', '2019-05-29 09:21:16', 1);
-INSERT INTO `comentarios` VALUES (7, 1, 'Comentario07', '2019-05-29 09:21:28', 1);
-INSERT INTO `comentarios` VALUES (8, 1, 'Comentario08', '2019-05-29 09:21:36', 1);
-INSERT INTO `comentarios` VALUES (9, 6, 'KKKK', '2019-05-29 00:00:00', 1);
-INSERT INTO `comentarios` VALUES (10, 6, 'OOOOO', '2019-05-29 00:00:00', 1);
-INSERT INTO `comentarios` VALUES (11, 6, 'comentario\n', '2019-05-29 11:19:00', 1);
-INSERT INTO `comentarios` VALUES (12, 6, 'comentarios', '2019-05-29 11:29:00', 1);
-INSERT INTO `comentarios` VALUES (13, 7, 'comentario marcos 2', '2019-05-31 11:33:00', 1);
+INSERT INTO `comentarios` VALUES (15, 16, 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.\n\nDonec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.', '2019-06-06 11:38:00', 1, 'admin');
+INSERT INTO `comentarios` VALUES (16, 16, 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.\n\nDonec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.', '2019-06-06 11:38:00', 1, 'admin');
+INSERT INTO `comentarios` VALUES (17, 16, 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.\n\nDonec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.', '2019-06-06 11:45:00', 1, 'admin');
 
 -- ----------------------------
 -- Table structure for cuentas
@@ -150,12 +134,13 @@ CREATE TABLE `cuentas`  (
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   `id_usuario` int(10) NULL DEFAULT NULL,
   PRIMARY KEY (`Id_Cuenta`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of cuentas
 -- ----------------------------
 INSERT INTO `cuentas` VALUES (1, 'INISER', '2019-05-21 14:09:28', '2019-05-21 14:09:31', 1);
+INSERT INTO `cuentas` VALUES (2, 'Cuenta No2', '2019-06-06 10:34:21', '2019-06-06 10:34:23', 1);
 
 -- ----------------------------
 -- Table structure for fuentes
@@ -186,7 +171,7 @@ CREATE TABLE `log_sesion`  (
   `idUser` int(6) NOT NULL,
   `fecha` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id_log`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 96 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 100 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of log_sesion
@@ -212,6 +197,10 @@ INSERT INTO `log_sesion` VALUES (92, 1, '2019-06-03 07:51:02');
 INSERT INTO `log_sesion` VALUES (93, 1, '2019-06-03 16:05:00');
 INSERT INTO `log_sesion` VALUES (94, 1, '2019-06-04 08:33:02');
 INSERT INTO `log_sesion` VALUES (95, 1, '2019-06-04 14:46:55');
+INSERT INTO `log_sesion` VALUES (96, 1, '2019-06-06 08:49:50');
+INSERT INTO `log_sesion` VALUES (97, 1, '2019-06-06 11:58:00');
+INSERT INTO `log_sesion` VALUES (98, 1, '2019-06-06 12:10:46');
+INSERT INTO `log_sesion` VALUES (99, 1, '2019-06-06 14:56:47');
 
 -- ----------------------------
 -- Table structure for remitidos
@@ -227,16 +216,17 @@ CREATE TABLE `remitidos`  (
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   `id_usuario` int(10) NULL DEFAULT NULL,
   PRIMARY KEY (`Id_Remitidos`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of remitidos
 -- ----------------------------
 INSERT INTO `remitidos` VALUES (1, 'Maryan01', 'Endscom@gmail.com', 'Cargo 01', 1, '2019-05-21 14:13:34', '2019-05-21 14:13:39', 1);
-INSERT INTO `remitidos` VALUES (2, 'Maryan02', 'Endscom@gmail.com', 'Cargo 02', 1, '2019-05-21 14:13:34', '2019-05-21 14:13:39', 1);
+INSERT INTO `remitidos` VALUES (2, 'Maryan Adan Espinoza Barrera', 'Endscom@gmail.com', 'Cargo 02', 1, '2019-05-21 14:13:34', '2019-05-21 14:13:39', 1);
 INSERT INTO `remitidos` VALUES (3, 'Maryan03', 'Endscom@gmail.com', 'Cargo 03', 1, '2019-05-21 14:13:34', '2019-05-21 14:13:39', 1);
 INSERT INTO `remitidos` VALUES (4, 'Maryan04', 'Endscom@gmail.com', 'Cargo 04', 1, '2019-05-21 14:13:34', '2019-05-21 14:13:39', 1);
 INSERT INTO `remitidos` VALUES (5, 'Maryan05', 'Endscom@gmail.com', 'Cargo 05', 1, '2019-05-21 14:13:34', '2019-05-21 14:13:39', 1);
+INSERT INTO `remitidos` VALUES (6, 'Remitido06', 'endscom@gmail.comn', 'Cargo 06', 2, '2019-06-06 10:34:50', '2019-06-06 10:34:53', 1);
 
 -- ----------------------------
 -- Table structure for tipos

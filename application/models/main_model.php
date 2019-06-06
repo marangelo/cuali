@@ -136,6 +136,8 @@ class main_model extends CI_Model {
                     'Id_Categoria'  => $key['mCategoria'],
                     'Id_Asignado'   => $key['mRemitido'],
                     'Comentarios'   => $key['mComentario'],
+                    'Id_Ciudad'     => $key['mCiudad'],
+                    'Monto'         => $key['mMonto'],
                     'created_at'    => $Fecha,
                     'updated_at'    => date('Y-m-d h:i:s'),
                     'id_usuario'    => $this->session->userdata('idUser'),
@@ -167,7 +169,8 @@ class main_model extends CI_Model {
                     'IdCaso'        => $key['mID'],
                     'Comentario'   => $key['mComentario'],
                     'Created_at'    => date('Y-m-d h:i:S'),
-                    'Id_Usuario'    => $this->session->userdata('idUser')
+                    'Id_Usuario'    => $this->session->userdata('idUser'),
+                    'Name_Usuario'    => $this->session->userdata('userName')
                 ));
             }
         }

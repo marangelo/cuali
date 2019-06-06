@@ -1,9 +1,9 @@
 <script>
     $(document).ready(function() {
         $('.modal').modal();
-        $('#txTelefono').mask("0000-0000", {placeholder: "Telefono"});
+        $('#txTelefono').mask("00000000", {placeholder: "Telefono"});
 
-        $('#txMonto').mask('000,000,000', {reverse: true});
+        $('#txMonto').mask('000000000', {reverse: true});
 
         $('#txCorreo').mask("A",{
             placeholder: "example@gmail.com",
@@ -17,6 +17,9 @@
         });
 
         inicializaControlFecha();
+
+
+
         $('#slCuenta').on('change', function() {
 
             $('#slCategorias').find('option').not(':first').remove();
@@ -33,19 +36,67 @@
                             $.each(item['array_Categorias'], function(i, item) {
                                 $("#slCategorias").append('<option value='+item['Id_Categorias']+'>'+item['Nombre']+'</option>');
                             });
+
+                            var   tbody = '<thead>' +
+                                '<tr>' +
+                                    '<th></th>' +
+                                    '<th>Nº</th>' +
+                                    '<th>Nombre</th>' +
+                                    '<th>Email</th>' +
+                                    '<th>Cargo</th>' +
+                                '</tr>' +
+                                '</thead>';
                             $.each(item['array_Remitidos'], function(i, item) {
-                                $("#tblRemitente").append('<option value='+item['Id_Remitidos']+'>'+item['Nombre']+'</option>');
+                                tbody += '<tr>' +
+                                    '<td></td>'+
+                                    '<td>' + item['Id_Remitidos'] + '</td>' +
+                                    '<td>' +item['Nombre'] + '</td>' +
+                                    '<td>' +item['Email'] +'</td>' +
+                                    '<td>' +item['Cargo'] +'</td>';
+
                             });
+                            $( "#mdlTabla" ).html(($('<table id="tblRemitente" class="display" cellspacing="0" width="100%">' +tbody + ' </table>')));
+                            $('#tblRemitente').DataTable( {
+                                columnDefs: [
+                                    { "visible": false, "targets": 1 },
+                                    {
+                                    orderable: false,
+                                    className: 'select-checkbox',
+                                    targets:   0
+                                } ],
+                                select: {
+                                    style: 'single'
+                                },
+                                order: [[ 1, 'asc' ]]
+                            } );
+
                         });
+                        $("#tblRemitente_info,#tblRemitente_paginate,#tblRemitente_filter").hide();
                     }else if (data.length===0) {
                         alert("Error");
                     }
 
                 }
             });
-        });
 
+        });
+        $('#bt_asignarCaso').click(function() {
+            var table = $('#tblRemitente').DataTable();
+            var data = table.rows( { selected: true } ).data();
+            if(data.length > 0){
+                $("#txRemitidos").val(data[0][2]);
+                $("#lblIDRemitido").html(data[0][1]);
+            }else{
+                Swal.fire({
+                    type: 'error',
+                    title: 'Seleccione Algun dato...'
+                });
+            }
+
+        });
     });
+
+
     function SaveSolicitud() {
 
             var mFecha        = $("#Id_Desde").val();
@@ -57,7 +108,7 @@
             var mApellido     = $('#txApellidos').val();
             var mTelefono     = $('#txTelefono').val();
             var mCorreo       = $('#txCorreo').val();
-            var mRemitido     = $('#slRemitidos').val();
+            var mRemitido     = $('#lblIDRemitido').html();
             var mComentario   = $('#taComentario').val();
             var mCiudad       = $('#slCiudades').val();
             var mMonto        = $('#txMonto').val();
@@ -123,6 +174,12 @@
                 title: 'Oops...',
                 text: 'Ingrese algun comentario'
             });
+        }else if (mCiudad===null) {
+            Swal.fire({
+                type: 'error',
+                title: 'Oops...',
+                text: 'Seleccione la ciudad'
+            });
         }else{
             Swal.fire({
                 title: '¿Seguro de Guardar?',
@@ -170,7 +227,8 @@
                     }
                 });
             }
-            });
+        });
+
 
         }
     }

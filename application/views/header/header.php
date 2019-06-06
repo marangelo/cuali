@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="<?php echo base_url();?>assets/css/select2.min.css">
 	<!--DATATABLES-->
     <link rel="stylesheet" href="<?php echo base_url();?>assets/css/dataTables.foundation.css" >
+    <link rel="stylesheet" href="<?php echo base_url();?>assets/css/select.dataTables.min.css" >
     <!--Mis estilos css-->
     <link type="text/css" rel="stylesheet" href="<?php echo base_url();?>assets/css/_styles.css"  media="screen,projection"/>
     <!--DATEPICKERS-->

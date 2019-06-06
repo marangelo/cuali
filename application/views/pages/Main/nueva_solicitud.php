@@ -13,19 +13,19 @@
                             <i class="material-icons">today</i>
                             <input type="text" id="Id_Desde" name="Fecha" class="input-fecha" placeholder="Fecha:" value="">
                         </div>
-                        <div class="col s12 m5 container-input">
+                        <div class="col s12 m4 container-input">
                             <select name="" id="slCuenta" class="jsSelect browser-default">
-                                <option value="" disabled selected><span> Cuenta</span></option>
+                                <option class="Color_select">Cuenta...</option>
                                 <?php
                                 foreach ($ext[0]['array_Cuentas'] as $vl){
-                                    echo '<option value="'.$vl['Id_Cuenta'].'">'.$vl['name'].$vl['Nombre'].'</option>';
+                                    echo '<option value="'.$vl['Id_Cuenta'].'">'.$vl['Nombre'].'</option>';
                                 }
                                 ?>
                             </select>
                         </div>
-                        <div class="col s12 m3 container-input"" >
+                        <div class="col s12 m4 container-input"" >
                             <select name="" id="slFuente" class="jsSelect">
-                                <option value="" disabled selected><span> Fuente</span></option>
+                                <option value="" disabled selected><span> Fuente:</span></option>
                                 <?php
                                 foreach ($ext[0]['array_Fuentes'] as $vl){
                                     echo '<option value="'.$vl['idFuentes'].'">'.$vl['name'].$vl['fNombre'].'</option>';
@@ -76,11 +76,12 @@
                             <i class="material-icons prefix" >
                                 <img  src="<?php echo base_url();?>assets/css/chosen-sprite.png" id="IdOpenModal">
                             </i>
-                            <input disabled  type="tel" class="validate" placeholder="Asignar:">
+                            <span id="lblIDRemitido" style="display: none">0</span>
+                            <input disabled  type="text" class="validate" placeholder="Asignar:" id="txRemitidos">
                         </div>
                         <div class="col s12 m4">
                             <select name="" id="slCiudades" class="jsSelect">
-                                <option value="" disabled selected><span>Ciudadad: </span></option>
+                                <option value="" disabled selected>Ciudadad:</option>
                                 <?php
                                 foreach ($ext[0]['array_Ciudades'] as $vl){
                                     echo '<option value="'.$vl['IdCiudad'].'">'.$vl['NombreCiudad'].'</option>';
@@ -110,22 +111,8 @@
     </div>
 </div>
 <div id="mdlRemitidos" class="modal">
-    <div class="modal-content">
-
-        <table id="tblRemitente" class="display" cellspacing="0" width="100%">
-            <thead>
-            <tr>
-                <th>Nº</th>
-                <th>NOMBRE</th>
-                <th>EMAIL</th>
-                <th>CARGO</th>
-            </tr>
-            </thead>
-             <tbody>
-            </tbody>
-        </table>
-    </div>
+    <div class="modal-content" id="mdlTabla"></div>
     <div class="modal-footer">
-        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Asignar</a>
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat" ID="bt_asignarCaso">Asignar</a>
     </div>
 </div>

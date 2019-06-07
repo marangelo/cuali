@@ -33,6 +33,12 @@ class cuentas_controller extends CI_Controller {
         $this->load->view('footer/footer');
         $this->load->view('jsView/js_cuentasdetalles');
     }
+    public function SaveCuenta() {
+        $this->cuentas_model->SaveCuenta($this->input->post('data'));
+    }
+    public function DescartarCuenta() {
+        $this->cuentas_model->DescartarCuenta($this->input->post('data'));
+    }
 
 }
 ?>

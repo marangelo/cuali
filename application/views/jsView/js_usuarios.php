@@ -44,13 +44,9 @@
 
 
     function OpenModal(Accion){
-        if (Accion === "add") {
-            $('#spnAccion').html('<h4>Nueva Cuenta [ Add ]</h4>')
-            $('#mdUsuario').modal('open');
-        } else {
-            $('#spnAccion').html('<h4>Nueva Cuenta [ Edit ]</h4>')
-            $('#mdUsuario').modal('open');
-        }
+        var String = (Accion === "add") ? "Add" : "Edit";
+        $('#spnAccion').html('<h4>Nueva Cuenta [ ' + String + ' ]</h4>')
+        $('#mdUsuario').modal('open');
     }
     function OpenModalPermisos(){
         $('#mdPermisos').modal('open');

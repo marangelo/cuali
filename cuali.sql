@@ -11,7 +11,7 @@
  Target Server Version : 100113
  File Encoding         : 65001
 
- Date: 06/06/2019 15:17:00
+ Date: 07/06/2019 14:42:59
 */
 
 SET NAMES utf8mb4;
@@ -130,17 +130,21 @@ DROP TABLE IF EXISTS `cuentas`;
 CREATE TABLE `cuentas`  (
   `Id_Cuenta` int(10) NOT NULL AUTO_INCREMENT,
   `Nombre` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `Comentario` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   `id_usuario` int(10) NULL DEFAULT NULL,
+  `estado` int(10) NULL DEFAULT NULL,
   PRIMARY KEY (`Id_Cuenta`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of cuentas
 -- ----------------------------
-INSERT INTO `cuentas` VALUES (1, 'INISER', '2019-05-21 14:09:28', '2019-05-21 14:09:31', 1);
-INSERT INTO `cuentas` VALUES (2, 'Cuenta No2', '2019-06-06 10:34:21', '2019-06-06 10:34:23', 1);
+INSERT INTO `cuentas` VALUES (1, 'INISER', 'Cuenta principal', '2019-05-21 14:09:28', '2019-06-07 10:27:00', 1, 1);
+INSERT INTO `cuentas` VALUES (2, 'Cuenta No2', NULL, '2019-06-06 10:34:21', '2019-06-07 10:39:04', 1, 0);
+INSERT INTO `cuentas` VALUES (3, 'Cuenta 03', 'Esto serra el comentario Cuenta 03', '2019-06-07 09:02:00', '2019-06-07 10:38:51', 1, 0);
+INSERT INTO `cuentas` VALUES (4, 'Cuenta 04', 'Cuenta 04 Comentarios', '2019-06-07 10:22:00', '2019-06-07 10:36:35', 1, 0);
 
 -- ----------------------------
 -- Table structure for fuentes
@@ -171,7 +175,7 @@ CREATE TABLE `log_sesion`  (
   `idUser` int(6) NOT NULL,
   `fecha` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id_log`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 100 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 102 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of log_sesion
@@ -201,6 +205,8 @@ INSERT INTO `log_sesion` VALUES (96, 1, '2019-06-06 08:49:50');
 INSERT INTO `log_sesion` VALUES (97, 1, '2019-06-06 11:58:00');
 INSERT INTO `log_sesion` VALUES (98, 1, '2019-06-06 12:10:46');
 INSERT INTO `log_sesion` VALUES (99, 1, '2019-06-06 14:56:47');
+INSERT INTO `log_sesion` VALUES (100, 1, '2019-06-07 07:40:03');
+INSERT INTO `log_sesion` VALUES (101, 1, '2019-06-07 11:39:53');
 
 -- ----------------------------
 -- Table structure for remitidos

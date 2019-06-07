@@ -73,7 +73,9 @@ class main_model extends CI_Model {
     }
     public function Info_Nuevo_Caso() {
         $json = array();
+        $this->db->where('estado', 1);
         $qCuentas = $this->db->get('cuentas');
+
         $qTipos = $this->db->get('tipos');
         $qFuentes = $this->db->get('fuentes');
         $qCiudades = $this->db->get('ciudades');
@@ -154,7 +156,8 @@ class main_model extends CI_Model {
             foreach ($data as $key){
                 $this->db->where('idCaso', $key['mID']);
                 $result = $this->db->update('casos', array(
-                    'estado' => 0
+                    'estado' => 0,
+                    'updated_at'    => date('Y-m-d h:i:s')
                 ));
             }
         }

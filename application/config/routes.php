@@ -25,7 +25,9 @@ $route['getCuentas'] = 'cuentas_controller/getCuentas';
 $route['Info_Cuenta/(:any)'] = 'cuentas_controller/getInfoCuenta/$1';
 $route['CuentaDetalle/(:any)'] = 'cuentas_controller/CuentaDetalle/$1';
 $route['SaveCuenta'] = 'cuentas_controller/SaveCuenta';
+$route['SaveParametrosCuenta'] = 'cuentas_controller/SaveParametrosCuenta';
 $route['DescartarCuenta'] = 'cuentas_controller/DescartarCuenta';
+$route['DescargarParametro'] = 'cuentas_controller/DescargarParametro';
 
 
 $route['Usuarios'] = 'usuarios_controller';

@@ -12,6 +12,7 @@
             <a href="#!" onclick="OpenModal('add',0)" class="modal-trigger"><i class="small material-icons">add_circle</i></a>
 
         </div>
+
         <div class="col s12 m12">
              <table id="tblCuentas" class="display" cellspacing="0" width="100%">
                  <thead>

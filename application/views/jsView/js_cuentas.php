@@ -88,7 +88,7 @@
 
 
     }
-    function Descartar(mID) {
+    function Descartar(mID,mEstado) {
         Swal.fire({
             title: '¿Seguro de descartar la cuenta?' + mID,
             showCancelButton: true,
@@ -100,7 +100,8 @@
             var form_data = {
                 data : [
                     {
-                        "mIdCuenta"         : mID
+                        "mIdCuenta"         : mID,
+                        "mEstado"           : mEstado
                     }
                 ]
             };

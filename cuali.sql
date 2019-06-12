@@ -11,7 +11,7 @@
  Target Server Version : 100113
  File Encoding         : 65001
 
- Date: 07/06/2019 14:42:59
+ Date: 12/06/2019 16:37:10
 */
 
 SET NAMES utf8mb4;
@@ -58,18 +58,108 @@ CREATE TABLE `categorias`  (
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   `id_usuario` int(10) NULL DEFAULT NULL,
+  `estado` int(10) NULL DEFAULT NULL,
   PRIMARY KEY (`Id_Categorias`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 101 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of categorias
 -- ----------------------------
-INSERT INTO `categorias` VALUES (1, 'CATEGORIA INISSER 01', 1, '2019-05-21 14:11:12', '2019-05-21 14:11:12', 1);
-INSERT INTO `categorias` VALUES (2, 'CATEGORIA INISSER 02', 1, '2019-05-21 14:11:12', '2019-05-21 14:11:12', 1);
-INSERT INTO `categorias` VALUES (3, 'CATEGORIA INISSER DE LA CUENTA INISER', 1, '2019-05-21 14:11:12', '2019-05-21 14:11:12', 1);
-INSERT INTO `categorias` VALUES (4, 'CATEGORIA INISSER 04', 1, '2019-05-21 14:11:12', '2019-05-21 14:11:12', 1);
-INSERT INTO `categorias` VALUES (5, 'CATEGORIA INISSER 04', 1, '2019-05-21 14:11:12', '2019-05-21 14:11:12', 1);
-INSERT INTO `categorias` VALUES (6, 'CATEGORIA INISSER 06', 1, '2019-05-21 14:11:12', '2019-05-21 14:11:12', 1);
+INSERT INTO `categorias` VALUES (1, 'CATEGORIA INISSER 01', 1, '2019-05-21 14:11:12', '2019-06-10 11:38:54', 1, 0);
+INSERT INTO `categorias` VALUES (2, 'CATEGORIA INISSER 02', 1, '2019-05-21 14:11:12', '2019-06-10 11:38:56', 1, 0);
+INSERT INTO `categorias` VALUES (3, 'CATEGORIA INISSER DE LA CUENTA INISER', 1, '2019-05-21 14:11:12', '2019-06-10 11:38:57', 1, 0);
+INSERT INTO `categorias` VALUES (4, 'CATEGORIA INISSER 04', 1, '2019-05-21 14:11:12', '2019-06-10 11:38:59', 1, 0);
+INSERT INTO `categorias` VALUES (5, 'CATEGORIA INISSER 04', 1, '2019-05-21 14:11:12', '2019-06-10 11:39:01', 1, 0);
+INSERT INTO `categorias` VALUES (6, 'CATEGORIA INISSER 06', 1, '2019-05-21 14:11:12', '2019-06-10 11:39:03', 1, 0);
+INSERT INTO `categorias` VALUES (12, 'asdasdasd', 1, '2019-06-10 09:04:15', '2019-06-10 10:11:45', 1, 0);
+INSERT INTO `categorias` VALUES (13, 'NUEVA CATEGORIA', 1, '2019-06-10 09:06:49', '2019-06-10 10:11:47', 1, 0);
+INSERT INTO `categorias` VALUES (14, 'cate', 1, '2019-06-10 11:23:49', '2019-06-10 11:37:08', 1, 0);
+INSERT INTO `categorias` VALUES (15, 'SEGURO VIDA VITAL 3', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `categorias` VALUES (16, 'SEGURO VIDA VITAL 3', 1, '2019-06-10 11:39:45', '2019-06-10 11:39:45', 1, 1);
+INSERT INTO `categorias` VALUES (17, 'SEGURO DE VIDA INDIVIDUAL', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `categorias` VALUES (18, 'SEGURO DE VIDA INDIVIDUAL', 1, '2019-06-10 11:39:45', '2019-06-10 11:39:45', 1, 1);
+INSERT INTO `categorias` VALUES (19, 'SEGURO DE VIDA COLECTIVO', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `categorias` VALUES (20, 'SEGURO DE VIDA COLECTIVO', 1, '2019-06-10 11:39:45', '2019-06-10 11:39:45', 1, 1);
+INSERT INTO `categorias` VALUES (21, 'SEGURO VIDA DEUDORES', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `categorias` VALUES (22, 'SEGURO FUNERARIO FAMILIAR', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `categorias` VALUES (23, 'SEGURO VIDA DEUDORES', 1, '2019-06-10 11:39:45', '2019-06-10 11:39:45', 1, 1);
+INSERT INTO `categorias` VALUES (24, 'SEGURO FUNERARIO FAMILIAR', 1, '2019-06-10 11:39:45', '2019-06-10 11:39:45', 1, 1);
+INSERT INTO `categorias` VALUES (25, 'SEGURO DE VIDA GASTOS FUNERARIOS', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `categorias` VALUES (26, 'SEGURO DE VIDA GASTOS FUNERARIOS', 1, '2019-06-10 11:39:45', '2019-06-10 11:39:45', 1, 1);
+INSERT INTO `categorias` VALUES (27, 'SEGURO ACCIDENTES PERSONALES FAMILIARES', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `categorias` VALUES (28, 'SEGURO ACCIDENTES PERSONALES FAMILIARES', 1, '2019-06-10 11:39:45', '2019-06-10 11:39:45', 1, 1);
+INSERT INTO `categorias` VALUES (29, 'SEGURO DE ACCIDENTES COLECTIVOS', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `categorias` VALUES (30, 'SEGURO DE ACCIDENTES PERSONALES', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `categorias` VALUES (31, 'SEGURO DE ACCIDENTES COLECTIVOS', 1, '2019-06-10 11:39:45', '2019-06-10 11:39:45', 1, 1);
+INSERT INTO `categorias` VALUES (32, 'SEGURO DE ACCIDENTES PERSONALES', 1, '2019-06-10 11:39:45', '2019-06-10 11:39:45', 1, 1);
+INSERT INTO `categorias` VALUES (33, 'SEGURO UNIVERSITARIO', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `categorias` VALUES (34, 'SEGURO ESCOLAR', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `categorias` VALUES (35, 'SEGURO UNIVERSITARIO', 1, '2019-06-10 11:39:45', '2019-06-10 11:39:45', 1, 1);
+INSERT INTO `categorias` VALUES (36, 'SEGURO ESCOLAR', 1, '2019-06-10 11:39:45', '2019-06-10 11:39:45', 1, 1);
+INSERT INTO `categorias` VALUES (37, 'SEGURO VIAJERO', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `categorias` VALUES (38, 'SEGURO VIAJEROS', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `categorias` VALUES (39, 'SEGURO VIAJERO', 1, '2019-06-10 11:39:45', '2019-06-10 11:39:45', 1, 1);
+INSERT INTO `categorias` VALUES (40, 'SEGURO DE SALUD REGIONAL', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `categorias` VALUES (41, 'SEGURO VIAJEROS', 1, '2019-06-10 11:39:45', '2019-06-10 11:39:45', 1, 1);
+INSERT INTO `categorias` VALUES (42, 'SEGURO DE SALUD INTERNACIONAL', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `categorias` VALUES (43, 'SEGURO DE SALUD REGIONAL', 1, '2019-06-10 11:39:45', '2019-06-10 11:39:45', 1, 1);
+INSERT INTO `categorias` VALUES (44, 'SEGURO DE SALUD INTERNACIONAL', 1, '2019-06-10 11:39:45', '2019-06-10 11:39:45', 1, 1);
+INSERT INTO `categorias` VALUES (45, 'SEGURO DE TRANSPORTE', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `categorias` VALUES (46, 'SEGURO DE TRANSPORTE', 1, '2019-06-10 11:39:45', '2019-06-10 11:39:45', 1, 1);
+INSERT INTO `categorias` VALUES (47, 'SEGURO TODO RIESGO DE CONSTRUCCIÓN', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `categorias` VALUES (48, 'SEGURO TODO RIESGO DE CONSTRUCCIÓN', 1, '2019-06-10 11:39:45', '2019-06-10 11:39:45', 1, 1);
+INSERT INTO `categorias` VALUES (49, 'SEGURO DE EQUIPO DE CONTRATISTA', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `categorias` VALUES (50, 'SEGURO TODO RIESGO DE MONTAJE', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `categorias` VALUES (51, 'SEGURO DE EQUIPO DE CONTRATISTA', 1, '2019-06-10 11:39:45', '2019-06-10 11:39:45', 1, 1);
+INSERT INTO `categorias` VALUES (52, 'SEGURO DE EQUIPO ELECTRÓNICO', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `categorias` VALUES (53, 'SEGURO DE RESPONSABILIDAD CIVIL', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `categorias` VALUES (54, 'SEGURO TODO RIESGO DE MONTAJE', 1, '2019-06-10 11:39:45', '2019-06-10 11:39:45', 1, 1);
+INSERT INTO `categorias` VALUES (55, 'SEGURO DE FIDELIDAD COMPRENSIVA', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `categorias` VALUES (56, 'SEGURO DE EQUIPO ELECTRÓNICO', 1, '2019-06-10 11:39:45', '2019-06-10 11:39:45', 1, 1);
+INSERT INTO `categorias` VALUES (57, 'SEGURO DE ROTURA DE CALDERA', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `categorias` VALUES (58, 'SEGURO DE RESPONSABILIDAD CIVIL', 1, '2019-06-10 11:39:45', '2019-06-10 11:39:45', 1, 1);
+INSERT INTO `categorias` VALUES (59, 'SEGURO DE ROTURA DE MAQUINARIA', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `categorias` VALUES (60, 'SEGURO DE FIDELIDAD COMPRENSIVA', 1, '2019-06-10 11:39:45', '2019-06-10 11:39:45', 1, 1);
+INSERT INTO `categorias` VALUES (61, 'SEGURO DE EMBARCACIÓN', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `categorias` VALUES (62, 'SEGURO DE ROTURA DE CALDERA', 1, '2019-06-10 11:39:45', '2019-06-10 11:39:45', 1, 1);
+INSERT INTO `categorias` VALUES (63, 'SEGURO DE ROTURA DE MAQUINARIA', 1, '2019-06-10 11:39:45', '2019-06-10 11:39:45', 1, 1);
+INSERT INTO `categorias` VALUES (64, 'SEGURO DE ROTURA DE CRISTALES', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `categorias` VALUES (65, 'SEGURO DE EMBARCACIÓN', 1, '2019-06-10 11:39:45', '2019-06-10 11:39:45', 1, 1);
+INSERT INTO `categorias` VALUES (66, 'SEGURO DE DINERO Y VALORES EN TRÁNSITO', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `categorias` VALUES (67, 'SEGURO DE INCENDIO HOGAR', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `categorias` VALUES (68, 'SEGURO DE ROTURA DE CRISTALES', 1, '2019-06-10 11:39:45', '2019-06-10 11:39:45', 1, 1);
+INSERT INTO `categorias` VALUES (69, 'SEGURO DE DINERO Y VALORES EN TRÁNSITO', 1, '2019-06-10 11:39:45', '2019-06-10 11:39:45', 1, 1);
+INSERT INTO `categorias` VALUES (70, 'SEGURO INCENDIO Y LÍNEAS ALIADAS', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `categorias` VALUES (71, 'SEGURO DE INCENDIO HOGAR', 1, '2019-06-10 11:39:45', '2019-06-10 11:39:45', 1, 1);
+INSERT INTO `categorias` VALUES (72, 'SEGURO TODO RIESGO DE INCENDIO', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `categorias` VALUES (73, 'SEGURO INCENDIO Y LÍNEAS ALIADAS', 1, '2019-06-10 11:39:45', '2019-06-10 11:39:45', 1, 1);
+INSERT INTO `categorias` VALUES (74, 'SEGURO TODO RIESGO DE INCENDIO', 1, '2019-06-10 11:39:45', '2019-06-10 11:39:45', 1, 1);
+INSERT INTO `categorias` VALUES (75, 'FIANZAS DE CONTRATISTAS Y PROVEEDORES', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `categorias` VALUES (76, 'FIANZAS FISCALES', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `categorias` VALUES (77, 'FIANZAS DE CONTRATISTAS Y PROVEEDORES', 1, '2019-06-10 11:39:45', '2019-06-10 11:39:45', 1, 1);
+INSERT INTO `categorias` VALUES (78, 'FIANZAS PROFESIONALES', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `categorias` VALUES (79, 'SEGURO PLAN BÁSICO', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `categorias` VALUES (80, 'FIANZAS FISCALES', 1, '2019-06-10 11:39:45', '2019-06-10 11:39:45', 1, 1);
+INSERT INTO `categorias` VALUES (81, 'SEGURO PLAN BÁSICO PLUS', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `categorias` VALUES (82, 'FIANZAS PROFESIONALES', 1, '2019-06-10 11:39:45', '2019-06-10 11:39:45', 1, 1);
+INSERT INTO `categorias` VALUES (83, 'SEGURO PLAN BÁSICO', 1, '2019-06-10 11:39:45', '2019-06-10 11:39:45', 1, 1);
+INSERT INTO `categorias` VALUES (84, 'SEGURO DE AUTO PLAN PREMIERE', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `categorias` VALUES (85, 'SEGURO DE AUTO PLAN ULTRA', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `categorias` VALUES (86, 'SEGURO PLAN BÁSICO PLUS', 1, '2019-06-10 11:39:45', '2019-06-10 11:39:45', 1, 1);
+INSERT INTO `categorias` VALUES (87, 'SEGURO OBLIGATORIO', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `categorias` VALUES (88, 'SEGURO DE AUTO PLAN PREMIERE', 1, '2019-06-10 11:39:45', '2019-06-10 11:39:45', 1, 1);
+INSERT INTO `categorias` VALUES (89, 'SEGURO DE AUTO PLAN ULTRA', 1, '2019-06-10 11:39:45', '2019-06-10 11:39:45', 1, 1);
+INSERT INTO `categorias` VALUES (90, 'SEGURO OBLIGATORIO ACCIDENTES DE PASAJEROS', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `categorias` VALUES (91, 'SEGURO DE LICENCIAS', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `categorias` VALUES (92, 'SEGURO OBLIGATORIO', 1, '2019-06-10 11:39:45', '2019-06-10 11:39:45', 1, 1);
+INSERT INTO `categorias` VALUES (93, 'SEGURO OBLIGATORIO ACCIDENTES DE PASAJEROS', 1, '2019-06-10 11:39:45', '2019-06-10 11:39:45', 1, 1);
+INSERT INTO `categorias` VALUES (94, 'MICROSEGURO', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `categorias` VALUES (95, 'SEGURO DE LICENCIAS', 1, '2019-06-10 11:39:45', '2019-06-10 11:39:45', 1, 1);
+INSERT INTO `categorias` VALUES (96, 'MICROSEGURO', 1, '2019-06-10 11:39:45', '2019-06-10 11:39:45', 1, 1);
+INSERT INTO `categorias` VALUES (97, 'SEGURO AGRARIO', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `categorias` VALUES (98, 'SEGURO AGRARIO', 1, '2019-06-10 11:39:45', '2019-06-10 11:39:45', 1, 1);
+INSERT INTO `categorias` VALUES (99, 'SEGURO PECUARIO', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `categorias` VALUES (100, 's', 1, '2019-06-10 11:39:45', '2019-06-10 11:43:13', 1, 0);
 
 -- ----------------------------
 -- Table structure for ciudades
@@ -136,7 +226,7 @@ CREATE TABLE `cuentas`  (
   `id_usuario` int(10) NULL DEFAULT NULL,
   `estado` int(10) NULL DEFAULT NULL,
   PRIMARY KEY (`Id_Cuenta`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of cuentas
@@ -145,6 +235,9 @@ INSERT INTO `cuentas` VALUES (1, 'INISER', 'Cuenta principal', '2019-05-21 14:09
 INSERT INTO `cuentas` VALUES (2, 'Cuenta No2', NULL, '2019-06-06 10:34:21', '2019-06-07 10:39:04', 1, 0);
 INSERT INTO `cuentas` VALUES (3, 'Cuenta 03', 'Esto serra el comentario Cuenta 03', '2019-06-07 09:02:00', '2019-06-07 10:38:51', 1, 0);
 INSERT INTO `cuentas` VALUES (4, 'Cuenta 04', 'Cuenta 04 Comentarios', '2019-06-07 10:22:00', '2019-06-07 10:36:35', 1, 0);
+INSERT INTO `cuentas` VALUES (5, 'GMS', 'Comentarios GMS', '2019-06-10 11:44:38', '2019-06-10 11:44:38', 1, 1);
+INSERT INTO `cuentas` VALUES (6, 'Publicidad Integral', 'Comentario de Publicidad Integral', '2019-06-10 11:45:14', '2019-06-10 11:45:14', 1, 1);
+INSERT INTO `cuentas` VALUES (7, 'Come', 'ccc', '2019-06-10 11:57:59', '2019-06-10 02:48:12', 1, 0);
 
 -- ----------------------------
 -- Table structure for fuentes
@@ -156,15 +249,18 @@ CREATE TABLE `fuentes`  (
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   `id_usuario` int(10) NULL DEFAULT NULL,
+  `estado` int(255) NULL DEFAULT NULL,
   PRIMARY KEY (`idFuentes`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of fuentes
 -- ----------------------------
-INSERT INTO `fuentes` VALUES (1, 'Facebook', '2019-05-21 14:06:56', '2019-05-21 14:06:56', 1);
-INSERT INTO `fuentes` VALUES (2, 'Twitter', '2019-05-21 14:06:56', '2019-05-21 14:06:56', 1);
-INSERT INTO `fuentes` VALUES (3, 'Youtube', '2019-05-21 14:06:56', '2019-05-21 14:06:56', 1);
+INSERT INTO `fuentes` VALUES (1, 'Facebook', '2019-05-21 14:06:56', '2019-05-21 14:06:56', 1, 1);
+INSERT INTO `fuentes` VALUES (2, 'Twitter', '2019-05-21 14:06:56', '2019-05-21 14:06:56', 1, 1);
+INSERT INTO `fuentes` VALUES (3, 'Youtube', '2019-05-21 14:06:56', '2019-05-21 14:06:56', 1, 1);
+INSERT INTO `fuentes` VALUES (4, 'fuente', '2019-06-12 10:15:08', '2019-06-12 10:57:31', 1, 0);
+INSERT INTO `fuentes` VALUES (5, 'fuente nueva', '2019-06-12 10:59:28', '2019-06-12 10:59:34', 1, 0);
 
 -- ----------------------------
 -- Table structure for log_sesion
@@ -175,7 +271,7 @@ CREATE TABLE `log_sesion`  (
   `idUser` int(6) NOT NULL,
   `fecha` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id_log`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 102 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 111 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of log_sesion
@@ -207,6 +303,31 @@ INSERT INTO `log_sesion` VALUES (98, 1, '2019-06-06 12:10:46');
 INSERT INTO `log_sesion` VALUES (99, 1, '2019-06-06 14:56:47');
 INSERT INTO `log_sesion` VALUES (100, 1, '2019-06-07 07:40:03');
 INSERT INTO `log_sesion` VALUES (101, 1, '2019-06-07 11:39:53');
+INSERT INTO `log_sesion` VALUES (102, 1, '2019-06-10 07:45:22');
+INSERT INTO `log_sesion` VALUES (103, 1, '2019-06-10 14:41:17');
+INSERT INTO `log_sesion` VALUES (104, 1, '2019-06-10 14:51:43');
+INSERT INTO `log_sesion` VALUES (105, 1, '2019-06-10 14:52:53');
+INSERT INTO `log_sesion` VALUES (106, 1, '2019-06-10 16:18:41');
+INSERT INTO `log_sesion` VALUES (107, 1, '2019-06-11 10:47:32');
+INSERT INTO `log_sesion` VALUES (108, 1, '2019-06-12 08:47:57');
+INSERT INTO `log_sesion` VALUES (109, 1, '2019-06-12 11:13:30');
+INSERT INTO `log_sesion` VALUES (110, 1, '2019-06-12 14:48:17');
+
+-- ----------------------------
+-- Table structure for permissions
+-- ----------------------------
+DROP TABLE IF EXISTS `permissions`;
+CREATE TABLE `permissions`  (
+  `Usuario_id` int(10) NOT NULL,
+  `modules_id` varchar(20) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `FechaCreacion` date NULL DEFAULT NULL,
+  `usuarioCU` int(10) NULL DEFAULT NULL
+) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of permissions
+-- ----------------------------
+INSERT INTO `permissions` VALUES (1, '1', '2019-06-12', 1);
 
 -- ----------------------------
 -- Table structure for remitidos
@@ -221,18 +342,32 @@ CREATE TABLE `remitidos`  (
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   `id_usuario` int(10) NULL DEFAULT NULL,
+  `estado` int(10) NULL DEFAULT NULL,
   PRIMARY KEY (`Id_Remitidos`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 23 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of remitidos
 -- ----------------------------
-INSERT INTO `remitidos` VALUES (1, 'Maryan01', 'Endscom@gmail.com', 'Cargo 01', 1, '2019-05-21 14:13:34', '2019-05-21 14:13:39', 1);
-INSERT INTO `remitidos` VALUES (2, 'Maryan Adan Espinoza Barrera', 'Endscom@gmail.com', 'Cargo 02', 1, '2019-05-21 14:13:34', '2019-05-21 14:13:39', 1);
-INSERT INTO `remitidos` VALUES (3, 'Maryan03', 'Endscom@gmail.com', 'Cargo 03', 1, '2019-05-21 14:13:34', '2019-05-21 14:13:39', 1);
-INSERT INTO `remitidos` VALUES (4, 'Maryan04', 'Endscom@gmail.com', 'Cargo 04', 1, '2019-05-21 14:13:34', '2019-05-21 14:13:39', 1);
-INSERT INTO `remitidos` VALUES (5, 'Maryan05', 'Endscom@gmail.com', 'Cargo 05', 1, '2019-05-21 14:13:34', '2019-05-21 14:13:39', 1);
-INSERT INTO `remitidos` VALUES (6, 'Remitido06', 'endscom@gmail.comn', 'Cargo 06', 2, '2019-06-06 10:34:50', '2019-06-06 10:34:53', 1);
+INSERT INTO `remitidos` VALUES (1, 'Maryan01', 'Endscom@gmail.com', 'Cargo 01', 1, '2019-05-21 14:13:34', '2019-06-10 11:43:21', 1, 0);
+INSERT INTO `remitidos` VALUES (2, 'Maryan Adan Espinoza Barrera', 'Endscom@gmail.com', 'Cargo 02', 1, '2019-05-21 14:13:34', '2019-06-10 11:43:23', 1, 0);
+INSERT INTO `remitidos` VALUES (3, 'Maryan03', 'Endscom@gmail.com', 'Cargo 03', 1, '2019-05-21 14:13:34', '2019-06-10 11:43:27', 1, 0);
+INSERT INTO `remitidos` VALUES (4, 'Maryan04', 'Endscom@gmail.com', 'Cargo 04', 1, '2019-05-21 14:13:34', '2019-06-10 11:43:31', 1, 0);
+INSERT INTO `remitidos` VALUES (5, 'Maryan05', 'Endscom@gmail.com', 'Cargo 05', 1, '2019-05-21 14:13:34', '2019-06-10 11:43:34', 1, 0);
+INSERT INTO `remitidos` VALUES (6, 'Remitido06', 'endscom@gmail.comn', 'Cargo 06', 2, '2019-06-06 10:34:50', '2019-06-06 10:34:53', 1, 1);
+INSERT INTO `remitidos` VALUES (10, 'maryan', 'endscom@gmail.com', 'Analista&Programador', 1, '2019-06-10 11:27:23', '2019-06-10 11:37:04', 1, 0);
+INSERT INTO `remitidos` VALUES (11, 'Karen Urrutia ', 'Delegado Chinandega', 'kurrutia@iniser.com,ni ', 1, '2019-06-10 11:41:48', '2019-06-10 11:41:48', 1, 1);
+INSERT INTO `remitidos` VALUES (12, 'Wendolin Irias', 'Delegado Estelí', 'wirias@iniser.com.ni', 1, '2019-06-10 11:41:48', '2019-06-10 11:41:48', 1, 1);
+INSERT INTO `remitidos` VALUES (13, 'Cristhiam Vargas', 'Delegado León', 'cvargasc@iniser.com.ni', 1, '2019-06-10 11:41:48', '2019-06-10 11:41:48', 1, 1);
+INSERT INTO `remitidos` VALUES (14, 'Julissa Aragón', 'Delegado Juigalpa', 'jaragon@iniser.com.ni', 1, '2019-06-10 11:41:48', '2019-06-10 11:41:48', 1, 1);
+INSERT INTO `remitidos` VALUES (15, 'Irene Benavidez', 'Delegado Matagalpa', 'ibenavides@iniser.com.ni', 1, '2019-06-10 11:41:48', '2019-06-10 11:41:48', 1, 1);
+INSERT INTO `remitidos` VALUES (16, 'María Gabriela Renner', 'Delegado Granada', 'mrenner@iniser.com.ni', 1, '2019-06-10 11:41:48', '2019-06-10 11:41:48', 1, 1);
+INSERT INTO `remitidos` VALUES (17, 'Zelena García', 'Multicentro Las Américas', 'zgarcía@iniser.com.ni', 1, '2019-06-10 11:41:48', '2019-06-10 11:41:48', 1, 1);
+INSERT INTO `remitidos` VALUES (18, 'Javier Martínez', 'Jefe de Agentes de Seguros', 'jmartinezi@iniser.com.ni ', 1, '2019-06-10 11:41:48', '2019-06-10 11:41:48', 1, 1);
+INSERT INTO `remitidos` VALUES (19, 'Sergio Martinez', 'Supervisor de Reclamos de Sucursaleses', 'smartinez@iniser.com.ni', 1, '2019-06-10 11:41:48', '2019-06-10 11:41:48', 1, 1);
+INSERT INTO `remitidos` VALUES (20, 'Silvio Rodriguez', 'Crédito', 'credito@iniser.com.ni', 1, '2019-06-10 11:41:48', '2019-06-10 11:41:48', 1, 1);
+INSERT INTO `remitidos` VALUES (21, 'Waleska Núñez', 'Microseguro', 'wnunez@iniser.com.ni ', 1, '2019-06-10 11:41:48', '2019-06-10 11:41:48', 1, 1);
+INSERT INTO `remitidos` VALUES (22, 'Rogelio Bermúdez ', 'Seguro Agropecuario', 'jbermudez@iniser.com.ni', 1, '2019-06-10 11:41:48', '2019-06-10 11:41:48', 1, 1);
 
 -- ----------------------------
 -- Table structure for tipos
@@ -244,14 +379,17 @@ CREATE TABLE `tipos`  (
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   `id_usuario` int(10) NULL DEFAULT NULL,
+  `estado` int(10) NULL DEFAULT NULL,
   PRIMARY KEY (`IdTipos`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tipos
 -- ----------------------------
-INSERT INTO `tipos` VALUES (1, 'Cotización', '2019-05-21 14:06:56', '2019-05-21 14:06:56', 1);
-INSERT INTO `tipos` VALUES (2, 'Reclamo', '2019-05-21 14:06:56', '2019-05-21 14:06:56', 1);
+INSERT INTO `tipos` VALUES (1, 'Cotización', '2019-05-21 14:06:56', '2019-05-21 14:06:56', 1, 1);
+INSERT INTO `tipos` VALUES (2, 'Reclamo', '2019-05-21 14:06:56', '2019-05-21 14:06:56', 1, 1);
+INSERT INTO `tipos` VALUES (3, 'tipo', '2019-06-12 10:15:01', '2019-06-12 10:57:29', 1, 0);
+INSERT INTO `tipos` VALUES (4, 'param', '2019-06-12 10:58:12', '2019-06-12 10:58:15', 1, 0);
 
 -- ----------------------------
 -- Table structure for usuarios
@@ -263,21 +401,22 @@ CREATE TABLE `usuarios`  (
   `password` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `nombre` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `rol` bit(1) NULL DEFAULT NULL,
-  `activo` bit(1) NULL DEFAULT NULL,
+  `estado` bit(1) NULL DEFAULT NULL,
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   `id_usuario` int(10) NULL DEFAULT NULL,
   PRIMARY KEY (`idUser`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of usuarios
 -- ----------------------------
 INSERT INTO `usuarios` VALUES (1, 'admin', '123456', 'admin', b'0', b'1', '2019-05-23 11:22:12', '2019-05-23 11:22:12', 1);
 INSERT INTO `usuarios` VALUES (2, 'dd', '123456', 'cualquiera', b'1', b'1', '2019-05-23 11:22:12', '2019-05-23 11:22:12', 1);
-INSERT INTO `usuarios` VALUES (3, 'dd', '123456', 'cualquiera', b'1', b'1', '2019-05-23 11:22:12', '2019-05-23 11:22:12', 1);
-INSERT INTO `usuarios` VALUES (5, 'dd', '123456', 'cualquiera 454545', b'1', b'1', '2019-05-23 11:22:12', '2019-05-23 11:22:12', 1);
-INSERT INTO `usuarios` VALUES (6, 'dd', '123456', 'cualquiera 454545', b'1', b'1', '2019-05-23 11:22:12', '2019-05-23 11:22:12', 1);
+INSERT INTO `usuarios` VALUES (3, 'dd', '123456', 'cualquiera', b'1', b'0', '2019-05-23 11:22:12', '2019-06-12 03:31:05', 1);
+INSERT INTO `usuarios` VALUES (5, 'dd', '123456', 'cualquiera 454545', b'1', b'0', '2019-05-23 11:22:12', '2019-06-12 03:31:02', 1);
+INSERT INTO `usuarios` VALUES (6, 'dd', '123456', 'cualquiera 454545', b'1', b'0', '2019-05-23 11:22:12', '2019-06-12 03:31:00', 1);
+INSERT INTO `usuarios` VALUES (7, 'marangelo', '123456', 'Marangelo Jimenes', b'1', b'0', '2019-06-12 11:53:53', '2019-06-12 03:30:54', 1);
 
 -- ----------------------------
 -- View structure for vstsolicitudes

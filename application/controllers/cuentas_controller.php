@@ -45,6 +45,12 @@ class cuentas_controller extends CI_Controller {
     public function DescargarParametro() {
         $this->cuentas_model->DescargarParametro($this->input->post('data'));
     }
+    public function SaveParametro() {
+        $this->cuentas_model->SaveParametro($this->input->post('data'));
+    }
+    public function DescartarTipo() {
+        $this->cuentas_model->DescartarTipo($this->input->post('data'));
+    }
 
 }
 ?>

@@ -76,8 +76,12 @@ class main_model extends CI_Model {
         $this->db->where('estado', 1);
         $qCuentas = $this->db->get('cuentas');
 
+        $this->db->where('estado', 1);
         $qTipos = $this->db->get('tipos');
+
+        $this->db->where('estado', 1);
         $qFuentes = $this->db->get('fuentes');
+
         $qCiudades = $this->db->get('ciudades');
         $json[] = array(
             'array_Cuentas'  => $qCuentas->result_array(),
@@ -111,8 +115,8 @@ class main_model extends CI_Model {
     public function config() {
 
         $Arr = array();
-        $qTipos = $this->db->query("SELECT * FROM tipos ");
-        $qFuentes = $this->db->query("SELECT * FROM fuentes ");
+        $qTipos = $this->db->query("SELECT * FROM tipos WHERE estado ='1'");
+        $qFuentes = $this->db->query("SELECT * FROM fuentes WHERE estado ='1'");
 
         $Arr[] = array(
             'array_Tipos' => $qTipos->result_array(),

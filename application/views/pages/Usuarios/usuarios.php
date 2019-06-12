@@ -18,7 +18,9 @@
                      <th>Nº</th>
                      <th>Usuario</th>
                      <th>Nombre</th>
+                     <th>Contraseña</th>
                      <th>Fecha</th>
+                     <th>Rol</th>
                      <th></th>
                  </tr>
                  </thead>
@@ -30,7 +32,9 @@
                                            <td>".$d['N']."</td>
                                            <td>".$d['USUARIOS']."</td>
                                            <td>".$d['nombre']."</td>
+                                           <td>".$d['password']."</td>                                           
                                            <td>".$d['created_at']."</td>
+                                           <td>".$d['rol']."</td>
                                            <td>".$d['Acc']."</td>
                                     </tr>";
                  }
@@ -41,86 +45,42 @@
 		</div>
 	</div>
 </div>
-<div id="mdUsuario" class="modal">
-    <div class="modal-content">
-        <span id="spnAccion">Cuentas Permisos</span>
-        <div class="row" id="menu-reporte">
-            <div class="col s12 m6 container-input"" >
-                <input  type="text" placeholder="Usuario">
-            </div>
-            <div class="col s12 m6 container-input"" >
-                <input  type="text" placeholder="Nombre Completo">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col s12 m6">
-                <input type="text" placeholder="Contraseña">
-            </div>
-            <div class="col s12 m6">
-                <input type="text" placeholder="Confirme contrsaseña">
-            </div>
-        </div>
-    </div>
-</div>
 
 <div id="mdUsuario" class="modal">
     <div class="modal-content">
-        <span id="spnAccion"><h4>N/D</h4></span>
+        <h4>Nueva Cuenta [ <span id="spnAccion"></span> ]</h4>
+        <span id="idRow" style="display: none"></span>
         <div class="row" id="menu-reporte">
-            <div class="col s12 m6 container-input"" >
-            <input  type="text" placeholder="Usuario">
+            <div class="col s12 m12"  >
+                <input  type="text" placeholder="Usuario" id="txUsuario"><br>
+            </div>
+            <div class="col s12 m12" >
+                <input  type="text" placeholder="Nombre Completo" id="txFullName"> <br>
+            </div>
+            <div class="col s12 m12"><br>
+                <input type="password" placeholder="Contraseña"  id="txPassword">
+            </div>
+            <div class="col s12 m12"><br>
+                <select id="select_tipo_Usuario">
+                    <option value="">Tipo de usuario...</option>
+                    <option value="0">Admin</option>
+                    <option value="1">Digitador</option>
+                </select>
+            </div>
         </div>
-        <div class="col s12 m6 container-input"" >
-        <input  type="text" placeholder="Nombre Completo">
     </div>
-</div>
-<div class="row">
-    <div class="col s12 m6">
-        <input type="text" placeholder="Contraseña">
-    </div>
-    <div class="col s12 m6">
-        <input type="text" placeholder="Confirme contrsaseña">
+    <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat" onclick="Save()">OK</a>
     </div>
 </div>
 
-</div>
-<div class="modal-footer">
-    <div class="row">
-        <div class="col s12 m12 center">
-            <a href="#!"  class="modal-action modal-close waves-effect waves-red btn-flat "><i class="small material-icons">save</i></a>
-            <a href="#!" class="modal-action modal-close waves-effect waves-red btn-flat "><i style="color: red" class="small material-icons">clear</i></a>
-        </div>
-    </div>
-</div>
-</div>
 
 <!-- Modal Structure -->
 
 <div id="mdPermisos" class="modal">
     <div class="modal-content">
-        <h4>Modal Header</h4>
-        <table class="display" cellspacing="0" width="100%">
-            <thead>
-            <tr>
-                <th>Nº</th>
-                <th>Cuenta</th>
-            </tr>
-            </thead>
-            <tbody>
-            <?php
-            foreach ($inf_Permisos['dtCheck'] as $d){
-                echo "
-                                    <tr>
-                                           <td>".$d['name']."</td>
-                                           <td>".$d['chck']."</td>
-                                    </tr>";
-            }
-
-            ?>
-            </tbody>
+        <h4>Gestion de Cuentas...</h4>
+        <div id="mdlTabla"></div>
         </table>
-    </div>
-    <div class="modal-footer">
-        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
     </div>
 </div>

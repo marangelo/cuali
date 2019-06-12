@@ -28,8 +28,14 @@ $route['SaveCuenta'] = 'cuentas_controller/SaveCuenta';
 $route['SaveParametrosCuenta'] = 'cuentas_controller/SaveParametrosCuenta';
 $route['DescartarCuenta'] = 'cuentas_controller/DescartarCuenta';
 $route['DescargarParametro'] = 'cuentas_controller/DescargarParametro';
+$route['SaveParametro'] = 'cuentas_controller/SaveParametro';
+$route['DescartarTipo'] = 'cuentas_controller/DescartarTipo';
 
 
 $route['Usuarios'] = 'usuarios_controller';
+$route['SaveUsuario'] = 'usuarios_controller/SaveUsuario';
+$route['DescartarUsuario'] = 'usuarios_controller/DescartarUsuario';
+$route['getPermisos/(:any)'] = 'usuarios_controller/getPermisos/$1';
+$route['ajax_SavePermisos']	        = 'usuarios_controller/lst_ajax_SavePermisos';
 
 $route['Config'] = 'main_controller/Config';

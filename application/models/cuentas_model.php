@@ -100,6 +100,52 @@ class cuentas_model extends CI_Model {
         }
         echo $result;
     }
+    public function DescartarTipo($data) {
+        $result=false;
+        if (count($data)>0) {
+            foreach ($data as $key){
+                if($key['slFlag']=="F"){
+                    $this->db->where('idFuentes', $key['mIdTipo']);
+                    $result = $this->db->update('fuentes', array(
+                        'estado' => 0,
+                        'updated_at'    => date('Y-m-d h:i:s')
+                    ));
+                }else{
+                    $this->db->where('IdTipos', $key['mIdTipo']);
+                    $result = $this->db->update('tipos', array(
+                        'estado' => 0,
+                        'updated_at'    => date('Y-m-d h:i:s')
+                    ));
+                }
+            }
+        }
+        echo $result;
+    }
+    public function SaveParametro($data) {
+        $result=false;
+        if (count($data)>0) {
+            foreach ($data as $key){
+                if($key['slFlag']=="T"){
+                    $result = $this->db->insert('tipos', array(
+                        'tpNombre'        => $key['mTipo'],
+                        'created_at'    => date('Y-m-d h:i:s'),
+                        'updated_at'    => date('Y-m-d h:i:s'),
+                        'id_usuario'    => $this->session->userdata('idUser'),
+                        'estado'        => 1
+                    ));
+                }else{
+                    $result = $this->db->insert('fuentes', array(
+                        'fNombre'        => $key['mTipo'],
+                        'created_at'    => date('Y-m-d h:i:s'),
+                        'updated_at'    => date('Y-m-d h:i:s'),
+                        'id_usuario'    => $this->session->userdata('idUser'),
+                        'estado'        => 1
+                    ));
+                }
+            }
+        }
+        echo $result;
+    }
 
     public function SaveCuenta($data) {
         $result=false;

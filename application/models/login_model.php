@@ -11,7 +11,7 @@ class Login_model extends CI_Model {
             $this->db->where('password', $pass);
             $this->db->where('estado', 1);
             
-            $query = $this->db->get('usuarios');
+            $query = $this->db->get('vstcuentasusuarios');
 
             if($query->num_rows()>0){
                 return $query->result_array();

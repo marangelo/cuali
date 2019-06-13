@@ -373,6 +373,3 @@ input::placeholder {
 .container-input input[type=text],input[type=text]:not(.browser-default):disabled,textarea.materialize-textarea {
     color: #000;
 }
-.select2-selection__rendered {
-    color: #000;
-}

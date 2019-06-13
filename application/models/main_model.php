@@ -1,9 +1,16 @@
-<?php 
+<?php
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 class main_model extends CI_Model {
     public function __construct() {
         parent::__construct();
         $this->load->database();
         $this->load->library('persona');
+
+        require(APPPATH.'libraries\PHPMailer\Exception.php');
+        require(APPPATH.'libraries\PHPMailer\PHPMailer.php');
+        require(APPPATH.'libraries\PHPMailer\SMTP.php');
     }
 
 
@@ -11,16 +18,18 @@ class main_model extends CI_Model {
         $data = array();
         $i=0;
         $this->db->where('estado', 1);
+        if($this->session->userdata('rol')!="0") $this->db->where('id_usuario', $this->session->userdata('idUser'));
         $qCuentas = $this->db->get('vstsolicitudes');
         if($qCuentas->num_rows() > 0 ) {
             foreach ($qCuentas->result_array() as $key){
+                $permisos = ($this->session->userdata('rol')=="0") ? '<i class="material-icons" onclick="Descartar('.$key['idCaso'].')">delete</i>' : "-" ;
                 $data['data'][$i]['N']          = $this->Format_Consecutivo($key['idCaso']);
                 $data['data'][$i]['CUENTA']     = '<a href="DetalleResumen/'.$key['idCaso'].'" >'.$key['Nombres'].' '.$key['Apellidos'].'</a>';
                 $data['data'][$i]['REMITIDO']   = $key['Id_Asignado'];
                 $data['data'][$i]['FUENTE']     = $key['Id_Fuente'];
                 $data['data'][$i]['FECHA']      = date('d-m-Y', strtotime($key['created_at']));
                 $data['data'][$i]['TIPO']       = $key['Id_Tipo'];
-                $data['data'][$i]['Acc']        = '<i class="material-icons" onclick="Descartar('.$key['idCaso'].')">delete</i>';
+                $data['data'][$i]['Acc']        = $permisos;
                 $i++;
             }
         }else{
@@ -44,18 +53,26 @@ class main_model extends CI_Model {
         $f1 = date('Y-m-d',strtotime($f1));
         $f2 = date('Y-m-d',strtotime($f2));
 
-        $consulta ="SELECT * FROM vstsolicitudes T0  WHERE T0.created_at BETWEEN '".$f1."' AND '".$f2."' and estado='1' ";
+        $consulta ="SELECT * FROM vstsolicitudes T0  WHERE T0.created_at BETWEEN '".$f1."' AND '".$f2."' and estado='1' and id_usuario='".$this->session->userdata('idUser')."' ";
 
         $qCuentas = $this->db->query($consulta);
         if($qCuentas->num_rows() > 0 ) {
             foreach ($qCuentas->result_array() as $key){
+
+                $permisos = ($this->session->userdata('rol')=="0") ? '<i class="material-icons" onclick="Descartar('.$key['idCaso'].')">delete</i>' : "-" ;
+
+
                 $data['data'][$i]['N']          = $this->Format_Consecutivo($key['idCaso']);
                 $data['data'][$i]['CUENTA']     = '<a href="DetalleResumen/'.$key['idCaso'].'" >'.$key['Nombres'].' '.$key['Apellidos'].'</a>';
                 $data['data'][$i]['REMITIDO']   = $key['Id_Asignado'];
                 $data['data'][$i]['FUENTE']     = $key['Id_Fuente'];
                 $data['data'][$i]['FECHA']      = date('d-m-Y', strtotime($key['created_at']));
                 $data['data'][$i]['TIPO']       = $key['Id_Tipo'];
-                $data['data'][$i]['Acc']        = '<i class="material-icons" onclick="Descartar('.$key['idCaso'].')">delete</i>';
+
+
+                $data['data'][$i]['Acc']        = $permisos;
+
+
                 $i++;
             }
         }else{
@@ -73,7 +90,10 @@ class main_model extends CI_Model {
     }
     public function Info_Nuevo_Caso() {
         $json = array();
+
+        $where_in = explode(',', $this->session->userdata('Permisos'));
         $this->db->where('estado', 1);
+        $this->db->where_in('Id_Cuenta', $where_in);
         $qCuentas = $this->db->get('cuentas');
 
         $this->db->where('estado', 1);
@@ -124,13 +144,28 @@ class main_model extends CI_Model {
         );
         return $Arr;
     }
+    function infoMail($IdC,$IdR,$IdF,$IdT) {
+
+        $Arr = array();
+        $qTipos = $this->db->query("SELECT tpNombre FROM tipos WHERE IdTipos ='".$IdT."'");
+        $qFuentes = $this->db->query("SELECT fNombre FROM fuentes WHERE idFuentes ='".$IdF."'");
+        $qCategoria = $this->db->query("SELECT Nombre FROM categorias WHERE Id_Categorias ='".$IdC."'");
+        $qRemitidos = $this->db->query("SELECT Nombre,Email FROM remitidos WHERE Id_Remitidos ='".$IdR."'");
+
+        $Arr[] = array(
+            'array_Tipos'       => $qTipos->result_array(),
+            'array_Fuentes'     => $qFuentes->result_array(),
+            'array_Categoria'   => $qCategoria->result_array(),
+            'array_Remitidos'   => $qRemitidos->result_array()
+        );
+        return $Arr;
+    }
     public function SaveSolicitud($data) {
         $result=false;
         if (count($data)>0) {
             foreach ($data as $key){
-
                 $Fecha = date('Y-m-d', strtotime(str_replace('/', '-', $key['mFecha'])));
-
+                $info = $this->infoMail($key['mCategoria'],$key['mRemitido'],$key['mFuente'],$key['mTipo']);
                 $result=   $this->db->insert('casos', array(
                     'Nombres'       => $key['mNombre'],
                     'Apellidos'     => $key['mApellido'],
@@ -149,8 +184,142 @@ class main_model extends CI_Model {
                     'id_usuario'    => $this->session->userdata('idUser'),
                     'estado'        => 1
                 ));
+
+                $Plantilla ='<!doctype html>
+<html lang="es">
+<head>
+	<title>COLILLA DE PAGO</title>
+	<style>
+		body {
+		    color: #000;    
+		    font-family: "Verdana";
+		    font-size: 10px;
+		}
+
+		table {
+		  border-spacing: 1px;
+		}
+
+		.center {
+			text-align: center;
+			border-right: 1px solid black
+		}
+
+		.left {
+			text-align: left;
+			border-right: 1px solid black
+		}
+
+		.bold {			
+			font-weight: bold
+		}
+
+		.border {
+			border: 1px solid black;
+		}
+
+		table#tbl_1 td {
+		  border: 0px solid #0000;
+		  border-collapse: collapse;
+		  text-align: center;
+		}
+
+		table#tbl_2, td {
+			padding: 1px 10px 0px 10px;
+			border-collapse: collapse;
+		}
+
+		table#tbl_2 {
+
+			border: 1px solid black;
+
+			border-collapse: collapse;
+		}
+
+		.contenedor {
+			width: 90%;
+			height: 100%;
+			margin: 0 auto;
+		}
+	</style>
+</head>
+<body>
+	<div class="contenedor">
+		<div style="margin-bottom: 20px; margin-top: 20px">			
+					<table id="tbl_1" style="width:100%">
+					  <tr>
+					    <td colspan="4" style="font-weight: bold">GSM - NICARAGUA <br> FICHA DE OPORTUNIDAD</td>
+					  </tr>
+					  <tr>
+					    <td colspan="4" style="text-align: left;!important; text-transform: uppercase; text-decoration: underline;"><br></td>
+					  </tr>
+					  <tr>
+					    <td class="bold">Nombres y Apelllidos:</td>					     
+					    <td class="bold">Telefono:</td>
+					    <td class="bold" >Email:</td>
+					    <td class="bold">Fecha</td>
+					  </tr>
+					  <tr>
+					    <td class="center">'.$key['mNombre'].' '.$key['mApellido'].'</td>
+					    <td class="center">'.$key['mTelefono'].'</td>					    
+					    <td class="center">'.$key['mCorreo'].'</td>
+					    <td class="center">'.date('d-m-Y h:i:s').'</td>
+					  </tr>
+					    <tr>
+					    <td colspan="4" style="text-align: left;!important; text-transform: uppercase; text-decoration: underline;"><br></td>
+					  </tr>
+					  <tr>
+					    <td class="bold">Categoria:</td>
+					    <td class="bold">Emite</td>
+					    <td class="bold">Tipo</td>
+					    <td class="bold">Fuente</td>
+					  </tr>
+					  <tr>
+					    <td class="center">'.$info[0]['array_Categoria'][0]['Nombre'].'</td>
+					    <td class="center">'.$this->session->userdata('nombre').'</td> 
+					    <td class="center">'.$info[0]['array_Tipos'][0]['tpNombre'].'</td>
+					    <td class="center">'.$info[0]['array_Fuentes'][0]['fNombre'].'</td>
+					  </tr>
+					</table>
+					<br>
+					<table id="tbl_2" style="width:100%"><tr><td>'.$key['mComentario'].'</strong></td></tr></table>					    
+		</div>
+	</div>
+</body>
+</html>';
+                $mail = new PHPMailer(true);
+                //Server settings
+                $mail->SMTPDebug = 0;
+                $mail->isSMTP();
+                $mail->Host = 'smtp.gmail.com';
+                $mail->SMTPAuth = true;
+                $mail->Username = 'analista.guma@gmail.com';
+                $mail->Password = 'a7m1425.';
+                $mail->SMTPSecure = 'tls';
+                $mail->Port = 587;
+                $mail->SMTPOptions = array(
+                    'ssl' => array(
+                        'verify_peer' => false,
+                        'verify_peer_name' => false,
+                        'allow_self_signed' => true
+                    )
+                );
+
+                //Recipients
+                $mail->setFrom('noreply@company.com', 'GSM - NICARAGUA');
+                $mail->addAddress($info[0]['array_Remitidos'][0]['Email'],$info[0]['array_Remitidos'][0]['Nombre']);
+
+                //$mail->addAttachment('./data/colillas/'.$nomQna.'/'.$cod.'.pdf');
+
+                //Content
+                $mail->isHTML(true);
+                $mail->Subject = 'GSM  - CUALI';
+                $mail->Body    = $Plantilla;
+
+                $mail->send();
             }
         }
+
         echo $result;
     }
 

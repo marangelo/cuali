@@ -1,6 +1,7 @@
 <script>
     $(document).ready(function() {
         $('.modal').modal();
+
         $('#txTelefono').mask("00000000", {placeholder: "Telefono"});
 
         $('#txMonto').mask('000000000', {reverse: true});
@@ -20,12 +21,19 @@
 
 
 
+
+
+
         $('#slCuenta').on('change', function() {
 
             $('#slCategorias').find('option').not(':first').remove();
             $('#slRemitidos').find('option').not(':first').remove();
 
             var IdCuenta = $('#slCuenta').val();
+            var oColor = (IdCuenta==="ND") ? "#B2B2B2" : "#000";
+
+            $("#select2-slCuenta-container").css('color', oColor);
+
             $.ajax({
                 url: "Info_Cuenta/"+IdCuenta ,
                 type: 'get',
@@ -71,7 +79,7 @@
                             } );
 
                         });
-                        $("#tblRemitente_info,#tblRemitente_paginate,#tblRemitente_filter").hide();
+                        $("#tblRemitente_info,#tblRemitente_filter").hide();
                     }else if (data.length===0) {
                         alert("Error");
                     }

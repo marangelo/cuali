@@ -20,8 +20,12 @@
             "bfilter": false,
             "searching": true,
             "pagingType": "full_numbers",
+            "columnDefs": [
+                { "visible": false, "targets": 3 },
+                { "visible": false, "targets": 0 }
+            ],
             "aaSorting": [
-                [0, "asc"]
+                [3, "desc"]
             ],
             "lengthMenu": [
                 [10, 10, -1],
@@ -44,6 +48,7 @@
                 { "data": "N" },
                 { "data": "CUENTA" },
                 { "data": "FECHA" },
+                { "data": "Estado" },
                 { "data": "Acc" }
             ],
             "fnInitComplete": function (dta) {

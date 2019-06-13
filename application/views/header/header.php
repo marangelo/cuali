@@ -28,18 +28,38 @@
 				<div class="nav-wrapper" >
                     <a href="#" class="left" style="margin-left: 10px;"><img  src="<?php echo base_url();?>assets/images/Logo.png" style="width: 100px;margin-top: 10px;"></a>
                     <ul id="nav-mobile" class="left hide-on-med-and-down" style="margin-left: 10px">
-                        <li id="main"><a href="<?php echo base_url('index.php/main');?>">Resumen</a></li>
-                        <li><a href="#">|</a></li>
-                        <li id="Nueva"><a href="<?php echo base_url('index.php/Nueva');?>">Solicitudes</a></li>
-                        <li><a href="#">|</a></li>
-                        <li id="Cuentas"><a href="<?php echo base_url('index.php/Cuentas');?>">Cuentas</a></li>
-                        <li><a href="#">|</a></li>
-                        <li id="Usuarios"><a href="<?php echo base_url('index.php/Usuarios');?>">Usuarios</a></li>
-                        <li><a href="#">|</a></li>
-                        <li id="Config"><a href="<?php echo base_url('index.php/Config');?>">Parametros</a></li>
+
+                        <?php
+
+                        switch ($this->session->userdata('rol')) {
+                            case "0":
+                                echo '
+                                <li id="main"><a href="'.base_url('index.php/main').'">Resumen</a></li>
+                                <li><a href="#">|</a></li>
+                                <li id="Nueva"><a href="'.base_url('index.php/Nueva').'">Solicitudes</a></li>
+                                <li><a href="#">|</a></li>
+                                <li id="Cuentas"><a href="'.base_url('index.php/Cuentas').'">Cuentas</a></li>
+                                <li><a href="#">|</a></li>
+                                <li id="Usuarios"><a href="'.base_url('index.php/Usuarios').'">Usuarios</a></li>
+                                <li><a href="#">|</a></li>
+                                <li id="Config"><a href="'.base_url('index.php/Config').'">Parametros</a></li>
+                                ';
+                                break;
+                            case "1":
+                                echo '
+                                <li id="main"><a href="'.base_url('index.php/main').'">Resumen</a></li>
+                                <li><a href="#">|</a></li>
+                                <li id="Nueva"><a href="'.base_url('index.php/Nueva').'">Solicitudes</a></li>
+                                ';
+                                break;
+                        }
+                        ?>
+
+
+
                     </ul>
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
-                        <li><a href="#" class="HoverTrasparente"><?php echo $this->session->userdata('userName');?></a></li>
+                        <li><a href="#" class="HoverTrasparente"><?php echo $this->session->userdata('nombre');?></a></li>
                         <li><img  src="<?php echo base_url("assets/images/Config.png");?>"  style="width: 20px; margin-top: 22px;margin-left: 10px"></li>
                         <li><a href="salir">Cerrar sesión</a></li>
                     </ul>

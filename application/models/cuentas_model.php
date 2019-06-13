@@ -22,8 +22,9 @@ class cuentas_model extends CI_Model {
                 $data['data'][$i]['N']       = $key['Id_Cuenta'];
                 $data['data'][$i]['CUENTA']  = '<a href="CuentaDetalle/'.$key['Id_Cuenta'].'" >'.$key['Nombre'].'</a>'.'<span style="color: '.$rColor.'">'.$retVal.'</span>';
                 $data['data'][$i]['FECHA']   = $key['created_at'];
-                $data['data'][$i]['Acc']   = '<i class="material-icons">edit</i>  <i class="material-icons">delete</i>';
-                $data['data'][$i]['Acc']   = "<a href='#!' onclick='OpenModal(".'"edit"'.",".$key['Id_Cuenta'].")'> <i class='material-icons'>edit</i></a> 
+                $data['data'][$i]['Estado']  = $key['estado'];
+                $data['data'][$i]['Acc']     = "
+                                                <a href='#!' onclick='OpenModal(".'"edit"'.",".$key['Id_Cuenta'].")'> <i class='material-icons'>edit</i></a> 
                                               <a href='#!' onclick='Descartar(".$key['Id_Cuenta'].','.$key['estado'].")'> <i class='material-icons' style='color:$rColor'>".$Icon."</i> </a> ";
                 $i++;
             }
@@ -31,7 +32,7 @@ class cuentas_model extends CI_Model {
             $data['data'][0]['N']       = "N/D";
             $data['data'][0]['CUENTA']  = "N/D";
             $data['data'][0]['FECHA']   = "N/D";
-            $data['data'][0]['HORA']    = "N/D";
+            $data['data'][0]['Estado']    = "N/D";
             $data['data'][0]['Acc']     = "";
         }
         echo json_encode($data);

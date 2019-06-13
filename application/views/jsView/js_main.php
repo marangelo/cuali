@@ -11,6 +11,7 @@
             table.page.len(this.value).draw();
         });
 
+
     });
 
 
@@ -91,7 +92,7 @@
                 "searching": true,
                 "pagingType": "full_numbers",
                 "aaSorting": [
-                    [0, "asc"]
+                    [0, "desc"]
                 ],
                 "lengthMenu": [
                     [10, 10, -1],
@@ -139,7 +140,7 @@
             "searching": true,
             "pagingType": "full_numbers",
             "aaSorting": [
-                [0, "asc"]
+                [0, "desc"]
             ],
             "lengthMenu": [
                 [10, 10, -1],

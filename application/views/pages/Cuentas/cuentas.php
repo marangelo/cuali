@@ -20,6 +20,7 @@
                        <th>Nº</th>
                        <th>CUENTA</th>
                        <th>FECHA</th>
+                       <th>ESTADO</th>
                        <th></th>
                    </tr>
                  </thead>

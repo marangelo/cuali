@@ -45,5 +45,9 @@ function inicializaControlFecha() {
         showDropdowns: true
     });
 }
-$('.jsSelect').select2();
+    $('.jsSelect') .select2();
+    $('.jsSelect').on('change', function() {$("#select2-"+((this).id)+"-container").css('color', (((this).value==="ND") ? "#B2B2B2" : "#000"));});
+
+
+
 

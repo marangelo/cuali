@@ -11,7 +11,7 @@
  Target Server Version : 100113
  File Encoding         : 65001
 
- Date: 12/06/2019 16:37:10
+ Date: 13/06/2019 15:47:48
 */
 
 SET NAMES utf8mb4;
@@ -40,12 +40,42 @@ CREATE TABLE `casos`  (
   `id_usuario` int(10) NULL DEFAULT NULL,
   `estado` int(1) NULL DEFAULT NULL,
   PRIMARY KEY (`idCaso`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 17 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 47 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of casos
 -- ----------------------------
 INSERT INTO `casos` VALUES (16, 'Maryan Adan', 'Barrera', 82449100, 'endscom@gmail.com', 1, 3, 2, 3, 2, 3, 2500.00, 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.\n\nDonec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.', '2019-06-06 00:00:00', '2019-06-06 11:38:31', 1, 1);
+INSERT INTO `casos` VALUES (17, 'Maryan Adan', 'Barrera', 82449100, 'endscom@gmail.com', 1, 3, 2, 3, 2, 3, 2500.00, 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.\n\nDonec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.', '2019-06-06 00:00:00', '2019-06-06 11:38:31', 2, 1);
+INSERT INTO `casos` VALUES (18, 'Maryan Adan', 'Barrera', 82449100, 'endscom@gmail.com', 1, 3, 2, 3, 2, 3, 2500.00, 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.\n\nDonec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.', '2019-06-06 00:00:00', '2019-06-06 11:38:31', 3, 1);
+INSERT INTO `casos` VALUES (19, 'Maryan Adan', 'Barrera', 82449100, 'endscom@gmail.com', 1, 3, 2, 3, 2, 3, 2500.00, 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.\n\nDonec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.', '2019-06-06 00:00:00', '2019-06-06 11:38:31', 4, 1);
+INSERT INTO `casos` VALUES (20, 'Maryan Adan', 'Barrera', 82449100, 'endscom@gmail.com', 1, 3, 2, 3, 2, 3, 2500.00, 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.\n\nDonec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.', '2019-06-06 00:00:00', '2019-06-06 11:38:31', 5, 1);
+INSERT INTO `casos` VALUES (21, 'Maryan Adan', 'Barrera', 82449100, 'endscom@gmail.com', 1, 3, 2, 3, 2, 3, 2500.00, 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.\n\nDonec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.', '2019-06-06 00:00:00', '2019-06-06 11:38:31', 6, 1);
+INSERT INTO `casos` VALUES (22, 'Maryan Adan', 'Barrera', 82449100, 'endscom@gmail.com', 1, 3, 2, 3, 2, 3, 2500.00, 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.\n\nDonec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.', '2019-06-06 00:00:00', '2019-06-06 11:38:31', 7, 1);
+INSERT INTO `casos` VALUES (23, 'Maryan Adan', 'Barrera', 82449100, 'endscom@gmail.com', 1, 3, 2, 3, 2, 3, 2500.00, 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.\n\nDonec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.', '2019-06-06 00:00:00', '2019-06-06 11:38:31', 1, 1);
+INSERT INTO `casos` VALUES (24, 'Maryan Adan', 'Barrera', 82449100, 'endscom@gmail.com', 1, 3, 2, 3, 2, 3, 2500.00, 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.\n\nDonec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.', '2019-06-06 00:00:00', '2019-06-06 11:38:31', 2, 1);
+INSERT INTO `casos` VALUES (25, 'Maryan Adan', 'Barrera', 82449100, 'endscom@gmail.com', 1, 3, 2, 3, 2, 3, 2500.00, 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.\n\nDonec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.', '2019-06-06 00:00:00', '2019-06-06 11:38:31', 3, 1);
+INSERT INTO `casos` VALUES (26, 'Maryan Adan', 'Barrera', 82449100, 'endscom@gmail.com', 1, 3, 2, 3, 2, 3, 2500.00, 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.\n\nDonec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.', '2019-06-06 00:00:00', '2019-06-06 11:38:31', 4, 1);
+INSERT INTO `casos` VALUES (27, 'Maryan Adan', 'Barrera', 82449100, 'endscom@gmail.com', 1, 3, 2, 3, 2, 3, 2500.00, 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.\n\nDonec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.', '2019-06-06 00:00:00', '2019-06-06 11:38:31', 5, 1);
+INSERT INTO `casos` VALUES (28, 'Maryan Adan', 'Barrera', 82449100, 'endscom@gmail.com', 1, 3, 2, 3, 2, 3, 2500.00, 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.\n\nDonec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.', '2019-06-06 00:00:00', '2019-06-06 11:38:31', 6, 1);
+INSERT INTO `casos` VALUES (29, 'Maryan Adan', 'Barrera', 82449100, 'endscom@gmail.com', 1, 3, 2, 3, 2, 3, 2500.00, 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.\n\nDonec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.', '2019-06-06 00:00:00', '2019-06-06 11:38:31', 7, 1);
+INSERT INTO `casos` VALUES (30, 'Maryan Adan', 'Barrera', 82449100, 'endscom@gmail.com', 1, 3, 2, 3, 2, 3, 2500.00, 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.\n\nDonec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.', '2019-06-06 00:00:00', '2019-06-06 11:38:31', 1, 1);
+INSERT INTO `casos` VALUES (31, 'Maryan Adan', 'Barrera', 82449100, 'endscom@gmail.com', 1, 3, 2, 3, 2, 3, 2500.00, 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.\n\nDonec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.', '2019-06-06 00:00:00', '2019-06-06 11:38:31', 2, 1);
+INSERT INTO `casos` VALUES (32, 'Maryan Adan', 'Barrera', 82449100, 'endscom@gmail.com', 1, 3, 2, 3, 2, 3, 2500.00, 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.\n\nDonec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.', '2019-06-06 00:00:00', '2019-06-06 11:38:31', 3, 1);
+INSERT INTO `casos` VALUES (33, 'Maryan Adan', 'Barrera', 82449100, 'endscom@gmail.com', 1, 3, 2, 3, 2, 3, 2500.00, 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.\n\nDonec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.', '2019-06-06 00:00:00', '2019-06-06 11:38:31', 4, 1);
+INSERT INTO `casos` VALUES (34, 'Maryan Adan', 'Barrera', 82449100, 'endscom@gmail.com', 1, 3, 2, 3, 2, 3, 2500.00, 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.\n\nDonec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.', '2019-06-06 00:00:00', '2019-06-06 11:38:31', 5, 1);
+INSERT INTO `casos` VALUES (35, 'Maryan Adan', 'Barrera', 82449100, 'endscom@gmail.com', 1, 3, 2, 3, 2, 3, 2500.00, 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.\n\nDonec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.', '2019-06-06 00:00:00', '2019-06-06 11:38:31', 6, 1);
+INSERT INTO `casos` VALUES (36, 'Juan', 'martines', 82449100, 'endscom@gmail.com', 1, 2, 2, 23, 16, 4, 1200.00, 'aaaa', '2019-06-13 00:00:00', '2019-06-13 08:58:02', 1, 1);
+INSERT INTO `casos` VALUES (37, 'Maryan', 'Espinoza', 82449100, 'endscom@gmail.com', 1, 1, 1, 23, 15, 2, 120.00, '1', '2019-06-13 00:00:00', '2019-06-13 10:43:56', 1, 1);
+INSERT INTO `casos` VALUES (38, 'Maryan', 'Espinoza', 82449100, 'endscom@gmail.com', 1, 1, 1, 20, 15, 2, 0.00, 'F', '2019-06-13 00:00:00', '2019-06-13 10:46:49', 1, 1);
+INSERT INTO `casos` VALUES (39, 'Maryan', 'Espinoza', 82449100, 'endscom@gmail.com', 1, 2, 1, 20, 14, 4, 123546.00, 'aa', '2019-06-13 00:00:00', '2019-06-13 10:54:25', 1, 1);
+INSERT INTO `casos` VALUES (40, 'Maryan', 'Espinoza', 82449100, 'endscom@gmail.com', 1, 1, 1, 18, 11, 2, 12000.00, 'MARYAN COMENTARIOS', '2019-06-13 00:00:00', '2019-06-13 11:34:16', 1, 1);
+INSERT INTO `casos` VALUES (41, 'Maryan', 'Espinoza', 82449100, 'endscom@gmail.com', 1, 1, 1, 18, 11, 2, 12000.00, 'MARYAN COMENTARIOS', '2019-06-13 00:00:00', '2019-06-13 11:35:08', 1, 1);
+INSERT INTO `casos` VALUES (42, 'Maryan', 'Espinoza', 82449100, 'endscom@gmail.com', 1, 1, 1, 18, 11, 2, 12000.00, 'MARYAN COMENTARIOS', '2019-06-13 00:00:00', '2019-06-13 11:40:46', 1, 1);
+INSERT INTO `casos` VALUES (43, 'Maryan', 'Espinoza', 82449100, 'endscom@gmail.com', 1, 1, 1, 18, 23, 2, 0.00, 'SSSSS', '2019-06-13 00:00:00', '2019-06-13 03:42:28', 1, 1);
+INSERT INTO `casos` VALUES (44, 'Maryan', 'Espinoza', 82449100, 'endscom@gmail.com', 1, 1, 1, 18, 23, 2, 0.00, 'SSSSS', '2019-06-13 00:00:00', '2019-06-13 03:44:42', 1, 1);
+INSERT INTO `casos` VALUES (45, 'Maryan', 'Espinoza', 82449100, 'endscom@gmail.com', 1, 1, 1, 18, 23, 2, 0.00, 'SSSSS', '2019-06-13 00:00:00', '2019-06-13 03:45:22', 1, 1);
+INSERT INTO `casos` VALUES (46, 'Maryan', 'Espinoza', 82449100, 'endscom@gmail.com', 1, 1, 2, 54, 23, 4, 1200.00, 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.\n\nDonec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.\n\nMorbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat.\n\nPraesent dapibus, neque id cursus fa', '2019-06-13 00:00:00', '2019-06-13 03:46:24', 1, 1);
 
 -- ----------------------------
 -- Table structure for categorias
@@ -271,7 +301,7 @@ CREATE TABLE `log_sesion`  (
   `idUser` int(6) NOT NULL,
   `fecha` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id_log`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 111 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 126 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of log_sesion
@@ -312,6 +342,21 @@ INSERT INTO `log_sesion` VALUES (107, 1, '2019-06-11 10:47:32');
 INSERT INTO `log_sesion` VALUES (108, 1, '2019-06-12 08:47:57');
 INSERT INTO `log_sesion` VALUES (109, 1, '2019-06-12 11:13:30');
 INSERT INTO `log_sesion` VALUES (110, 1, '2019-06-12 14:48:17');
+INSERT INTO `log_sesion` VALUES (111, 1, '2019-06-13 07:50:33');
+INSERT INTO `log_sesion` VALUES (112, 7, '2019-06-13 08:13:16');
+INSERT INTO `log_sesion` VALUES (113, 7, '2019-06-13 08:16:33');
+INSERT INTO `log_sesion` VALUES (114, 1, '2019-06-13 08:19:01');
+INSERT INTO `log_sesion` VALUES (115, 1, '2019-06-13 08:36:08');
+INSERT INTO `log_sesion` VALUES (116, 7, '2019-06-13 08:36:59');
+INSERT INTO `log_sesion` VALUES (117, 1, '2019-06-13 08:37:58');
+INSERT INTO `log_sesion` VALUES (118, 7, '2019-06-13 08:38:16');
+INSERT INTO `log_sesion` VALUES (119, 1, '2019-06-13 08:38:24');
+INSERT INTO `log_sesion` VALUES (120, 1, '2019-06-13 08:38:44');
+INSERT INTO `log_sesion` VALUES (121, 7, '2019-06-13 08:55:57');
+INSERT INTO `log_sesion` VALUES (122, 7, '2019-06-13 08:56:12');
+INSERT INTO `log_sesion` VALUES (123, 1, '2019-06-13 08:57:24');
+INSERT INTO `log_sesion` VALUES (124, 1, '2019-06-13 10:26:16');
+INSERT INTO `log_sesion` VALUES (125, 1, '2019-06-13 14:42:58');
 
 -- ----------------------------
 -- Table structure for permissions
@@ -328,6 +373,12 @@ CREATE TABLE `permissions`  (
 -- Records of permissions
 -- ----------------------------
 INSERT INTO `permissions` VALUES (1, '1', '2019-06-12', 1);
+INSERT INTO `permissions` VALUES (2, '1', '2019-06-13', 1);
+INSERT INTO `permissions` VALUES (2, '5', '2019-06-13', 1);
+INSERT INTO `permissions` VALUES (7, '1', '2019-06-13', 1);
+INSERT INTO `permissions` VALUES (7, '5', '2019-06-13', 1);
+INSERT INTO `permissions` VALUES (1, '5', '2019-06-13', 1);
+INSERT INTO `permissions` VALUES (1, '6', '2019-06-13', 1);
 
 -- ----------------------------
 -- Table structure for remitidos
@@ -344,7 +395,7 @@ CREATE TABLE `remitidos`  (
   `id_usuario` int(10) NULL DEFAULT NULL,
   `estado` int(10) NULL DEFAULT NULL,
   PRIMARY KEY (`Id_Remitidos`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 23 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 24 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of remitidos
@@ -368,6 +419,7 @@ INSERT INTO `remitidos` VALUES (19, 'Sergio Martinez', 'Supervisor de Reclamos d
 INSERT INTO `remitidos` VALUES (20, 'Silvio Rodriguez', 'Crédito', 'credito@iniser.com.ni', 1, '2019-06-10 11:41:48', '2019-06-10 11:41:48', 1, 1);
 INSERT INTO `remitidos` VALUES (21, 'Waleska Núñez', 'Microseguro', 'wnunez@iniser.com.ni ', 1, '2019-06-10 11:41:48', '2019-06-10 11:41:48', 1, 1);
 INSERT INTO `remitidos` VALUES (22, 'Rogelio Bermúdez ', 'Seguro Agropecuario', 'jbermudez@iniser.com.ni', 1, '2019-06-10 11:41:48', '2019-06-10 11:41:48', 1, 1);
+INSERT INTO `remitidos` VALUES (23, 'Ing.Maryan', 'endscom@gmail.com', 'sistemas', 1, '2019-06-13 03:39:31', '2019-06-13 03:47:08', 1, 0);
 
 -- ----------------------------
 -- Table structure for tipos
@@ -416,7 +468,37 @@ INSERT INTO `usuarios` VALUES (2, 'dd', '123456', 'cualquiera', b'1', b'1', '201
 INSERT INTO `usuarios` VALUES (3, 'dd', '123456', 'cualquiera', b'1', b'0', '2019-05-23 11:22:12', '2019-06-12 03:31:05', 1);
 INSERT INTO `usuarios` VALUES (5, 'dd', '123456', 'cualquiera 454545', b'1', b'0', '2019-05-23 11:22:12', '2019-06-12 03:31:02', 1);
 INSERT INTO `usuarios` VALUES (6, 'dd', '123456', 'cualquiera 454545', b'1', b'0', '2019-05-23 11:22:12', '2019-06-12 03:31:00', 1);
-INSERT INTO `usuarios` VALUES (7, 'marangelo', '123456', 'Marangelo Jimenes', b'1', b'0', '2019-06-12 11:53:53', '2019-06-12 03:30:54', 1);
+INSERT INTO `usuarios` VALUES (7, 'marangelo', '123456', 'Maryan Espinoza', b'1', b'1', '2019-06-12 11:53:53', '2019-06-12 03:30:54', 1);
+
+-- ----------------------------
+-- View structure for vstcuentasusuarios
+-- ----------------------------
+DROP VIEW IF EXISTS `vstcuentasusuarios`;
+CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `vstcuentasusuarios` AS SELECT
+	T0.idUser,
+	T0.userName,
+	T0.`password`,
+	T0.nombre,
+	T0.rol,
+	estado,
+	T0.created_at,
+	T0.updated_at,
+	T0.id_usuario, 
+IFNULL((SELECT T1.Cuentas FROM vstpermisos T1 WHERE T0.idUser=T1.Usuario_id),0) AS Cuentas
+FROM
+	usuarios T0 ;
+
+-- ----------------------------
+-- View structure for vstpermisos
+-- ----------------------------
+DROP VIEW IF EXISTS `vstpermisos`;
+CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `vstpermisos` AS SELECT
+	T0.Usuario_id,
+	GROUP_CONCAT( T0.modules_id) AS Cuentas 
+FROM
+	permissions T0 
+GROUP BY
+	T0.Usuario_id ;
 
 -- ----------------------------
 -- View structure for vstsolicitudes

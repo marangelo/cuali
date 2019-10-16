@@ -17,7 +17,7 @@
                         </div>
                     </div>
                     <div class="row" style="color: #B2B2B2; font-size: 10px">
-                        v1.1.022
+                        <?php echo $appVersion?>
                     </div>
                     <div class="row center">
                         <input style="width: 40%; height: 44px; margin-top: 10px; background-color: #009FE3;" class="Btnadd modal-action modal-close btn" type="submit" name="submit" value="Iniciar Sesión">

@@ -11,7 +11,7 @@
  Target Server Version : 100113
  File Encoding         : 65001
 
- Date: 13/06/2019 15:47:48
+ Date: 16/10/2019 16:05:11
 */
 
 SET NAMES utf8mb4;
@@ -40,7 +40,7 @@ CREATE TABLE `casos`  (
   `id_usuario` int(10) NULL DEFAULT NULL,
   `estado` int(1) NULL DEFAULT NULL,
   PRIMARY KEY (`idCaso`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 47 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 48 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of casos
@@ -76,6 +76,7 @@ INSERT INTO `casos` VALUES (43, 'Maryan', 'Espinoza', 82449100, 'endscom@gmail.c
 INSERT INTO `casos` VALUES (44, 'Maryan', 'Espinoza', 82449100, 'endscom@gmail.com', 1, 1, 1, 18, 23, 2, 0.00, 'SSSSS', '2019-06-13 00:00:00', '2019-06-13 03:44:42', 1, 1);
 INSERT INTO `casos` VALUES (45, 'Maryan', 'Espinoza', 82449100, 'endscom@gmail.com', 1, 1, 1, 18, 23, 2, 0.00, 'SSSSS', '2019-06-13 00:00:00', '2019-06-13 03:45:22', 1, 1);
 INSERT INTO `casos` VALUES (46, 'Maryan', 'Espinoza', 82449100, 'endscom@gmail.com', 1, 1, 2, 54, 23, 4, 1200.00, 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.\n\nDonec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.\n\nMorbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat.\n\nPraesent dapibus, neque id cursus fa', '2019-06-13 00:00:00', '2019-06-13 03:46:24', 1, 1);
+INSERT INTO `casos` VALUES (47, 'Maryan', 'Espinoza', 82449100, 'endscom@gmail.com', 8, 1, 1, 102, 24, 1, 1.00, 'Comentario principal', '2019-08-26 00:00:00', '2019-08-26 12:01:47', 1, 1);
 
 -- ----------------------------
 -- Table structure for categorias
@@ -90,7 +91,7 @@ CREATE TABLE `categorias`  (
   `id_usuario` int(10) NULL DEFAULT NULL,
   `estado` int(10) NULL DEFAULT NULL,
   PRIMARY KEY (`Id_Categorias`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 101 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 104 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of categorias
@@ -190,6 +191,9 @@ INSERT INTO `categorias` VALUES (97, 'SEGURO AGRARIO', NULL, NULL, NULL, NULL, N
 INSERT INTO `categorias` VALUES (98, 'SEGURO AGRARIO', 1, '2019-06-10 11:39:45', '2019-06-10 11:39:45', 1, 1);
 INSERT INTO `categorias` VALUES (99, 'SEGURO PECUARIO', NULL, NULL, NULL, NULL, NULL);
 INSERT INTO `categorias` VALUES (100, 's', 1, '2019-06-10 11:39:45', '2019-06-10 11:43:13', 1, 0);
+INSERT INTO `categorias` VALUES (101, 'Movil', 8, '2019-08-26 11:59:11', '2019-08-26 11:59:11', 1, 1);
+INSERT INTO `categorias` VALUES (102, 'WEB', 8, '2019-08-26 11:59:15', '2019-08-26 11:59:15', 1, 1);
+INSERT INTO `categorias` VALUES (103, 'Hibrida', 8, '2019-08-26 11:59:21', '2019-08-26 11:59:21', 1, 1);
 
 -- ----------------------------
 -- Table structure for ciudades
@@ -256,7 +260,7 @@ CREATE TABLE `cuentas`  (
   `id_usuario` int(10) NULL DEFAULT NULL,
   `estado` int(10) NULL DEFAULT NULL,
   PRIMARY KEY (`Id_Cuenta`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of cuentas
@@ -268,6 +272,7 @@ INSERT INTO `cuentas` VALUES (4, 'Cuenta 04', 'Cuenta 04 Comentarios', '2019-06-
 INSERT INTO `cuentas` VALUES (5, 'GMS', 'Comentarios GMS', '2019-06-10 11:44:38', '2019-06-10 11:44:38', 1, 1);
 INSERT INTO `cuentas` VALUES (6, 'Publicidad Integral', 'Comentario de Publicidad Integral', '2019-06-10 11:45:14', '2019-06-10 11:45:14', 1, 1);
 INSERT INTO `cuentas` VALUES (7, 'Come', 'ccc', '2019-06-10 11:57:59', '2019-06-10 02:48:12', 1, 0);
+INSERT INTO `cuentas` VALUES (8, 'ENDSCOM', 'Cuenta de desarrollo', '2019-08-26 11:58:56', '2019-08-26 11:58:56', 1, 1);
 
 -- ----------------------------
 -- Table structure for fuentes
@@ -301,7 +306,7 @@ CREATE TABLE `log_sesion`  (
   `idUser` int(6) NOT NULL,
   `fecha` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id_log`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 126 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 134 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of log_sesion
@@ -357,6 +362,14 @@ INSERT INTO `log_sesion` VALUES (122, 7, '2019-06-13 08:56:12');
 INSERT INTO `log_sesion` VALUES (123, 1, '2019-06-13 08:57:24');
 INSERT INTO `log_sesion` VALUES (124, 1, '2019-06-13 10:26:16');
 INSERT INTO `log_sesion` VALUES (125, 1, '2019-06-13 14:42:58');
+INSERT INTO `log_sesion` VALUES (126, 1, '2019-06-13 15:49:40');
+INSERT INTO `log_sesion` VALUES (127, 1, '2019-06-14 08:02:53');
+INSERT INTO `log_sesion` VALUES (128, 1, '2019-06-14 14:44:34');
+INSERT INTO `log_sesion` VALUES (129, 1, '2019-06-18 08:49:25');
+INSERT INTO `log_sesion` VALUES (130, 1, '2019-06-20 07:52:06');
+INSERT INTO `log_sesion` VALUES (131, 1, '2019-08-26 11:54:58');
+INSERT INTO `log_sesion` VALUES (132, 1, '2019-08-26 12:01:20');
+INSERT INTO `log_sesion` VALUES (133, 1, '2019-09-25 08:48:51');
 
 -- ----------------------------
 -- Table structure for permissions
@@ -379,6 +392,7 @@ INSERT INTO `permissions` VALUES (7, '1', '2019-06-13', 1);
 INSERT INTO `permissions` VALUES (7, '5', '2019-06-13', 1);
 INSERT INTO `permissions` VALUES (1, '5', '2019-06-13', 1);
 INSERT INTO `permissions` VALUES (1, '6', '2019-06-13', 1);
+INSERT INTO `permissions` VALUES (1, '8', '2019-08-26', 1);
 
 -- ----------------------------
 -- Table structure for remitidos
@@ -395,7 +409,7 @@ CREATE TABLE `remitidos`  (
   `id_usuario` int(10) NULL DEFAULT NULL,
   `estado` int(10) NULL DEFAULT NULL,
   PRIMARY KEY (`Id_Remitidos`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 24 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 25 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of remitidos
@@ -420,6 +434,7 @@ INSERT INTO `remitidos` VALUES (20, 'Silvio Rodriguez', 'Crédito', 'credito@ini
 INSERT INTO `remitidos` VALUES (21, 'Waleska Núñez', 'Microseguro', 'wnunez@iniser.com.ni ', 1, '2019-06-10 11:41:48', '2019-06-10 11:41:48', 1, 1);
 INSERT INTO `remitidos` VALUES (22, 'Rogelio Bermúdez ', 'Seguro Agropecuario', 'jbermudez@iniser.com.ni', 1, '2019-06-10 11:41:48', '2019-06-10 11:41:48', 1, 1);
 INSERT INTO `remitidos` VALUES (23, 'Ing.Maryan', 'endscom@gmail.com', 'sistemas', 1, '2019-06-13 03:39:31', '2019-06-13 03:47:08', 1, 0);
+INSERT INTO `remitidos` VALUES (24, 'Ing.Espinozza', 'endscom@gmail.com', 'Dueño', 8, '2019-08-26 12:00:23', '2019-08-26 12:00:23', 1, 1);
 
 -- ----------------------------
 -- Table structure for tipos

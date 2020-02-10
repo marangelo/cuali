@@ -43,6 +43,8 @@
                                 <li id="Usuarios"><a href="'.base_url('index.php/Usuarios').'">Usuarios</a></li>
                                 <li><a href="#">|</a></li>
                                 <li id="Config"><a href="'.base_url('index.php/Config').'">Parametros</a></li>
+                                <li><a href="#">|</a></li>
+                                <li id="Reportes"><a href="'.base_url('index.php/Reportes').'">Reportes</a></li>
                                 ';
                                 break;
                             case "1":

@@ -46,6 +46,7 @@ function inicializaControlFecha() {
     });
 }
     $('.jsSelect') .select2();
+    $('.chips').chips();
     $('.jsSelect').on('change', function() {$("#select2-"+((this).id)+"-container").css('color', (((this).value==="ND") ? "#B2B2B2" : "#000"));});
 
 

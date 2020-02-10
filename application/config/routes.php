@@ -10,6 +10,7 @@ $route['acreditando'] = 'login_controller/validandoCuenta';
 $route['salir'] = 'login_controller/salir';
 
 
+
 //RUTA: REPORTES
 $route['main'] = 'main_controller';
 $route['Nueva'] = 'main_controller/NuevaSolicitud';
@@ -39,3 +40,8 @@ $route['getPermisos/(:any)'] = 'usuarios_controller/getPermisos/$1';
 $route['ajax_SavePermisos']	        = 'usuarios_controller/lst_ajax_SavePermisos';
 
 $route['Config'] = 'main_controller/Config';
+
+
+$route['Reportes'] = 'reportes_controller';
+$route['Buscar_Solicitud_reporte'] = 'reportes_controller/Buscar_Solicitud_reporte';
+$route['Buscar_Solicitud_reporte_Excel/(:any)/(:any)/(:any)/(:any)/(:any)/(:any)/(:any)'] =  'reportes_controller/Buscar_Solicitud_reporte_Excel/$1/$2/$3/$4/$5/$6/$7';

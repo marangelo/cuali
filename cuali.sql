@@ -11,7 +11,7 @@
  Target Server Version : 100113
  File Encoding         : 65001
 
- Date: 16/10/2019 16:05:11
+ Date: 20/03/2020 16:48:58
 */
 
 SET NAMES utf8mb4;
@@ -306,7 +306,7 @@ CREATE TABLE `log_sesion`  (
   `idUser` int(6) NOT NULL,
   `fecha` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id_log`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 134 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 145 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of log_sesion
@@ -370,6 +370,17 @@ INSERT INTO `log_sesion` VALUES (130, 1, '2019-06-20 07:52:06');
 INSERT INTO `log_sesion` VALUES (131, 1, '2019-08-26 11:54:58');
 INSERT INTO `log_sesion` VALUES (132, 1, '2019-08-26 12:01:20');
 INSERT INTO `log_sesion` VALUES (133, 1, '2019-09-25 08:48:51');
+INSERT INTO `log_sesion` VALUES (134, 1, '2019-10-16 16:12:44');
+INSERT INTO `log_sesion` VALUES (135, 1, '2019-11-25 14:20:23');
+INSERT INTO `log_sesion` VALUES (136, 1, '2020-02-05 09:04:49');
+INSERT INTO `log_sesion` VALUES (137, 1, '2020-02-05 09:37:37');
+INSERT INTO `log_sesion` VALUES (138, 1, '2020-02-10 08:48:34');
+INSERT INTO `log_sesion` VALUES (139, 1, '2020-02-10 11:00:50');
+INSERT INTO `log_sesion` VALUES (140, 1, '2020-02-10 11:35:57');
+INSERT INTO `log_sesion` VALUES (141, 1, '2020-03-10 14:05:07');
+INSERT INTO `log_sesion` VALUES (142, 1, '2020-03-10 14:51:21');
+INSERT INTO `log_sesion` VALUES (143, 1, '2020-03-20 10:21:45');
+INSERT INTO `log_sesion` VALUES (144, 1, '2020-03-20 14:28:50');
 
 -- ----------------------------
 -- Table structure for permissions
@@ -525,11 +536,18 @@ CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER V
 	T0.Apellidos,
 	T0.Telefono,
 	T0.Correo,
+	T0.Id_Cuenta as IdCuenta,
 	(SELECT T1.Nombre FROM cuentas T1 WHERE T1.Id_Cuenta=T0.Id_Cuenta) AS Id_Cuenta,
 	(SELECT T2.fNombre FROM fuentes T2 WHERE T2.idFuentes = T0.Id_Fuente) AS Id_Fuente,
+	T0.Id_Tipo As IdTipo,
 	(SELECT T3.tpNombre FROM tipos T3 WHERE T3.IdTipos = T0.Id_Tipo) AS Id_Tipo,
+	T0.Id_Categoria AS IdCat,
 	(SELECT T4.Nombre FROM categorias T4 WHERE T4.Id_Categorias = T0.Id_Categoria) AS Id_Categoria,	
+	T0.Id_Asignado as IdAsig, 
 	(SELECT T5.Nombre FROM remitidos T5 WHERE T5.Id_Remitidos = T0.Id_Asignado) AS Id_Asignado,	
+	T0.Id_Ciudad as IdCiudad,
+	(SELECT T6.NombreCiudad FROM ciudades T6 WHERE T6.IdCiudad = T0.Id_Ciudad) AS Id_Ciudad,	
+	
 	T0.Comentarios,
 	T0.created_at,
 	T0.updated_at,

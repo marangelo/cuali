@@ -20,7 +20,7 @@ class reportes_controller extends CI_Controller {
         $this->load->view('jsView/js_reportes');
     }
     public function Buscar_Solicitud_reporte(){
-        $this->reportes_model->Buscar_Solicitud_reporte(
+        /*$this->reportes_model->Buscar_Solicitud_reporte(
             $_POST['f1'],
             $_POST['f2'],
             $_POST['Cu'],
@@ -28,6 +28,16 @@ class reportes_controller extends CI_Controller {
             $_POST['Ti'],
             $_POST['As'],
             $_POST['Ci']
+        );*/
+
+        $this->reportes_model->Buscar_Solicitud_reporte(
+            "01-01-2019",
+            "20-03-2020",
+            "ND",
+            "ND",
+            "ND",
+            "ND",
+            "ND"
         );
     }
 

@@ -26,19 +26,17 @@ class reportes_model extends CI_Model {
         $consulta .= ($Ci=="ND") ? "" : " AND T0.IdCiudad='".$Ci."'" ;
 
 
+
+
         $qCuentas = $this->db->query($consulta);
         if($qCuentas->num_rows() > 0 ) {
             foreach ($qCuentas->result_array() as $key){
-
                 $data['data'][$i]['N']          = $this->Format_Consecutivo($key['idCaso']);
                 $data['data'][$i]['FECHA']      = date('d-m-Y', strtotime($key['created_at']));
                 $data['data'][$i]['CLIENTE']     = $key['Nombres'].' '.$key['Apellidos'];
                 $data['data'][$i]['ASIGNADO']   = $key['Id_Asignado'];
                 $data['data'][$i]['TIPO']     = $key['Id_Tipo'];
-
                 $data['data'][$i]['CATEGORIA']       = $key['Id_Categoria'];
-
-
                 $data['data'][$i]['CIUDAD']        = $key['Id_Ciudad'];
 
 
@@ -54,6 +52,87 @@ class reportes_model extends CI_Model {
             $data['data'][$i]['CIUDAD']     = "";
         }
 
+        $qTipo ="SELECT Id_Tipo,count(Id_Tipo) as Count_Tipo FROM vstsolicitudes T0  WHERE T0.created_at BETWEEN '".$f1."' AND '".$f2."' GROUP BY T0.Id_Tipo";
+        $qTipo .= ($Cu=="ND") ? "" : " AND T0.IdCuenta='".$Cu."'" ;
+        $qTipo .= ($Ca=="ND") ? "" : " AND T0.IdCat='".$Ca."'" ;
+        $qTipo .= ($Ti=="ND") ? "" : " AND T0.IdTipo='".$Ti."'" ;
+        $qTipo .= ($As=="ND") ? "" : " AND T0.IdAsig='".$As."'" ;
+        $qTipo .= ($Ci=="ND") ? "" : " AND T0.IdCiudad='".$Ci."'" ;
+
+        $rTipo = $this->db->query($qTipo);
+        $t = 0;
+        if($rTipo->num_rows() > 0 ) {
+            foreach ($rTipo->result_array() as $key){
+                $data['Tipos'][$t]['name']       = $key['Id_Tipo'];
+                $data['Tipos'][$t]['y']         = floatval($key['Count_Tipo']);
+                $t++;
+            }
+        }else{
+            $data['Tipos'][$t]['name']     = "";
+            $data['Tipos'][$t]['y']        = 0;
+        }
+
+
+        $qCuid ="SELECT Id_Ciudad,count(Id_Ciudad) as Count_Ciudad FROM vstsolicitudes T0  WHERE T0.created_at BETWEEN '".$f1."' AND '".$f2."' GROUP BY T0.Id_Ciudad";
+        $qCuid .= ($Cu=="ND") ? "" : " AND T0.IdCuenta='".$Cu."'" ;
+        $qCuid .= ($Ca=="ND") ? "" : " AND T0.IdCat='".$Ca."'" ;
+        $qCuid .= ($Ti=="ND") ? "" : " AND T0.IdTipo='".$Ti."'" ;
+        $qCuid .= ($As=="ND") ? "" : " AND T0.IdAsig='".$As."'" ;
+        $qCuid .= ($Ci=="ND") ? "" : " AND T0.IdCiudad='".$Ci."'" ;
+
+        $rCuid = $this->db->query($qCuid);
+        $c = 0;
+        if($rCuid->num_rows() > 0 ) {
+            foreach ($rCuid->result_array() as $key){
+                $data['Ciudad'][$c]['name']     = $key['Id_Ciudad'];
+                $data['Ciudad'][$c]['y']        = floatval($key['Count_Ciudad']);
+                $c++;
+            }
+        }else{
+            $data['Ciudad'][$c]['name']       = "";
+            $data['Ciudad'][$c]['y']          = 0;
+        }
+
+
+        $qAsig ="SELECT Id_Asignado,count(Id_Asignado) as Count_Asignado FROM vstsolicitudes T0  WHERE T0.created_at BETWEEN '".$f1."' AND '".$f2."' GROUP BY T0.Id_Asignado";
+        $qAsig .= ($Cu=="ND") ? "" : " AND T0.IdCuenta='".$Cu."'" ;
+        $qAsig .= ($Ca=="ND") ? "" : " AND T0.IdCat='".$Ca."'" ;
+        $qAsig .= ($Ti=="ND") ? "" : " AND T0.IdTipo='".$Ti."'" ;
+        $qAsig .= ($As=="ND") ? "" : " AND T0.IdAsig='".$As."'" ;
+        $qAsig .= ($Ci=="ND") ? "" : " AND T0.IdCiudad='".$Ci."'" ;
+        $rAsig = $this->db->query($qAsig);
+        $a=0;
+        if($rAsig->num_rows() > 0 ) {
+            foreach ($rAsig->result_array() as $key){
+                $data['Asignada'][$a]['Id_Asignado']       = $key['Id_Asignado'];
+                $data['Asignada'][$a]['Count_Asignado']    = floatval($key['Count_Asignado']);
+                $a++;
+            }
+        }else{
+            $data['Asignada'][$c]['Id_Asignado']       = "";
+            $data['Asignada'][$c]['Count_Asignado']    = 0;
+        }
+
+
+        $qDias ="SELECT created_at,count(Id_Asignado) as Count_Dia FROM vstsolicitudes T0  WHERE T0.created_at BETWEEN '".$f1."' AND '".$f2."' GROUP BY T0.created_at";
+        $qDias .= ($Cu=="ND") ? "" : " AND T0.IdCuenta='".$Cu."'" ;
+        $qDias .= ($Ca=="ND") ? "" : " AND T0.IdCat='".$Ca."'" ;
+        $qDias .= ($Ti=="ND") ? "" : " AND T0.IdTipo='".$Ti."'" ;
+        $qDias .= ($As=="ND") ? "" : " AND T0.IdAsig='".$As."'" ;
+        $qDias .= ($Ci=="ND") ? "" : " AND T0.IdCiudad='".$Ci."'" ;
+
+        $rDias = $this->db->query($qDias);
+        $a=0;
+        if($rDias->num_rows() > 0 ) {
+            foreach ($rDias->result_array() as $key){
+                $data['Dias'][$a]['created_at']  = $key['created_at'];
+                $data['Dias'][$a]['Count_Dia']   = floatval($key['Count_Dia']);
+                $a++;
+            }
+        }else{
+            $data['Dias'][$c]['created_at']      = "";
+            $data['Dias'][$c]['Count_Dia']       = 0;
+        }
 
         echo json_encode($data);
     }

@@ -10,6 +10,218 @@
 
     });
 
+
+
+
+
+
+    var var_charts_Categoria = {
+        chart: {
+            type: 'pie',
+            renderTo: 'charts_Categoria'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: false
+                },
+                showInLegend: true
+            }
+        },
+        title: {
+            text: 'Tipo de solicitudes'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        accessibility: {
+            point: {
+                valueSuffix: '%'
+            }
+        },
+        xAxis: {
+            title: {
+                text: ''
+            }
+        },
+        yAxis: {
+            title: {
+                text: ''
+            }
+        },
+        series: [{
+            name: 'Brands',
+            colorByPoint: true,
+            data:[{name: "",y:1}]
+
+        }]
+    };
+    crear_grafica(var_charts_Categoria);
+
+    var var_charts_origen = {
+        chart: {
+            type: 'pie',
+            renderTo: 'charts_Origen'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: false
+                },
+                showInLegend: true
+            }
+        },
+        title: {
+            text: 'Tipo de solicitudes'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        accessibility: {
+            point: {
+                valueSuffix: '%'
+            }
+        },
+        xAxis: {
+            title: {
+                text: ''
+            }
+        },
+        yAxis: {
+            title: {
+                text: ''
+            }
+        },
+        series: [{
+            name: 'Brands',
+            colorByPoint: true,
+            data:[{name:"",y:1}]
+
+        }]
+    };
+    crear_grafica(var_charts_origen);
+
+    var var_charts_asignadas = {
+        chart: {
+            type: 'bar',
+            renderTo: 'charts_Asignado'
+        },
+        title: {
+            text: ''
+        },
+        subtitle: {
+            text: ''
+        },
+        xAxis: {
+            categories: [],
+            title: {
+                text: null
+            }
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: '',
+                align: 'high'
+            },
+            labels: {
+                overflow: 'justify'
+            }
+        },
+        tooltip: {
+            valueSuffix: ' '
+        },
+        plotOptions: {
+            bar: {
+                dataLabels: {
+                    enabled: true
+                }
+            }
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'top',
+            x: -40,
+            y: 80,
+            floating: true,
+            borderWidth: 1,
+            backgroundColor:
+            Highcharts.defaultOptions.legend.backgroundColor || '#FFFFFF',
+            shadow: true
+        },
+        credits: {
+            enabled: false
+        },
+        series: [{
+            name: '',
+            data:[0]
+        }]
+    };
+    crear_grafica(var_charts_asignadas);
+    var var_charts_trafico = {
+        chart: {
+            type: 'spline',
+            renderTo: 'charts_Trafico'
+        },
+        plotOptions: {
+
+        },
+        title: {
+            text: ''
+        },
+        subtitle: {
+            text: ''
+        },
+        xAxis: {
+            categories: [],
+            tickmarkPlacement: 'on',
+            title: {
+                enabled: false
+            }
+        },
+        yAxis: {
+            title: {
+                text: ''
+            },
+            labels: {
+                formatter: function () {
+                    return this.value / 1000;
+                }
+            }
+        },
+        tooltip: {
+            crosshairs: true,
+            shared: true
+        },
+        responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 500
+                },
+                chartOptions: {
+                    legend: {
+                        layout: 'horizontal',
+                        align: 'center',
+                        verticalAlign: 'bottom'
+                    }
+                }
+            }]
+        },
+        series: [{
+            name: '',
+            data:[0]
+        }]
+    };
+    crear_grafica(var_charts_trafico);
+
+
+
+
     $('#slCuenta').on('change', function() {
 
         $('#slCategorias').find('option').not(':first').remove();
@@ -93,6 +305,8 @@
         var mCiudad            = $("#slCiudades").val();
 
 
+
+
         console.log(mCatego + '->' + mTipo + '->' + mAsignado + '->' + mCiudad);
 
         if (mFechaDesde===""){
@@ -166,12 +380,64 @@
                     { "data": "CATEGORIA" },
                     { "data": "CIUDAD" }
                 ],
-                "fnInitComplete": function (dta) {
+                "fnInitComplete": function(oSettings, json) {
                     $("#tblReportes_filter").hide();
+
+                    var api = this.api();
+
+                    var dta_asginada    = [];
+                    var title_asignada  = [];
+
+                    var dta_trafico     = [];
+                    var title_trafico   = [];
+
+
+                    $("#idCountFilter").text(api.rows( ).count());
+                    $("#idFilter").text("(Tipos " + mFechaDesde +" al " + mFechaHasta +")" );
+
+                    var_charts_Categoria.series[0].data = json['Tipos'];
+                    crear_grafica(var_charts_Categoria);
+
+                    var_charts_origen.series[0].data = json['Ciudad'];
+                    crear_grafica(var_charts_origen);
+
+
+                    title_asignada = [];
+                    $.each(json['Asignada'], function(i, x) {
+                        dta_asginada.push({
+                            name  : x['Id_Asignado'],
+                            y     : x['Count_Asignado']
+                        });
+
+                        title_asignada.push(x['name'])
+                    });
+                    var_charts_asignadas.xAxis.categories = title_asignada;
+                    var_charts_asignadas.series[0].data = dta_asginada;
+                    crear_grafica(var_charts_asignadas);
+
+
+                    $.each(json['Dias'], function(i, x) {
+                        dta_trafico.push({
+                            name  : x['created_at'],
+                            y     : x['Count_Dia']
+                        });
+
+                        title_trafico.push(x['name'])
+                    });
+                    var_charts_trafico.xAxis.categories = title_trafico;
+                    var_charts_trafico.series[0].data = dta_trafico;
+                    crear_grafica(var_charts_trafico);
+
+
+
                 }
             });
         }
 
+    }
+
+    function crear_grafica(grafica) {
+        new Highcharts.Chart(grafica);
     }
 
 

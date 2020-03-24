@@ -111,11 +111,11 @@
         </div>
         <div class="card">
             <div class="card-content">
-                <h5 class="card-title">Texto Plano</h5>
+                <h5 class="card-title">Espacio Disponible</h5>
                 <div class="row">
                     <div class="col s8 m-t-30">
-                        <h3 class="font-medium m-b-5">528</h3>
-                        <span>(150-165 sales)</span>
+                        <h3 class="font-medium m-b-5"></h3>
+                        <span></span>
                     </div>
                     <div class="col s4 right-align">
 

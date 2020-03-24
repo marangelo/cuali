@@ -33,6 +33,9 @@
         title: {
             text: 'Tipo de solicitudes'
         },
+        credits: {
+            enabled: false
+        },
         tooltip: {
             pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
         },
@@ -80,6 +83,9 @@
         },
         tooltip: {
             pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        credits: {
+            enabled: false
         },
         accessibility: {
             point: {
@@ -143,16 +149,7 @@
             }
         },
         legend: {
-            layout: 'vertical',
-            align: 'right',
-            verticalAlign: 'top',
-            x: -40,
-            y: 80,
-            floating: true,
-            borderWidth: 1,
-            backgroundColor:
-            Highcharts.defaultOptions.legend.backgroundColor || '#FFFFFF',
-            shadow: true
+            enabled: false
         },
         credits: {
             enabled: false
@@ -211,6 +208,12 @@
                     }
                 }
             }]
+        },
+        credits: {
+            enabled: false
+        },
+        legend: {
+            enabled: false
         },
         series: [{
             name: '',

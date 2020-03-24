@@ -406,7 +406,9 @@
 
 
                     title_asignada = [];
+
                     $.each(json['Asignada'], function(i, x) {
+                        console.log(x['Id_Asignado']);
                         dta_asginada.push({
                             name  : x['Id_Asignado'],
                             y     : x['Count_Asignado']

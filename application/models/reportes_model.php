@@ -52,12 +52,13 @@ class reportes_model extends CI_Model {
             $data['data'][$i]['CIUDAD']     = "";
         }
 
-        $qTipo ="SELECT Id_Tipo,count(Id_Tipo) as Count_Tipo FROM vstsolicitudes T0  WHERE T0.created_at BETWEEN '".$f1."' AND '".$f2."' GROUP BY T0.Id_Tipo";
+        $qTipo ="SELECT Id_Tipo,count(Id_Tipo) as Count_Tipo FROM vstsolicitudes T0  WHERE T0.created_at BETWEEN '".$f1."' AND '".$f2."' ";
         $qTipo .= ($Cu=="ND") ? "" : " AND T0.IdCuenta='".$Cu."'" ;
         $qTipo .= ($Ca=="ND") ? "" : " AND T0.IdCat='".$Ca."'" ;
         $qTipo .= ($Ti=="ND") ? "" : " AND T0.IdTipo='".$Ti."'" ;
         $qTipo .= ($As=="ND") ? "" : " AND T0.IdAsig='".$As."'" ;
         $qTipo .= ($Ci=="ND") ? "" : " AND T0.IdCiudad='".$Ci."'" ;
+        $qTipo .= ' GROUP BY T0.Id_Tipo';
 
         $rTipo = $this->db->query($qTipo);
         $t = 0;
@@ -73,12 +74,13 @@ class reportes_model extends CI_Model {
         }
 
 
-        $qCuid ="SELECT Id_Ciudad,count(Id_Ciudad) as Count_Ciudad FROM vstsolicitudes T0  WHERE T0.created_at BETWEEN '".$f1."' AND '".$f2."' GROUP BY T0.Id_Ciudad";
+        $qCuid ="SELECT Id_Ciudad,count(Id_Ciudad) as Count_Ciudad FROM vstsolicitudes T0  WHERE T0.created_at BETWEEN '".$f1."' AND '".$f2."'";
         $qCuid .= ($Cu=="ND") ? "" : " AND T0.IdCuenta='".$Cu."'" ;
         $qCuid .= ($Ca=="ND") ? "" : " AND T0.IdCat='".$Ca."'" ;
         $qCuid .= ($Ti=="ND") ? "" : " AND T0.IdTipo='".$Ti."'" ;
         $qCuid .= ($As=="ND") ? "" : " AND T0.IdAsig='".$As."'" ;
         $qCuid .= ($Ci=="ND") ? "" : " AND T0.IdCiudad='".$Ci."'" ;
+        $qCuid .= ' GROUP BY T0.Id_Ciudad';
 
         $rCuid = $this->db->query($qCuid);
         $c = 0;
@@ -94,13 +96,16 @@ class reportes_model extends CI_Model {
         }
 
 
-        $qAsig ="SELECT Id_Asignado,count(Id_Asignado) as Count_Asignado FROM vstsolicitudes T0  WHERE T0.created_at BETWEEN '".$f1."' AND '".$f2."' GROUP BY T0.Id_Asignado";
+        $qAsig ="SELECT Id_Asignado,count(Id_Asignado) as Count_Asignado FROM vstsolicitudes T0  WHERE T0.created_at BETWEEN '".$f1."' AND '".$f2."'";
         $qAsig .= ($Cu=="ND") ? "" : " AND T0.IdCuenta='".$Cu."'" ;
         $qAsig .= ($Ca=="ND") ? "" : " AND T0.IdCat='".$Ca."'" ;
         $qAsig .= ($Ti=="ND") ? "" : " AND T0.IdTipo='".$Ti."'" ;
         $qAsig .= ($As=="ND") ? "" : " AND T0.IdAsig='".$As."'" ;
         $qAsig .= ($Ci=="ND") ? "" : " AND T0.IdCiudad='".$Ci."'" ;
+        $qAsig .= ' GROUP BY T0.Id_Asignado';
+
         $rAsig = $this->db->query($qAsig);
+
         $a=0;
         if($rAsig->num_rows() > 0 ) {
             foreach ($rAsig->result_array() as $key){
@@ -114,12 +119,13 @@ class reportes_model extends CI_Model {
         }
 
 
-        $qDias ="SELECT created_at,count(Id_Asignado) as Count_Dia FROM vstsolicitudes T0  WHERE T0.created_at BETWEEN '".$f1."' AND '".$f2."' GROUP BY T0.created_at";
+        $qDias ="SELECT created_at,count(Id_Asignado) as Count_Dia FROM vstsolicitudes T0  WHERE T0.created_at BETWEEN '".$f1."' AND '".$f2."'";
         $qDias .= ($Cu=="ND") ? "" : " AND T0.IdCuenta='".$Cu."'" ;
         $qDias .= ($Ca=="ND") ? "" : " AND T0.IdCat='".$Ca."'" ;
         $qDias .= ($Ti=="ND") ? "" : " AND T0.IdTipo='".$Ti."'" ;
         $qDias .= ($As=="ND") ? "" : " AND T0.IdAsig='".$As."'" ;
         $qDias .= ($Ci=="ND") ? "" : " AND T0.IdCiudad='".$Ci."'" ;
+        $qDias .= " GROUP BY T0.created_at";
 
         $rDias = $this->db->query($qDias);
         $a=0;

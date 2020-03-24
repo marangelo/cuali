@@ -292,12 +292,12 @@ class main_model extends CI_Model {
                 $mail->SMTPDebug = 0;
                 $mail->isSMTP();
                 $mail->addCC('gmedrano@publisa.com.ni');
-                $mail->Host = 'smtp.gmail.com';
+                $mail->Host = 'smtp.netfirms.com';
                 $mail->SMTPAuth = true;
-                $mail->Username = 'analista.guma@gmail.com';
-                $mail->Password = 'a7m1425.';
-                $mail->SMTPSecure = 'tls';
-                $mail->Port = 587;
+                $mail->Username = 'info@publisa.com.ni';
+                $mail->Password = 'Publ1s4_2020$';
+                $mail->SMTPSecure = 'ssl';
+                $mail->Port = 465;
                 $mail->SMTPOptions = array(
                     'ssl' => array(
                         'verify_peer' => false,

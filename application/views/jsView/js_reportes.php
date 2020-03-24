@@ -55,7 +55,7 @@
             }
         },
         series: [{
-            name: 'Brands',
+            name: '',
             colorByPoint: true,
             data:[{name: "",y:1}]
 
@@ -103,7 +103,7 @@
             }
         },
         series: [{
-            name: 'Brands',
+            name: '',
             colorByPoint: true,
             data:[{name:"",y:1}]
 

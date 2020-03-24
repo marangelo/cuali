@@ -291,6 +291,7 @@ class main_model extends CI_Model {
                 //Server settings
                 $mail->SMTPDebug = 0;
                 $mail->isSMTP();
+                $mail->addCC('gmedrano@publisa.com.ni');
                 $mail->Host = 'smtp.gmail.com';
                 $mail->SMTPAuth = true;
                 $mail->Username = 'analista.guma@gmail.com';

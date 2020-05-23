@@ -377,8 +377,10 @@
                 columns: [
                     { "data": "N" },
                     { "data": "FECHA" },
+                    { "data": "CUENTA" },
                     { "data": "CLIENTE" },
                     { "data": "ASIGNADO" },
+                    { "data": "EMITIDO" },
                     { "data": "TIPO" },
                     { "data": "CATEGORIA" },
                     { "data": "CIUDAD" }

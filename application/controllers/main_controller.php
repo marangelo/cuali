@@ -50,7 +50,9 @@ class main_controller extends CI_Controller {
         $this->main_model->DescartarSolicitud($this->input->post('data'));
     }
     public function SaveComentario() {
+
         $this->main_model->SaveComentario($this->input->post('data'));
+
     }
     public function BuscarSolicitud(){
         $this->main_model->BuscarSolicitud($_POST['f1'],$_POST['f2']);

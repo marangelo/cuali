@@ -21,7 +21,7 @@
                     </div>
                     <p><?php echo $Info[0]['array_Caso'][0]['Comentarios'];?></p><br>
                     <div class="row">
-                        <div class="col s12 m3 valign-wrapper">
+                        <div class="col s12 m2 valign-wrapper">
                             <i class="Small material-icons">domain</i>
                             <span style="margin-left: 10px;"><?php echo $Info[0]['array_Caso'][0]['Id_Cuenta'];?></span>
                         </div>
@@ -29,14 +29,19 @@
                             <i class="Small material-icons">notes</i>
                             <span style="margin-left: 10px;"><?php echo $Info[0]['array_Caso'][0]['Id_Categoria'];?></span>
                         </div>
-                        <div class="col s12 m3 valign-wrapper">
+                        <div class="col s12 m2 valign-wrapper">
                             <i class="Small material-icons">assignment_ind</i>
                             <span style="margin-left: 10px;"><?php echo $Info[0]['array_Caso'][0]['Id_Asignado'];?></span>
                         </div>
                         <div class="col s12 m3 valign-wrapper">
+                            <i class="Small material-icons">assignment_ind</i>
+                            <span style="margin-left: 10px;"><?php echo $Info[0]['array_Caso'][0]['Id_Emite'];?></span>
+                        </div>
+                        <div class="col s12 m2 valign-wrapper">
                             <i class="Small material-icons">share</i>
                             <span style="margin-left: 10px;"><?php echo $Info[0]['array_Caso'][0]['Id_Fuente'];?></span>
                         </div>
+
                     </div>
                 </div>
             </div>

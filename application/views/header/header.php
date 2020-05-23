@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>CUALI | GSM NICARAGUA</title>
+    <title>CUALI | PUBLISA </title>
     <!--Import Google Icon Font-->    
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">    
     <!--Import materialize.css-->    
@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="<?php echo base_url();?>assets/css/daterangepicker.css" >
     <!--SWEETALERT2-->
     <link rel="stylesheet" href="<?php echo base_url();?>assets/css/sweetalert2.min.css" >
+    <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/images/favicon.png" />
 
 
 </head>

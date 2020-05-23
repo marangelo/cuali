@@ -8,7 +8,7 @@
             <i class="material-icons">today</i>
             <input type="text" class="input-fecha" id="hasta" placeholder="Hasta">
         </div>
-        <div class="col s12 m5 container-button">
+        <div class="col s12 m4 container-button">
             <div class="container-button">
                 <input type="text" id="SearchCasos" class="form-control" placeholder="Buscar en movimientos" >
                 <span class="input-group-btn">
@@ -23,6 +23,15 @@
                 <option value="-1">*</option>
             </select>
         </div>
+        <div class="col s12 m1 container-button">
+            <div class="container-button">
+                <span class="input-group-btn">
+                    <button class="button1 btn-secondary waves-effect" type="button" id="Id_To_Excel" style="width: 92px">
+                        <img  src="<?php echo base_url('assets/images/excel.png');?>" style="width: 30px;margin-top: 2px;">
+                    </button>
+                </span>
+            </div>
+        </div>
     </div>
 	<div class="row" id="data-reporte">
         <div class="col s12 m12">
@@ -30,6 +39,7 @@
                  <thead>
                      <tr>
                          <th>Nº</th>
+                         <th>CUENTA</th>
                          <th>CLIENTE</th>
                          <th>REMITIDO</th>
                          <th>FUENTE</th>

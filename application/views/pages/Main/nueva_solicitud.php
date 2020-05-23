@@ -78,7 +78,7 @@
                         </div>
                         <div class="col s12 m4">
                             <select name="" id="slCiudades" class="jsSelect">
-                                <option value="ND" >Ciudadad:</option>
+                                <option value="ND" >Departamento:</option>
                                 <?php
                                 foreach ($ext[0]['array_Ciudades'] as $vl){
                                     echo '<option value="'.$vl['IdCiudad'].'">'.$vl['NombreCiudad'].'</option>';
@@ -94,7 +94,7 @@
                     </div>
                     <div class="row" >
                         <div class="col s12 m12 center">
-                            <input style="width: 15%; height: 44px; background-color: #009FE3;" class="Btnadd modal-action modal-close btn" type="submit" name="submit" value="Guardar" onclick="SaveSolicitud()">
+                            <input style="width: 15%; height: 44px; background-color: #009FE3;" class="Btnadd modal-action modal-close btn" type="submit" name="submit" value="Enviar" onclick="SaveSolicitud()">
                             <input style="width: 15%; height: 44px; background-color: #B2B2B2;" class="btn btn-cancel " type="submit" name="submit" value="Cancelar">
                         </div>
                     </div>
@@ -107,9 +107,14 @@
         </div>
     </div>
 </div>
+
 <div id="mdlRemitidos" class="modal">
-    <div class="modal-content" id="mdlTabla"></div>
+    <div class="modal-content" id="mdlTabla">
+
+    </div>
     <div class="modal-footer">
         <a href="#!" class="modal-close waves-effect waves-green btn-flat" ID="bt_asignarCaso">Asignar</a>
     </div>
 </div>
+
+

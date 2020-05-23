@@ -160,8 +160,10 @@
     <tr>
         <th>Nº</th>
         <th>FECHA</th>
+        <th>CUENTA</th>
         <th>CLIENTE</th>
-        <th>ASIGNADO</th>
+        <th>REMITIDO</th>
+        <th>EMITIDO</th>
         <th>TIPO</th>
         <th>CATEGORIA</th>
         <th>CIUDAD</th>

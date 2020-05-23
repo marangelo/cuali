@@ -23,6 +23,29 @@
             text: 'Seleccione primer rango!'
         });
     }
+    $('#Id_To_Excel').click(function() {
+        var mFechaDesde = $("#desde").val();
+        var mFechaHasta = $("#hasta").val();
+
+        if (mFechaDesde===""){
+            Swal.fire({
+                type: 'error',
+                title: 'Oops...',
+                text: 'Seleccione primer rango!'
+            });
+        }else if(mFechaHasta==="") {
+            Swal.fire({
+                type: 'error',
+                title: 'Oops...',
+                text: 'Seleccione segundo rango!'
+            });
+        }else{
+            var url = "Solicitud_reporte_Excel/" + mFechaDesde + "/" + mFechaHasta;
+            window.open(url, '_blank');
+
+        }
+
+    });
     function Descartar(mID) {
         Swal.fire({
             title: '¿Seguro de descartar el caso?',
@@ -114,6 +137,7 @@
                 columns: [
                     { "data": "N" },
                     { "data": "CUENTA" },
+                    { "data": "CLIENTE" },
                     { "data": "REMITIDO" },
                     { "data": "FUENTE" },
                     { "data": "FECHA" },
@@ -162,6 +186,7 @@
             columns: [
                 { "data": "N" },
                 { "data": "CUENTA" },
+                { "data": "CLIENTE" },
                 { "data": "REMITIDO" },
                 { "data": "FUENTE" },
                 { "data": "FECHA" },

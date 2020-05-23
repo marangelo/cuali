@@ -44,6 +44,9 @@ class reportes_controller extends CI_Controller {
     public function Buscar_Solicitud_reporte_Excel($f1,$f2,$Cu,$Ca,$Ti,$As,$Ci) {
         $this->reportes_model->Buscar_Solicitud_reporte_Excel($f1,$f2,$Cu,$Ca,$Ti,$As,$Ci);
     }
+    public function Solicitud_reporte_Excel($f1,$f2) {
+        $this->reportes_model->Solicitud_reporte_Excel($f1,$f2);
+    }
 
 }
 ?>

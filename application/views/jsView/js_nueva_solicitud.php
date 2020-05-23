@@ -64,18 +64,10 @@
 
                             });
                             $( "#mdlTabla" ).html(($('<table id="tblRemitente" class="display" cellspacing="0" width="100%">' +tbody + ' </table>')));
-                            $('#tblRemitente').DataTable( {
-                                columnDefs: [
-                                    { "visible": false, "targets": 1 },
-                                    {
-                                    orderable: false,
-                                    className: 'select-checkbox',
-                                    targets:   0
-                                } ],
-                                select: {
-                                    style: 'single'
-                                },
-                                order: [[ 1, 'asc' ]]
+                            //$('#tblRemitente').DataTable( );
+
+                            $('#tblRemitente tbody').on( 'click', 'tr', function () {
+                                $(this).toggleClass('selected_asign');
                             } );
 
                         });
@@ -89,11 +81,37 @@
 
         });
         $('#bt_asignarCaso').click(function() {
-            var table = $('#tblRemitente').DataTable();
-            var data = table.rows( { selected: true } ).data();
+            var table   = $('#tblRemitente').DataTable();
+            var Ids     = "";
+            var email   = "";
+            var data = table.rows( '.selected_asign' ).data();
             if(data.length > 0){
-                $("#txRemitidos").val(data[0][2]);
-                $("#lblIDRemitido").html(data[0][1]);
+
+              /*
+               $("#txRemitidos").val(value[2]);
+               ;
+                */
+
+
+                table
+                    .rows( '.selected_asign' )
+                    .data()
+                    .each( function ( value, index ) {
+
+                        //Ids += "'" + value[1] + "',";
+                        Ids += value[1];
+                        email += value[2];
+
+                    } );
+
+                $("#lblIDRemitido").html(Ids)
+                if(data.length >= 2){
+                    $("#txRemitidos").val("Multiples remitidos.");
+                }else{
+                    $("#txRemitidos").val(email);
+                }
+
+
             }else{
                 Swal.fire({
                     type: 'error',
@@ -190,7 +208,7 @@
             });
         }else{
             Swal.fire({
-                title: '¿Seguro de Guardar?',
+                title: '¿Seguro de Enviar?',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
@@ -228,7 +246,7 @@
                                 'Se aplicaron los cambios',
                                 'success'
                             );
-                            location.reload();
+                           location.reload();
                         }else {
                             Materialize.toast("Ups...ocurrio un problema al tratar de actualizar!", 4000, 'rounded');
                         }

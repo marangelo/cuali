@@ -45,3 +45,4 @@ $route['Config'] = 'main_controller/Config';
 $route['Reportes'] = 'reportes_controller';
 $route['Buscar_Solicitud_reporte'] = 'reportes_controller/Buscar_Solicitud_reporte';
 $route['Buscar_Solicitud_reporte_Excel/(:any)/(:any)/(:any)/(:any)/(:any)/(:any)/(:any)'] =  'reportes_controller/Buscar_Solicitud_reporte_Excel/$1/$2/$3/$4/$5/$6/$7';
+$route['Solicitud_reporte_Excel/(:any)/(:any)'] =  'reportes_controller/Solicitud_reporte_Excel/$1/$2';

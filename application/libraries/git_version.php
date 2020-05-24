@@ -10,7 +10,7 @@ class git_version
 {
     const MAJOR = 1;
     const MINOR = 0;
-    const CommitHash = 31;
+    const CommitHash = 33;
 
     public static  function get()
     {

@@ -22,7 +22,7 @@ class reportes_model extends CI_Model {
         $consulta .= ($Cu=="ND") ? "" : " AND T0.IdCuenta='".$Cu."'" ;
         $consulta .= ($Ca=="ND") ? "" : " AND T0.IdCat='".$Ca."'" ;
         $consulta .= ($Ti=="ND") ? "" : " AND T0.IdTipo='".$Ti."'" ;
-        $consulta .= ($As=="ND") ? "" : " AND T0.IdAsig='".$As."'" ;
+      //  $consulta .= ($As=="ND") ? "" : " AND T0.IdAsig='".$As."'" ;
         $consulta .= ($Ci=="ND") ? "" : " AND T0.IdCiudad='".$Ci."'" ;
 
 
@@ -40,8 +40,6 @@ class reportes_model extends CI_Model {
                 $data['data'][$i]['TIPO']     = $key['Id_Tipo'];
                 $data['data'][$i]['CATEGORIA']       = $key['Id_Categoria'];
                 $data['data'][$i]['CIUDAD']        = $key['Id_Ciudad'];
-
-
                 $i++;
             }
         }else{

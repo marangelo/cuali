@@ -108,9 +108,18 @@
     </div>
 </div>
 
-<div id="mdlRemitidos" class="modal">
-    <div class="modal-content" id="mdlTabla">
-
+<div id="mdlRemitidos" class="modal modal-fixed-footer">
+    <div class="modal-content" >
+        <table id="tblRemitente" class="display" style="width:100%">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Cargo</th>
+            </tr>
+            </thead>
+        </table>
     </div>
     <div class="modal-footer">
         <a href="#!" class="modal-close waves-effect waves-green btn-flat" ID="bt_asignarCaso">Asignar</a>

@@ -154,19 +154,22 @@ class main_model extends CI_Model {
         );
         return $Arr;
     }
-    function infoMail($IdC,$IdR,$IdF,$IdT) {
+    function infoMail($IdC,$IdR,$IdF,$IdT,$IdCiudad) {
+
+        $IdR = substr($IdR, 0, -1);
 
         $Arr = array();
-        $qTipos = $this->db->query("SELECT tpNombre FROM tipos WHERE IdTipos ='".$IdT."'");
-        $qFuentes = $this->db->query("SELECT fNombre FROM fuentes WHERE idFuentes ='".$IdF."'");
+        $qTipos     = $this->db->query("SELECT tpNombre FROM tipos WHERE IdTipos ='".$IdT."'");
+        $qFuentes   = $this->db->query("SELECT fNombre FROM fuentes WHERE idFuentes ='".$IdF."'");
         $qCategoria = $this->db->query("SELECT Nombre FROM categorias WHERE Id_Categorias ='".$IdC."'");
-        $qRemitidos = $this->db->query("SELECT Nombre,Email FROM remitidos WHERE Id_Remitidos ='".$IdR."'");
-
+        $qRemitidos = $this->db->query("SELECT Id_Remitidos,Nombre,Email FROM remitidos WHERE Id_Remitidos in (".$IdR.")");
+        $qCiudad    = $this->db->query("SELECT NombreCiudad FROM ciudades WHERE IdCiudad ='".$IdCiudad."'");
         $Arr[] = array(
             'array_Tipos'       => $qTipos->result_array(),
             'array_Fuentes'     => $qFuentes->result_array(),
             'array_Categoria'   => $qCategoria->result_array(),
-            'array_Remitidos'   => $qRemitidos->result_array()
+            'array_Remitidos'   => $qRemitidos->result_array(),
+            'array_Ciudad'      => $qCiudad->result_array()
         );
         return $Arr;
     }
@@ -175,7 +178,7 @@ class main_model extends CI_Model {
         if (count($data)>0) {
             foreach ($data as $key){
                 $Fecha = date('Y-m-d', strtotime(str_replace('/', '-', $key['mFecha'])));
-                $info = $this->infoMail($key['mCategoria'],$key['mRemitido'],$key['mFuente'],$key['mTipo']);
+                $info = $this->infoMail($key['mCategoria'],$key['mRemitido'],$key['mFuente'],$key['mTipo'],$key['mCiudad']);
                 $result=   $this->db->insert('casos', array(
                     'Nombres'       => $key['mNombre'],
                     'Apellidos'     => $key['mApellido'],
@@ -185,7 +188,6 @@ class main_model extends CI_Model {
                     'Id_Fuente'     => $key['mFuente'],
                     'Id_Tipo'       => $key['mTipo'],
                     'Id_Categoria'  => $key['mCategoria'],
-                    'Id_Asignado'   => $key['mRemitido'],
                     'Comentarios'   => $key['mComentario'],
                     'Id_Ciudad'     => $key['mCiudad'],
                     'Monto'         => $key['mMonto'],
@@ -194,7 +196,18 @@ class main_model extends CI_Model {
                     'id_usuario'    => $this->session->userdata('idUser'),
                     'estado'        => 1
                 ));
-                $lastid = $this->Format_Consecutivo($this->db->insert_id());
+                $idInsert = $this->db->insert_id();
+                $lastid = $this->Format_Consecutivo($idInsert);
+
+                $data = array();
+                foreach ($info[0]['array_Remitidos'] as $array_Remitido) {
+                    $data[]=
+                        array(
+                            'Id_asignador' =>$array_Remitido['Id_Remitidos'],
+                            'Id_caso' => $idInsert
+                        );
+                }
+                $this->db->insert_batch('asignaciones', $data);
 
                 $Plantilla ='<style type="text/css">
 .ReadMsgBody {
@@ -323,7 +336,7 @@ div.preheader
       </tr>      
 
       <tr>
-        <td valign="bottom" style="padding-left:35px;" class="center_img" align="center" width="200"><img src="http://localhost:8448/cuali/assets/images/Logo.png" alt="" width="200" height="auto" border="0" style="display:block;"/></a></td>
+        <td valign="bottom" style="padding-left:35px;" class="center_img" align="center" width="200"><img src="http://cuali.publisa.com.ni/assets/images/Logo.png" alt="" width="200" height="auto" border="0" style="display:block;"/></a></td>
         <td width="145" class="mobile-hidden"></td>
         <td align="right" style="font: normal 13px Arial, Helvetica, sans-serif; color:#ffffff; line-height:15px; padding-right:35px;" class="mobile-hidden" width="290"><em>CUALI | PUBLISA </em></td>
       </tr>
@@ -388,8 +401,8 @@ div.preheader
                           <td style="width: 112px; text-align: center;">'.$info[0]['array_Tipos'][0]['tpNombre'].'</td>
                           <td style="width: 112px; text-align: center;">'.$info[0]['array_Categoria'][0]['Nombre'].'</td>
                           <td style="width: 112px; text-align: center;">'.$this->session->userdata('nombre').'</td>
-                          <td style="width: 112px; text-align: center;">'.$info[0]['array_Fuentes'][0]['fNombre'].'</td>
-                          <td style="width: 112px; text-align: center;">c_departa</td>
+                          <td style="width: 112px; text-align: center;">'.((!isset($info[0]['array_Fuentes'][0]['fNombre'])) ? "N/D" : $info[0]['array_Fuentes'][0]['fNombre']  ).'</td>
+                          <td style="width: 112px; text-align: center;">'.$info[0]['array_Ciudad'][0]['NombreCiudad'].'</td>
                           </tr>
                           </tbody>
                           </table>
@@ -445,16 +458,19 @@ div.preheader
 
 
 
-                $mail = new PHPMailer(true);
+
+                /*$mail = new PHPMailer(true);
                 //Server settings
                 $mail->SMTPDebug = 0;
                 $mail->isSMTP();
 
-                /*$qccEmail = $this->db->get('ccemail');
+                $qccEmail = $this->db->get('ccemail');
                 foreach ($qccEmail->result_array() as $key )
                 {
                     $mail->AddCC(trim($key['emai']), $key['Nombre']);
-                }*/
+                }
+
+
 
 
                 $mail->Host = 'smtp.netfirms.com';
@@ -474,8 +490,11 @@ div.preheader
                 //Recipients
                 $mail->setFrom('cuali@publisa.com.ni', 'CUALI | PUBLISA');
 
+                foreach ($info[0]['array_Remitidos'] as $array_Remitido) {
+                    $mail->addAddress($array_Remitido['Email'],$array_Remitido['Nombre']);
+                }
 
-                $mail->addAddress($info[0]['array_Remitidos'][0]['Email'],$info[0]['array_Remitidos'][0]['Nombre']);
+
 
                 //$mail->addAttachment('./data/colillas/'.$nomQna.'/'.$cod.'.pdf');
 
@@ -484,7 +503,7 @@ div.preheader
                 $mail->Subject = 'CUALI  | '.$key['mNombre'].' '.$key['mApellido'].' ';
                 $mail->Body    = $Plantilla;
 
-                $mail->send();
+                $mail->send();*/
             }
         }
 

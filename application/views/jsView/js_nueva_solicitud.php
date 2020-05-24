@@ -45,27 +45,22 @@
                                 $("#slCategorias").append('<option value='+item['Id_Categorias']+'>'+item['Nombre']+'</option>');
                             });
 
-                            var   tbody = '<thead>' +
-                                '<tr>' +
-                                    '<th></th>' +
-                                    '<th>Nº</th>' +
-                                    '<th>Nombre</th>' +
-                                    '<th>Email</th>' +
-                                    '<th>Cargo</th>' +
-                                '</tr>' +
-                                '</thead>';
+                            var t = $('#tblRemitente').DataTable( {
+                                columnDefs: [
+                                    { "visible": false, "targets": 0},
+                                     ],
+                                order: [[ 1, 'asc' ]]
+                            } );
+
                             $.each(item['array_Remitidos'], function(i, item) {
-                                tbody += '<tr>' +
-                                    '<td></td>'+
-                                    '<td>' + item['Id_Remitidos'] + '</td>' +
-                                    '<td>' +item['Nombre'] + '</td>' +
-                                    '<td>' +item['Email'] +'</td>' +
-                                    '<td>' +item['Cargo'] +'</td>';
+                                t.row.add( [
+                                    item['Id_Remitidos'],
+                                    item['Nombre'],
+                                    item['Email'],
+                                    item['Cargo']
+                                ] ).draw( false );
 
                             });
-                            $( "#mdlTabla" ).html(($('<table id="tblRemitente" class="display" cellspacing="0" width="100%">' +tbody + ' </table>')));
-                            //$('#tblRemitente').DataTable( );
-
                             $('#tblRemitente tbody').on( 'click', 'tr', function () {
                                 $(this).toggleClass('selected_asign');
                             } );
@@ -87,19 +82,13 @@
             var data = table.rows( '.selected_asign' ).data();
             if(data.length > 0){
 
-              /*
-               $("#txRemitidos").val(value[2]);
-               ;
-                */
-
-
                 table
                     .rows( '.selected_asign' )
                     .data()
                     .each( function ( value, index ) {
 
-                        //Ids += "'" + value[1] + "',";
-                        Ids += value[1];
+                        Ids += value[1] + ",";
+                        //Ids += value[1];
                         email += value[2];
 
                     } );

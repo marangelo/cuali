@@ -68,7 +68,7 @@
                 </div>
                 <div class="col s12 m3 container-input"" >
                     <select name="" id="slCiudades" class="jsSelect">
-                        <option value="ND" >Ciudadad:</option>
+                        <option value="ND" >Departamento:</option>
                         <?php
                         foreach ($ext[0]['array_Ciudades'] as $vl){
                             echo '<option value="'.$vl['IdCiudad'].'">'.$vl['NombreCiudad'].'</option>';
@@ -166,7 +166,7 @@
         <th>EMITIDO</th>
         <th>TIPO</th>
         <th>CATEGORIA</th>
-        <th>CIUDAD</th>
+        <th>DEPARTAMENTO</th>
     </tr>
     </thead>
 </table>

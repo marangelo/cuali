@@ -182,8 +182,8 @@ class main_model extends CI_Model {
                 $result=   $this->db->insert('casos', array(
                     'Nombres'       => $key['mNombre'],
                     'Apellidos'     => $key['mApellido'],
-                    'Telefono'      => $key['mTelefono'],
-                    'Correo'        => $key['mCorreo'],
+                    'Telefono'      => ($key['mTelefono']=="")? "0" : $key['mTelefono'],
+                    'Correo'        => ($key['mCorreo']=="")? "nd@corre.com" : $key['mCorreo'],
                     'Id_Cuenta'     => $key['mCuenta'],
                     'Id_Fuente'     => $key['mFuente'],
                     'Id_Tipo'       => $key['mTipo'],
@@ -197,7 +197,6 @@ class main_model extends CI_Model {
                     'estado'        => 1
                 ));
                 $idInsert = $this->db->insert_id();
-                $lastid = $this->Format_Consecutivo($idInsert);
 
                 $data = array();
                 foreach ($info[0]['array_Remitidos'] as $array_Remitido) {
@@ -209,305 +208,50 @@ class main_model extends CI_Model {
                 }
                 $this->db->insert_batch('asignaciones', $data);
 
-                $Plantilla ='<style type="text/css">
-.ReadMsgBody {
-	width: 100%;
-}
-.ExternalClass {
-	width: 100%;
-}
-.ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {
-	line-height: 100%;
-}
-p {
-	margin: 1em 0;
-}
-body, table, td, a {
-	-webkit-text-size-adjust: 100%;
-	-ms-text-size-adjust: 100%;
-}
-table, td {
-	mso-table-lspace: 0pt;
-	mso-table-rspace: 0pt;
-}
-img {
-	-ms-interpolation-mode: bicubic;
-}
-@-ms-viewport {
-width: device-width;
-}
-body {
-	margin: 0;
-	padding: 0;
-}
-img {
-	border: 0;
-	height: auto;
-	line-height: 100%;
-	outline: none;
-	text-decoration: none;
-}
 
-table, td {
-	border-collapse: collapse !important;
-}
-body {
-	height: 100% !important;
-	margin: 0;
-	padding: 0;
-	width: 100% !important;
-}
-</style>
+                //SERVICIO DE ENVIO DE EMAIL
+                $this->curlPost('http://186.1.15.164:8448/cuali_send_email/index.php/send', [
+                    'Id' => $idInsert,
+                ]);
 
-<style type="text/css">
- @media only screen and (max-width: 480px) {
-.container {
- width: 320px !important;
- min-width: 100%!important;
-}
-.mobile-hidden {
- display: none !important;
-}
-.mobileonly  {
- display: block !important;
- width: 100% !important;
- height: auto !important;
- padding: 0;
- max-height: inherit !important;
- overflow: visible !important;
-}
-.mobile_stats {
-display: block !important;
-width: auto !important;
-height: auto !important;
-padding: 0;
-max-height: inherit !important;
-overflow: visible !important;
-}
-.paddingnone {
- padding:0px !important;
-}
-#houdini {
- display: none !important;
-}
-.footer_padding] {
- padding: 20px !important;
-} 
-.center_img {
- width: 100% !important;
- padding: 0 !important;
-}
-.body_padding {
- padding:30px 20px 20px !important;
-}
-.font22 {
- font-size:22px;
- line-height:27px;
-}
-.font14 {
- font-size:14px !important;
- line-height:19px !important;
-}
-.hero_img {
-  width: 100% !important;
-  height: auto !important;
-}
-}
-</style>
-</head>
-<body><style type="text/css">
-div.preheader 
-{ display: none !important; } 
-</style>
-<div class="preheader" style="font-size: 1px; display: none !important;"></div>
-<table border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ebebeb">
-  <tr>
-    <td align="center" valign="top" width="100%" bgcolor="#ebebeb">
-      <table border="0" class="container" cellpadding="0" cellspacing="0" width="550" bgcolor="#FFFFFF">
-        <tr>
-          <td align="center" valign="top" width="100%">
-            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-              <tr>
-  <td bgcolor="#00AA6C" align="left" valign="top" width="100%">
-    <div align="center">
-    <table width="100%" border="0" cellpadding="0" cellspacing="0" style="border-collapse:collapse;" class="container" bgcolor="#00AA6C">
-      <tr>
-        <td height="10"></td>
-      </tr>      
-
-      <tr>
-        <td valign="bottom" style="padding-left:35px;" class="center_img" align="center" width="200"><img src="http://cuali.publisa.com.ni/assets/images/Logo.png" alt="" width="200" height="auto" border="0" style="display:block;"/></a></td>
-        <td width="145" class="mobile-hidden"></td>
-        <td align="right" style="font: normal 13px Arial, Helvetica, sans-serif; color:#ffffff; line-height:15px; padding-right:35px;" class="mobile-hidden" width="290"><em>CUALI | PUBLISA </em></td>
-      </tr>
-       
-      <tr>
-        <td height="10"></td>
-      </tr>
-    </table>
-    </div>
-  </td>
-</tr>
-
-              <tr>
-                <td align="center" style="border-bottom:solid 6px #000000; padding:30px 50px 20px;" class="body_padding">
-                  <div align="center">
-                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                      <tr>
-                        <td align="left" style="font:25px normal Helvetica, sans-serif; line-height:36px; color:#000000; padding:0px 0px 20px;" class="font22">FICHA DE OPORTUNIDAD
-                        
-
-                           <div align="left" style="font:13px normal Helvetica, sans-serif; line-height:18px; color:#000000;" class="font14"><em>
-                           <br>¡Hola! Se te ha asignado un caso <br><br>
-                            Ticket #: '.$lastid.'
-                        </em>
-                        </div>
-
-                        </td>
-                      </tr>
-                      <tr>
-                        <td style="font:13px normal Helvetica, sans-serif; line-height:18px; color:#000000; padding: 0px 0px 20px 0px;" class="font14">
-                         <table style="height: 48px;" border="1" width="597">
-                          <tbody>
-                          <tr>
-                          <td style="width: 141px; text-align: center;">Nombres</td>
-                          <td style="width: 142px; text-align: center;">Tel&eacute;fono</td>
-                          <td style="width: 142px; text-align: center;">Email</td>
-                          <td style="width: 144px; text-align: center;">Fecha</td>
-                          </tr>
-                          <tr>
-                          <td style="width: 141px; text-align: center;">'.$key['mNombre'].' '.$key['mApellido'].'</td>
-                          <td style="width: 142px; text-align: center;">'.$key['mTelefono'].'</td>
-                          <td style="width: 142px; text-align: center;">'.$key['mCorreo'].'</td>
-                          <td style="width: 144px; text-align: center;">'.date('d-m-Y h:i:s').'</td>
-                          </tr>
-                          </tbody>
-                          </table>
-
-                          <br>
-
-                          <table style="height: 45px;" border="1" width="594">
-                          <tbody>
-                          <tr>
-                          <td style="width: 112px; text-align: center;">Tipo</td>
-                          <td style="width: 112px; text-align: center;">Categor&iacute;a</td>
-                          <td style="width: 112px; text-align: center;">Emite</td>
-                          <td style="width: 112px; text-align: center;">Fuente</td>
-                          <td style="width: 112px; text-align: center;">
-                          <div>Departamento</div>
-                          </td>
-                          </tr>
-                          <tr>
-                          <td style="width: 112px; text-align: center;">'.$info[0]['array_Tipos'][0]['tpNombre'].'</td>
-                          <td style="width: 112px; text-align: center;">'.$info[0]['array_Categoria'][0]['Nombre'].'</td>
-                          <td style="width: 112px; text-align: center;">'.$this->session->userdata('nombre').'</td>
-                          <td style="width: 112px; text-align: center;">'.((!isset($info[0]['array_Fuentes'][0]['fNombre'])) ? "N/D" : $info[0]['array_Fuentes'][0]['fNombre']  ).'</td>
-                          <td style="width: 112px; text-align: center;">'.$info[0]['array_Ciudad'][0]['NombreCiudad'].'</td>
-                          </tr>
-                          </tbody>
-                          </table>
-
-                          <br>
-
-                          <table style="height: 132px;" border="1" width="588">
-                          <tbody>
-                          <tr>
-                          <td style="width: 578px;">
-                          <div>
-                              '.$key['mComentario'].'
-                          </td>
-                          </tr>
-                          </tbody>
-                          </table>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td style="padding:20px 0px;">
-                         
-                        </td>
-                      </tr>
-                      <tr>
-                        <td align="left" style="font:13px normal Helvetica, sans-serif; line-height:18px; color:#000000;" class="font14"><em>
-                          Cordial,<br>
- 
-                          Equipo de mercadeo digital
-                          Publicidad Integral<br>
-                          <a href="mailto:mercadeo@publisa.com.ni">mercadeo@publisa.com.ni</a>
-                        </em>
-                        </td>
-                      </tr>
-                    </table>        
-                  </div>
-                </td>
-              </tr>
-            </table>
-          </td>
-        </tr>
-        
-      </table>
-    </td>
-  </tr>
-</table>
-</body>
-</html>
-
-
-</body>
-</html>
-';
-
-
-
-
-                /*$mail = new PHPMailer(true);
-                //Server settings
-                $mail->SMTPDebug = 0;
-                $mail->isSMTP();
-
-                $qccEmail = $this->db->get('ccemail');
-                foreach ($qccEmail->result_array() as $key )
-                {
-                    $mail->AddCC(trim($key['emai']), $key['Nombre']);
-                }
-
-
-
-
-                $mail->Host = 'smtp.netfirms.com';
-                $mail->SMTPAuth = true;
-                $mail->Username = 'cuali@publisa.com.ni';
-                $mail->Password = 'Cu4l1_Publ1s4$';
-                $mail->SMTPSecure = 'ssl';
-                $mail->Port = 465;
-                $mail->SMTPOptions = array(
-                    'ssl' => array(
-                        'verify_peer' => false,
-                        'verify_peer_name' => false,
-                        'allow_self_signed' => true
-                    )
-                );
-
-                //Recipients
-                $mail->setFrom('cuali@publisa.com.ni', 'CUALI | PUBLISA');
-
-                foreach ($info[0]['array_Remitidos'] as $array_Remitido) {
-                    $mail->addAddress($array_Remitido['Email'],$array_Remitido['Nombre']);
-                }
-
-
-
-                //$mail->addAttachment('./data/colillas/'.$nomQna.'/'.$cod.'.pdf');
-
-                //Content
-                $mail->isHTML(true);
-                $mail->Subject = 'CUALI  | '.$key['mNombre'].' '.$key['mApellido'].' ';
-                $mail->Body    = $Plantilla;
-
-                $mail->send();*/
             }
         }
 
         echo $result;
+
+    }
+
+    public function get_casos(){
+        $this->db->where('estado', 1);
+        $query = $this->db->get('vstsolicitudes');
+
+        return ($query->num_rows() > 0) ? $query->result_array() : FALSE;
+    }
+    public function get_user_ticket($ticket_id){
+        $this->db->where('idCaso', $ticket_id);
+        $query = $this->db->get('vstsolicitudes');
+        return ($query->num_rows() == 1)?$query->row_array():FALSE;
+    }
+    public function get_replies($ticket_id){
+        $this->db->where('IdCaso', $ticket_id);
+        $query = $this->db->get('comentarios');
+        return ($query->num_rows() > 0)?$query->result_array():FALSE;
+
+    }
+
+
+    private function curlPost($url, $data) {
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+        $response = curl_exec($ch);
+        $error = curl_error($ch);
+        curl_close($ch);
+        if ($error !== '') {
+            throw new \Exception($error);
+        }
+
+        return $response;
     }
 
     public function DescartarSolicitud($data) {

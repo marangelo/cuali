@@ -23,11 +23,43 @@
 
 </head>
 <body>
-	<header class="demo-header mdl-layout__header">
+
+
+<header class="demo-header mdl-layout__header">
 		<nav class="nav-extended">
 			<div class="menu">
+                <ul id="slide-out" class="side-nav">
+                    <a href="#"><img  src="<?php echo base_url();?>assets/images/Logo.png" style="width: 100px;margin-top: 10px;"></a>
+                    <?php
+
+                    switch ($this->session->userdata('rol')) {
+                        case "0":
+                            echo '
+                                <li id="main"><a href="'.base_url('index.php/main').'">Resumen</a></li>
+                                
+                                <li id="Nueva"><a href="'.base_url('index.php/Nueva').'">Solicitudes</a></li>
+                                <li id="Nueva"><a href="'.base_url('index.php/perfil').'">Perfil Usuarios</a></li>
+                                <li id="Cuentas"><a href="'.base_url('index.php/Cuentas').'">Cuentas</a></li>
+                                <li id="Usuarios"><a href="'.base_url('index.php/Usuarios').'">Usuarios</a></li>
+                                <li id="Config"><a href="'.base_url('index.php/Config').'">Parametros</a></li>
+                                <li id="Reportes"><a href="'.base_url('index.php/Reportes').'">Reportes</a></li>
+                                ';
+                            break;
+                        case "1":
+                            echo '
+                                <li id="main"><a href="'.base_url('index.php/main').'">Resumen</a></li>
+                                <li><a href="#">|</a></li>
+                                <li id="Nueva"><a href="'.base_url('index.php/Nueva').'">Solicitudes</a></li>
+                                ';
+                            break;
+                    }
+                    ?>
+                    <li><a href="salir">Cerrar sesión</a></li>
+                </ul>
 				<div class="nav-wrapper" >
-                    <a href="#" class="left" style="margin-left: 10px;"><img  src="<?php echo base_url();?>assets/images/Logo.png" style="width: 100px;margin-top: 10px;"></a>
+                    <a href="#" data-activates="slide-out" class="button-collapse" style="color: #12235f"><i class="material-icons">menu</i></a>
+                    <a href="#" class="left MyLogo" style="margin-left: 10px;"><img  src="<?php echo base_url();?>assets/images/Logo.png" style="width: 100px;margin-top: 10px;"></a>
+
                     <ul id="nav-mobile" class="left hide-on-med-and-down" style="margin-left: 10px">
 
                         <?php
@@ -36,7 +68,7 @@
                             case "0":
                                 echo '
                                 <li id="main"><a href="'.base_url('index.php/main').'">Resumen</a></li>
-                                <li><a href="#">|</a></li>
+                                <li><a href="#">|</a></li>                                
                                 <li id="Nueva"><a href="'.base_url('index.php/Nueva').'">Solicitudes</a></li>
                                 <li><a href="#">|</a></li>
                                 <li id="Cuentas"><a href="'.base_url('index.php/Cuentas').'">Cuentas</a></li>
@@ -57,8 +89,6 @@
                                 break;
                         }
                         ?>
-
-
 
                     </ul>
                     <ul id="nav-mobile" class="right hide-on-med-and-down">

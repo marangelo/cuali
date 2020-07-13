@@ -56,6 +56,25 @@ class usuarios_model extends CI_Model {
 
 
     }
+
+    public function get_dashboard_data($user_id){
+        $dashboard_data=array();
+        //get all ticktes
+
+        $dashboard_data['total_tickets']=1;
+
+        //get new tickets
+        $dashboard_data['new_tickets']=2;
+
+        //get in progress tickets
+        $dashboard_data['inprogress_tickets']=3;
+
+        //get closed tickets
+        $dashboard_data['closed_tickets']=3;
+
+        return $dashboard_data;
+    }
+
     public function getPermisos($ID){
 
 

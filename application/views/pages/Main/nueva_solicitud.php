@@ -110,6 +110,15 @@
 
 <div id="mdlRemitidos" class="modal modal-fixed-footer">
     <div class="modal-content" >
+        <div class="col s12 m4 container-button">
+            <div class="container-button">
+                <input type="text" id="SearchAsignados" class="form-control" placeholder="Buscar..." >
+                <span class="input-group-btn">
+					<button class="button1 btn-secondary waves-effect" type="button" ><i class="material-icons">search</i></button>
+				</span>
+            </div>
+        </div>
+
         <table id="tblRemitente" class="display" style="width:100%">
             <thead>
             <tr>

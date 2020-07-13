@@ -8,6 +8,8 @@ class Login_controller extends CI_Controller {
         $this->load->library('session');
         $this->load->helper('cookie');
 		$this->load->helper("url");
+
+
 	}
 
     public function index() {
@@ -16,13 +18,19 @@ class Login_controller extends CI_Controller {
             'appVersion' => $ApplicationVersion::get(),
         ];
 
-        $this->load->view('header/header_login');
+        /*$this->load->view('header/header_login');
 		$this->load->view('login/login',$data);
-		$this->load->view('footer/footer_login');
+		$this->load->view('footer/footer_login');*/
+        $this->load->view('login/auth/login',$data);
+    }
+    public function Send(){
+
+    $this->login_model->Send($this->input->get_post('Id'));
+
     }
 
     public function validandoCuenta() {
-        if($this->input->post('submit')){
+
             $this->form_validation->set_rules('usuario', 'Usuario', 'required|min_length[3]');
             $this->form_validation->set_rules('password', 'Contraseña', 'required|min_length[3]');
              
@@ -45,20 +53,32 @@ class Login_controller extends CI_Controller {
                         'Permisos'=>$data['user'][0]['Cuentas'],
 	                    'logged' => 1
 	                );
+
 	                $this->session->set_userdata($sessiondata);
 
-	                if($this->session->userdata){	                    
-	                    redirect('main');
+
+
+	                if($this->session->userdata){
+	                    if ($data['user'][0]['rol']==2){
+                            redirect('perfil');
+                        }elseif($data['user'][0]['rol']==0){
+                            redirect('main');
+                        }else{
+                            redirect('main');
+                        }
+
 	                }
 	            }   
              }else{
+                 $ApplicationVersion = new git_version();
+                 $datos = [
+                     'appVersion' => $ApplicationVersion::get(),
+                 ];
                 $datos["mensaje"]="¡Datos vacíos!";
-		        $this->load->view('header/header_login');
-				$this->load->view('login/login', $datos);
-				$this->load->view('footer/footer_login');
+                 $this->load->view('login/auth/login',$datos);
              }
          }
-    }
+
 
     public function salir() {
         $this->session->sess_destroy();

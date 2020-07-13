@@ -381,4 +381,8 @@ input::placeholder {
 
 
 
-
+@media only screen and (max-width: 500px) {
+    nav a.MyLogo {
+        display: none !important;
+    }
+}

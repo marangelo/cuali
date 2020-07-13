@@ -17,6 +17,11 @@
             $('#mdlRemitidos').modal('open');
         });
 
+
+        $("#SearchAsignados").on('keyup',function(){
+            var table = $('#tblRemitente').DataTable();
+            table.search(this.value).draw();
+        });
         inicializaControlFecha();
 
 
@@ -86,10 +91,10 @@
                     .rows( '.selected_asign' )
                     .data()
                     .each( function ( value, index ) {
-
-                        Ids += value[1] + ",";
+                        console.log(value);
+                        Ids += value[0] + ",";
                         //Ids += value[1];
-                        email += value[2];
+                        email += value[1];
 
                     } );
 
@@ -164,18 +169,6 @@
                 type: 'error',
                 title: 'Oops...',
                 text: 'Ingrese los apellidos'
-            });
-        }else if (mTelefono==="") {
-            Swal.fire({
-                type: 'error',
-                title: 'Oops...',
-                text: 'Ingrese el telefono'
-            });
-        }else if (mCorreo==="") {
-            Swal.fire({
-                type: 'error',
-                title: 'Oops...',
-                text: 'Ingrese el correo'
             });
         }else if (mRemitido===null) {
             Swal.fire({

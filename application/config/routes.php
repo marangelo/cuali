@@ -9,7 +9,8 @@ $route['translate_uri_dashes'] = FALSE;
 $route['acreditando'] = 'login_controller/validandoCuenta';
 $route['salir'] = 'login_controller/salir';
 
-
+//SEND EMAIL
+$route['send'] = 'login_controller/Send/';
 
 //RUTA: REPORTES
 $route['main'] = 'main_controller';
@@ -46,3 +47,15 @@ $route['Reportes'] = 'reportes_controller';
 $route['Buscar_Solicitud_reporte'] = 'reportes_controller/Buscar_Solicitud_reporte';
 $route['Buscar_Solicitud_reporte_Excel/(:any)/(:any)/(:any)/(:any)/(:any)/(:any)/(:any)'] =  'reportes_controller/Buscar_Solicitud_reporte_Excel/$1/$2/$3/$4/$5/$6/$7';
 $route['Solicitud_reporte_Excel/(:any)/(:any)'] =  'reportes_controller/Solicitud_reporte_Excel/$1/$2';
+
+
+
+//RUTAS USUARIOS
+$route['perfil'] = 'main_controller/perfil';
+$route['casos'] = 'main_controller/casos';
+$route['list_casos_ajax/(:any)'] = 'main_controller/list_casos_ajax/$1';
+$route['view_caso/(:any)'] = 'main_controller/view_caso/$1';
+$route['MiPerfil'] = 'main_controller/Myprofile';
+$route['change_password'] = 'main_controller/change_password';
+
+

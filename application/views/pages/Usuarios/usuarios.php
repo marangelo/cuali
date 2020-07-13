@@ -65,6 +65,7 @@
                     <option value="">Tipo de usuario...</option>
                     <option value="0">Admin</option>
                     <option value="1">Digitador</option>
+                    <option value="2">Cliente</option>
                 </select>
             </div>
         </div>
